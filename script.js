@@ -65,24 +65,39 @@ document.addEventListener('click', e => {
 // ─── Contact Form ─────────────────────────────────────────────────────────
 const contactForm = document.getElementById('contactForm');
 
-contactForm.addEventListener('submit', e => {
+contactForm.addEventListener('submit', async e => {
   e.preventDefault();
 
   const submitBtn  = contactForm.querySelector('.submit-btn');
   const btnText    = submitBtn.querySelector('.btn-text');
-  const successMsg = currentLang === 'da' ? 'Besked sendt! ✓' : 'Message sent! ✓';
-  const originalMsg = currentLang === 'da' ? 'Send besked' : 'Send message';
 
   submitBtn.disabled = true;
-  submitBtn.classList.add('btn-success');
-  btnText.textContent = successMsg;
+  btnText.textContent = currentLang === 'da' ? 'Sender...' : 'Sending...';
 
-  setTimeout(() => {
-    submitBtn.disabled = false;
-    submitBtn.classList.remove('btn-success');
-    btnText.textContent = originalMsg;
-    btnText.dataset.da = 'Send besked';
-    btnText.dataset.en = 'Send message';
+  try {
+    const response = await fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(new FormData(contactForm)).toString(),
+    });
+
+    if (!response.ok) throw new Error(response.statusText);
+
+    submitBtn.classList.add('btn-success');
+    btnText.textContent = currentLang === 'da' ? 'Besked sendt! ✓' : 'Message sent! ✓';
     contactForm.reset();
-  }, 3500);
+
+    setTimeout(() => {
+      submitBtn.disabled = false;
+      submitBtn.classList.remove('btn-success');
+      btnText.textContent = currentLang === 'da' ? 'Send besked' : 'Send message';
+    }, 3500);
+
+  } catch (err) {
+    submitBtn.disabled = false;
+    btnText.textContent = currentLang === 'da' ? 'Noget gik galt – prøv igen' : 'Something went wrong – try again';
+    setTimeout(() => {
+      btnText.textContent = currentLang === 'da' ? 'Send besked' : 'Send message';
+    }, 3500);
+  }
 });
