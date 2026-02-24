@@ -87,10 +87,10 @@ contactForm.addEventListener('submit', async e => {
   btnText.textContent = currentLang === 'da' ? 'Sender...' : 'Sending...';
 
   try {
-    const response = await fetch('/', {
+    const response = await fetch('https://formspree.io/f/xjgejojz', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(new FormData(contactForm)).toString(),
+      headers: { 'Accept': 'application/json' },
+      body: new FormData(contactForm),
     });
 
     if (!response.ok) throw new Error(response.statusText);
