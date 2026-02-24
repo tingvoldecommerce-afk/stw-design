@@ -1,3 +1,15 @@
+// ─── Scroll-to-top ────────────────────────────────────────────────────────
+const scrollTopBtn = document.getElementById('scrollTop');
+
+window.addEventListener('scroll', () => {
+  const halfway = document.documentElement.scrollHeight / 2 - window.innerHeight / 2;
+  scrollTopBtn.classList.toggle('visible', window.scrollY >= halfway);
+}, { passive: true });
+
+scrollTopBtn.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
 // ─── Language Switcher ────────────────────────────────────────────────────
 let currentLang = 'da';
 const langToggle = document.getElementById('langToggle');

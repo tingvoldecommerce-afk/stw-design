@@ -7,7 +7,8 @@
 
 :root {
   --primary:      #111010;
-  --accent:       #e8440a;
+  --accent:       #e8440a;          /* bruges til baggrunde, borders, ikoner */
+  --accent-text:  #bf3608;          /* mørkere variant til tekst på lys bg — WCAG AA 5.25:1 */
   --accent-light: #f07048;
   --accent-glow:  rgba(232, 68, 10, 0.28);
   --bg:           #ffffff;
@@ -59,7 +60,7 @@ body {
   letter-spacing: -0.5px;
   flex-shrink: 0;
 }
-.logo span { color: var(--accent); }
+.logo span { color: var(--accent-text); }
 
 .nav-right {
   display: flex;
@@ -85,7 +86,7 @@ body {
 }
 .nav-links a:hover {
   background: var(--subtle);
-  color: var(--accent);
+  color: var(--accent-text);
 }
 
 /* Language button */
@@ -104,7 +105,7 @@ body {
 }
 .lang-btn:hover {
   border-color: var(--accent);
-  color: var(--accent);
+  color: var(--accent-text);
 }
 
 /* Burger */
@@ -151,7 +152,7 @@ body {
   transition: color 0.15s;
 }
 .mobile-menu ul li:last-child a { border-bottom: none; }
-.mobile-menu ul li a:hover { color: var(--accent); }
+.mobile-menu ul li a:hover { color: var(--accent-text); }
 
 /* ─── Hero ──────────────────────────────────────────────────────────────── */
 .hero {
@@ -351,7 +352,7 @@ section h2 {
 }
 .service-features li::before {
   content: '✓';
-  color: var(--accent);
+  color: var(--accent-text);
   font-weight: 700;
   flex-shrink: 0;
 }
@@ -471,7 +472,7 @@ section h2 {
 }
 
 .footer .logo { color: white; }
-.footer .logo span { color: var(--accent-light); }
+.footer .logo span { color: #f07048; }
 
 .footer p {
   color: rgba(255,255,255,0.5);
@@ -508,3 +509,36 @@ section h2 {
   .hero p { font-size: 1rem; }
   .why-item { flex-direction: column; gap: 10px; }
 }
+
+/* ─── Scroll-to-top ─────────────────────────────────────────────────────── */
+.scroll-top {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  z-index: 900;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: white;
+  font-size: 1.1rem;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 16px var(--accent-glow);
+  opacity: 0;
+  transform: translateY(12px);
+  pointer-events: none;
+  transition: opacity 0.3s, transform 0.3s;
+}
+.scroll-top.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.scroll-top:hover {
+  background: #cc3a07;
+  transform: translateY(-2px);
+}
+
+/* ─── Images (lazy) ─────────────────────────────────────────────────────── */
+img { loading: lazy; }

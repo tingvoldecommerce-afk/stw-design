@@ -5,6 +5,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>STW Design – Hjemmesider, AI Chatbots & SEO</title>
   <meta name="description" content="STW Design bygger professionelle hjemmesider, AI chatbots og SEO-løsninger til danske virksomheder." />
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://stw-design.netlify.app/" />
+  <meta property="og:title"       content="STW Design – Hjemmesider, AI Chatbots & SEO" />
+  <meta property="og:description" content="Professionelle hjemmesider, intelligente AI chatbots og SEO der skaber vækst for danske virksomheder." />
+  <meta property="og:locale"      content="da_DK" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary" />
+  <meta name="twitter:title"       content="STW Design – Hjemmesider, AI Chatbots & SEO" />
+  <meta name="twitter:description" content="Professionelle hjemmesider, intelligente AI chatbots og SEO der skaber vækst for danske virksomheder." />
+
+  <!-- JSON-LD: Local Business -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "STW Design",
+    "url": "https://stw-design.netlify.app",
+    "email": "tingvold.ecommerce@gmail.com",
+    "description": "STW Design bygger professionelle hjemmesider, AI chatbots og SEO-løsninger til danske virksomheder.",
+    "areaServed": { "@type": "Country", "name": "Danmark" },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Digitale ydelser",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Hjemmesider" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI Chatbots" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "SEO" } }
+      ]
+    }
+  }
+  </script>
+
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -181,6 +216,8 @@
       <p data-da="© 2026 STW Design. Alle rettigheder forbeholdes." data-en="© 2026 STW Design. All rights reserved.">© 2026 STW Design. Alle rettigheder forbeholdes.</p>
     </div>
   </footer>
+
+  <button class="scroll-top" id="scrollTop" aria-label="Scroll til toppen">↑</button>
 
   <script src="script.js"></script>
 </body>
