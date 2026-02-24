@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>STW Design – Hjemmesider, AI Chatbots & SEO</title>
+  <meta name="description" content="STW Design bygger professionelle hjemmesider, AI chatbots og SEO-løsninger til danske virksomheder." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="#" class="logo">STW<span>Design</span></a>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="#services" data-da="Ydelser" data-en="Services">Ydelser</a></li>
+          <li><a href="#why-us" data-da="Om os" data-en="About">Om os</a></li>
+          <li><a href="#contact" data-da="Kontakt" data-en="Contact">Kontakt</a></li>
+        </ul>
+        <button class="lang-btn" id="langToggle" aria-label="Skift sprog">EN</button>
+        <button class="burger" id="burger" aria-label="Åbn menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+      <ul>
+        <li><a href="#services" data-da="Ydelser" data-en="Services">Ydelser</a></li>
+        <li><a href="#why-us" data-da="Om os" data-en="About">Om os</a></li>
+        <li><a href="#contact" data-da="Kontakt" data-en="Contact">Kontakt</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-eyebrow" data-da="Dansk digital bureau" data-en="Danish digital agency">Dansk digital bureau</div>
+      <h1 data-da="Vi bygger din&nbsp;digitale fremtid" data-en="We build your&nbsp;digital future">Vi bygger din&nbsp;digitale fremtid</h1>
+      <p data-da="Professionelle hjemmesider, intelligente AI chatbots og SEO der skaber vækst for danske virksomheder." data-en="Professional websites, intelligent AI chatbots and SEO that drive growth for Danish businesses.">Professionelle hjemmesider, intelligente AI chatbots og SEO der skaber vækst for danske virksomheder.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary" data-da="Kom i gang" data-en="Get started">Kom i gang</a>
+        <a href="#services" class="btn btn-ghost" data-da="Se ydelser" data-en="View services">Se ydelser</a>
+      </div>
+    </div>
+    <div class="hero-glow"></div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <div class="container">
+      <h2 data-da="Vores ydelser" data-en="Our services">Vores ydelser</h2>
+      <p class="section-sub" data-da="Alt din virksomhed behøver for at vokse online – under ét tag." data-en="Everything your business needs to grow online – under one roof.">Alt din virksomhed behøver for at vokse online – under ét tag.</p>
+      <div class="services-grid">
+
+        <div class="service-card">
+          <div class="service-icon">🌐</div>
+          <h3 data-da="Hjemmesider" data-en="Websites">Hjemmesider</h3>
+          <p data-da="Hurtige, mobilvenlige og konverterende hjemmesider skræddersyet til din branche og dine kunder." data-en="Fast, mobile-friendly and converting websites tailored to your industry and your customers.">Hurtige, mobilvenlige og konverterende hjemmesider skræddersyet til din branche og dine kunder.</p>
+          <ul class="service-features">
+            <li data-da="Mobiloptimeret design" data-en="Mobile-optimized design">Mobiloptimeret design</li>
+            <li data-da="Hurtig indlæsning" data-en="Fast loading">Hurtig indlæsning</li>
+            <li data-da="Nem redigering" data-en="Easy editing">Nem redigering</li>
+          </ul>
+        </div>
+
+        <div class="service-card featured">
+          <div class="service-badge" data-da="Mest populær" data-en="Most popular">Mest populær</div>
+          <div class="service-icon">🤖</div>
+          <h3 data-da="AI Chatbots" data-en="AI Chatbots">AI Chatbots</h3>
+          <p data-da="Intelligente chatbots der besvarer kundespørgsmål 24/7, booker møder og øger salget automatisk." data-en="Intelligent chatbots that answer customer questions 24/7, book meetings and automatically increase sales.">Intelligente chatbots der besvarer kundespørgsmål 24/7, booker møder og øger salget automatisk.</p>
+          <ul class="service-features">
+            <li data-da="24/7 kundesupport" data-en="24/7 customer support">24/7 kundesupport</li>
+            <li data-da="Automatisk booking" data-en="Automatic booking">Automatisk booking</li>
+            <li data-da="Integreret på din side" data-en="Integrated on your site">Integreret på din side</li>
+          </ul>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">📈</div>
+          <h3>SEO</h3>
+          <p data-da="Bliv fundet på Google. Vi optimerer din synlighed så de rigtige kunder finder dig – ikke konkurrenterne." data-en="Get found on Google. We optimize your visibility so the right customers find you – not your competitors.">Bliv fundet på Google. Vi optimerer din synlighed så de rigtige kunder finder dig – ikke konkurrenterne.</p>
+          <ul class="service-features">
+            <li data-da="Teknisk SEO-audit" data-en="Technical SEO audit">Teknisk SEO-audit</li>
+            <li data-da="Indholdsoptimering" data-en="Content optimization">Indholdsoptimering</li>
+            <li data-da="Månedlige rapporter" data-en="Monthly reports">Månedlige rapporter</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section class="why-us" id="why-us">
+    <div class="container">
+      <h2 data-da="Hvorfor STW Design?" data-en="Why STW Design?">Hvorfor STW Design?</h2>
+      <div class="why-grid">
+        <div class="why-item">
+          <span class="why-icon">⚡</span>
+          <div>
+            <h4 data-da="Hurtig levering" data-en="Fast delivery">Hurtig levering</h4>
+            <p data-da="Din løsning er klar på rekordtid – uden at gå på kompromis med kvaliteten." data-en="Your solution is ready in record time – without compromising on quality.">Din løsning er klar på rekordtid – uden at gå på kompromis med kvaliteten.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <span class="why-icon">🇩🇰</span>
+          <div>
+            <h4 data-da="Dansk support" data-en="Danish support">Dansk support</h4>
+            <p data-da="Vi taler dit sprog og kender det danske marked. Altid tilgængelige på dansk." data-en="We speak your language and know the Danish market. Always available in Danish.">Vi taler dit sprog og kender det danske marked. Altid tilgængelige på dansk.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <span class="why-icon">🎯</span>
+          <div>
+            <h4 data-da="Skræddersyede løsninger" data-en="Tailored solutions">Skræddersyede løsninger</h4>
+            <p data-da="Ingen copy-paste templates. Vi bygger præcis det din forretning har brug for." data-en="No copy-paste templates. We build exactly what your business needs.">Ingen copy-paste templates. Vi bygger præcis det din forretning har brug for.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <span class="why-icon">📊</span>
+          <div>
+            <h4 data-da="Målbare resultater" data-en="Measurable results">Målbare resultater</h4>
+            <p data-da="Vi måler alt. Du ved altid præcis hvad du får for din investering." data-en="We measure everything. You always know exactly what you get for your investment.">Vi måler alt. Du ved altid præcis hvad du får for din investering.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="container contact-inner">
+      <h2 data-da="Lad os tale sammen" data-en="Let's talk">Lad os tale sammen</h2>
+      <p class="contact-sub" data-da="Fortæl os om dit projekt – vi vender tilbage inden for 24 timer." data-en="Tell us about your project – we'll get back to you within 24 hours.">Fortæl os om dit projekt – vi vender tilbage inden for 24 timer.</p>
+      <form class="contact-form" id="contactForm" novalidate>
+        <div class="form-row">
+          <input type="text" id="name" name="name"
+            placeholder="Dit navn"
+            data-placeholder-da="Dit navn"
+            data-placeholder-en="Your name"
+            required />
+          <input type="email" id="email" name="email"
+            placeholder="Din e-mail"
+            data-placeholder-da="Din e-mail"
+            data-placeholder-en="Your email"
+            required />
+        </div>
+        <select id="service" name="service">
+          <option value="" data-da="Vælg ydelse" data-en="Select service">Vælg ydelse</option>
+          <option value="website" data-da="Hjemmeside" data-en="Website">Hjemmeside</option>
+          <option value="chatbot" data-da="AI Chatbot" data-en="AI Chatbot">AI Chatbot</option>
+          <option value="seo" data-da="SEO" data-en="SEO">SEO</option>
+          <option value="all" data-da="Alt ovenstående" data-en="All of the above">Alt ovenstående</option>
+        </select>
+        <textarea id="message" name="message" rows="5"
+          placeholder="Fortæl os om dit projekt..."
+          data-placeholder-da="Fortæl os om dit projekt..."
+          data-placeholder-en="Tell us about your project..."
+          required></textarea>
+        <button type="submit" class="btn btn-primary submit-btn">
+          <span class="btn-text" data-da="Send besked" data-en="Send message">Send besked</span>
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <a href="#" class="logo">STW<span>Design</span></a>
+      <p data-da="© 2026 STW Design. Alle rettigheder forbeholdes." data-en="© 2026 STW Design. All rights reserved.">© 2026 STW Design. Alle rettigheder forbeholdes.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
