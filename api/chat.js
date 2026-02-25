@@ -1,58 +1,47 @@
-const https = require('https');
-const fs = require('fs');
-const path = require('path');
+export default async function handler(req, res) {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
-module.exports = async (req, res) => {
-  if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method not allowed' });
-  }
+  if (req.method === 'OPTIONS') return res.status(200).end();
+  if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
-  const { message } = req.body;
-  
-  const htmlPath = path.join(process.cwd(), 'index.html');
-  const siteContent = fs.readFileSync(htmlPath, 'utf8');
+  const { message, history = [] } = req.body;
 
-  const systemPrompt = `Du er en hjælpsom chatbot for STW Design - et dansk digitalt bureau. 
-Du skal svare på dansk og kun basere dine svar på følgende indhold fra hjemmesiden:
+  if (!message) return res.status(400).json({ error: 'Missing message' });
 
-${siteContent}
+  const systemPrompt = `Du er en hjælpsom kundeservice-assistent for STW Design – et dansk digitalt bureau.
+STW Design tilbyder tre ydelser:
+- Hjemmesider: professionelle, hurtige og mobilvenlige hjemmesider
+- AI Chatbots: intelligente chatbots der svarer kunder 24/7
+- SEO: optimering så virksomheder bliver fundet på Google
 
-Hvis du ikke kan finde svaret i ovenstående indhold, skal du svare præcis: "KONTAKT_MIG"
-Hold svarene korte og venlige.`;
-
-  const data = JSON.stringify({
-    model: 'claude-haiku-4-5-20251001',
-    max_tokens: 1024,
-    system: systemPrompt,
-    messages: [{ role: 'user', content: message }]
-  });
-
-  const options = {
-    hostname: 'api.anthropic.com',
-    path: '/v1/messages',
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'x-api-key': process.env.ANTHROPIC_API_KEY,
-      'anthropic-version': '2023-06-01'
-    }
-  };
+Svar altid på dansk, kort og venligt. Maks 2-3 sætninger.
+Hvis nogen spørger om priser, leveringstider eller noget du ikke kender svaret på, svar da præcis: KONTAKT_MIG`;
 
   try {
-    const response = await new Promise((resolve, reject) => {
-      const request = https.request(options, (r) => {
-        let body = '';
-        r.on('data', chunk => body += chunk);
-        r.on('end', () => resolve(JSON.parse(body)));
-      });
-      request.on('error', reject);
-      request.write(data);
-      request.end();
+    const response = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': process.env.ANTHROPIC_API_KEY,
+        'anthropic-version': '2023-06-01',
+      },
+      body: JSON.stringify({
+        model: 'claude-haiku-4-5-20251001',
+        max_tokens: 500,
+        system: systemPrompt,
+        messages: [...history, { role: 'user', content: message }],
+      }),
     });
 
-    const reply = response.content[0].text;
-    res.status(200).json({ reply });
+    const data = await response.json();
+
+    if (data.error) return res.status(400).json({ error: data.error.message });
+
+    return res.status(200).json({ reply: data.content[0].text });
+
   } catch (error) {
-    res.status(500).json({ error: 'Noget gik galt' });
+    return res.status(500).json({ error: 'Server error: ' + error.message });
   }
-};
+}

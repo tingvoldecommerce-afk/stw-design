@@ -117,6 +117,7 @@ const chatSend   = document.getElementById('chatSend');
 const chatMessages = document.getElementById('chatMessages');
 const chatLeadForm = document.getElementById('chatLeadForm');
 const chatLeadSubmit = document.getElementById('chatLeadSubmit');
+const chatHistory = []; // Gemmer samtalehistorik
 
 chatToggle.addEventListener('click', () => {
   chatWindow.classList.toggle('open');
@@ -152,7 +153,7 @@ async function sendMessage() {
     const res = await fetch('/api/chat', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ message })
+      body: JSON.stringify({ message, history: chatHistory }),
     });
 
     const data = await res.json();
@@ -162,6 +163,9 @@ async function sendMessage() {
       addMessage('Det spørgsmål kan jeg ikke svare på, men vi kontakter dig hurtigst muligt! Udfyld formularen nedenfor 👇', 'bot');
       chatLeadForm.style.display = 'block';
     } else {
+      // Gem i historik så AI husker samtalen
+      chatHistory.push({ role: 'user', content: message });
+      chatHistory.push({ role: 'assistant', content: data.reply });
       addMessage(data.reply, 'bot');
     }
   } catch (err) {
