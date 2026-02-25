@@ -618,6 +618,9 @@ img { loading: lazy; }
   border-radius: 12px;
   font-size: 14px;
   line-height: 1.4;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
 }
 
 .chat-message.bot {
