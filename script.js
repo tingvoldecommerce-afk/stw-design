@@ -19,19 +19,15 @@ function setLanguage(lang) {
   document.documentElement.lang = lang;
   langToggle.textContent = lang === 'da' ? 'EN' : 'DA';
 
-  // Update all elements with data-da / data-en text content
   document.querySelectorAll('[data-da][data-en]').forEach(el => {
-    // Skip elements whose text is managed via placeholder
     if (el.placeholder !== undefined && el.tagName !== 'BUTTON' && el.tagName !== 'A' && el.tagName !== 'LI') return;
     el.textContent = el.dataset[lang];
   });
 
-  // Update input / textarea placeholders
   document.querySelectorAll('[data-placeholder-da]').forEach(el => {
     el.placeholder = lang === 'da' ? el.dataset.placeholderDa : el.dataset.placeholderEn;
   });
 
-  // Update <select> <option> text
   document.querySelectorAll('select option[data-da]').forEach(opt => {
     opt.textContent = opt.dataset[lang];
   });
@@ -62,12 +58,10 @@ function toggleMenu(forceClose = false) {
 
 burger.addEventListener('click', () => toggleMenu());
 
-// Close when a mobile nav link is tapped
 mobileMenu.querySelectorAll('a').forEach(link => {
   link.addEventListener('click', () => toggleMenu(true));
 });
 
-// Close when clicking outside the nav
 document.addEventListener('click', e => {
   if (!e.target.closest('.navbar') && mobileMenu.classList.contains('open')) {
     toggleMenu(true);
@@ -112,4 +106,98 @@ contactForm.addEventListener('submit', async e => {
       btnText.textContent = currentLang === 'da' ? 'Send besked' : 'Send message';
     }, 3500);
   }
+});
+
+// ─── Chatbot ──────────────────────────────────────────────────────────────
+const chatToggle = document.getElementById('chatToggle');
+const chatWindow = document.getElementById('chatWindow');
+const chatClose  = document.getElementById('chatClose');
+const chatInput  = document.getElementById('chatInput');
+const chatSend   = document.getElementById('chatSend');
+const chatMessages = document.getElementById('chatMessages');
+const chatLeadForm = document.getElementById('chatLeadForm');
+const chatLeadSubmit = document.getElementById('chatLeadSubmit');
+
+chatToggle.addEventListener('click', () => {
+  chatWindow.classList.toggle('open');
+});
+
+chatClose.addEventListener('click', () => {
+  chatWindow.classList.remove('open');
+});
+
+function addMessage(text, sender) {
+  const msg = document.createElement('div');
+  msg.classList.add('chat-message', sender);
+  msg.textContent = text;
+  chatMessages.appendChild(msg);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+async function sendMessage() {
+  const message = chatInput.value.trim();
+  if (!message) return;
+
+  addMessage(message, 'user');
+  chatInput.value = '';
+  chatSend.disabled = true;
+
+  const typing = document.createElement('div');
+  typing.classList.add('chat-message', 'bot', 'typing');
+  typing.textContent = '...';
+  chatMessages.appendChild(typing);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+
+  try {
+    const res = await fetch('/api/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message })
+    });
+
+    const data = await res.json();
+    chatMessages.removeChild(typing);
+
+    if (data.reply === 'KONTAKT_MIG') {
+      addMessage('Det spørgsmål kan jeg ikke svare på, men vi kontakter dig hurtigst muligt! Udfyld formularen nedenfor 👇', 'bot');
+      chatLeadForm.style.display = 'block';
+    } else {
+      addMessage(data.reply, 'bot');
+    }
+  } catch (err) {
+    chatMessages.removeChild(typing);
+    addMessage('Noget gik galt – prøv igen.', 'bot');
+  }
+
+  chatSend.disabled = false;
+}
+
+chatSend.addEventListener('click', sendMessage);
+chatInput.addEventListener('keydown', e => {
+  if (e.key === 'Enter') sendMessage();
+});
+
+chatLeadSubmit.addEventListener('click', async () => {
+  const name  = document.getElementById('chatLeadName').value.trim();
+  const email = document.getElementById('chatLeadEmail').value.trim();
+  if (!name || !email) return;
+
+  try {
+    await fetch('https://formspree.io/f/xjgejojz', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: JSON.stringify({ name, email, source: 'Chatbot' }),
+    });
+    chatLeadForm.style.display = 'none';
+    addMessage('Tak! Vi kontakter dig snarest 😊', 'bot');
+  } catch {
+    addMessage('Noget gik galt – prøv igen.', 'bot');
+  }
+});
+
+// Velkomstbesked
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    addMessage('Hej! 👋 Jeg er STW Designs chatbot. Hvad kan jeg hjælpe dig med?', 'bot');
+  }, 500);
 });
