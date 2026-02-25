@@ -144,8 +144,8 @@ async function sendMessage() {
   chatSend.disabled = true;
 
   const typing = document.createElement('div');
-  typing.classList.add('chat-message', 'bot', 'typing');
-  typing.textContent = '...';
+  typing.classList.add('typing-indicator');
+  typing.innerHTML = '<span></span><span></span><span></span>';
   chatMessages.appendChild(typing);
   chatMessages.scrollTop = chatMessages.scrollHeight;
 
