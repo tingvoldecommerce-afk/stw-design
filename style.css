@@ -159,10 +159,19 @@ body {
 .hero {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(160deg, #EFF6FF 0%, #F8FAFF 50%, #ffffff 100%);
+  background: linear-gradient(145deg, #BFDBFE 0%, #DBEAFE 30%, #EFF6FF 65%, #F8FAFF 100%);
   color: var(--primary);
   padding: 120px 24px 130px;
   text-align: center;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(59,130,246,0.13) 1.5px, transparent 1.5px);
+  background-size: 28px 28px;
+  pointer-events: none;
 }
 
 .hero-glow {
@@ -170,9 +179,9 @@ body {
   inset: 0;
   pointer-events: none;
   background:
-    radial-gradient(ellipse 900px 600px at 85% -5%, rgba(59,130,246,0.18) 0%, transparent 55%),
-    radial-gradient(ellipse 600px 500px at 5% 105%, rgba(99,102,241,0.12) 0%, transparent 55%),
-    radial-gradient(ellipse 500px 400px at 50% 80%, rgba(59,130,246,0.06) 0%, transparent 60%);
+    radial-gradient(ellipse 900px 600px at 85% -5%,  rgba(59,130,246,0.28) 0%, transparent 55%),
+    radial-gradient(ellipse 600px 500px at 5%  105%, rgba(99,102,241,0.20) 0%, transparent 55%),
+    radial-gradient(ellipse 500px 400px at 50%  80%, rgba(59,130,246,0.10) 0%, transparent 60%);
 }
 
 .hero-content {
@@ -189,11 +198,12 @@ body {
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--accent-text);
-  background: rgba(59,130,246,0.08);
-  border: 1px solid rgba(59,130,246,0.2);
+  background: rgba(59,130,246,0.12);
+  border: 1px solid rgba(59,130,246,0.3);
   border-radius: 100px;
   padding: 6px 18px;
   margin-bottom: 24px;
+  animation: fadeInUp 0.7s ease both;
 }
 
 .hero h1 {
@@ -206,6 +216,7 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  animation: fadeInUp 0.7s 0.12s ease both;
 }
 
 .hero p {
@@ -214,6 +225,7 @@ body {
   color: var(--muted);
   max-width: 540px;
   margin: 0 auto 40px;
+  animation: fadeInUp 0.7s 0.22s ease both;
 }
 
 .hero-actions {
@@ -221,6 +233,7 @@ body {
   gap: 12px;
   justify-content: center;
   flex-wrap: wrap;
+  animation: fadeInUp 0.7s 0.34s ease both;
 }
 
 /* ─── Buttons ───────────────────────────────────────────────────────────── */
@@ -285,7 +298,7 @@ section h2 {
 }
 
 /* ─── Services ──────────────────────────────────────────────────────────── */
-.services { background: var(--subtle); }
+.services { background: #DBEAFE; }
 
 .services-grid {
   display: grid;
@@ -791,3 +804,21 @@ img { loading: lazy; }
   0%, 60%, 100% { transform: translateY(0); }
   30% { transform: translateY(-6px); }
 }
+
+/* ─── Entrance & Scroll animations ─────────────────────────────────────── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal:nth-child(2) { transition-delay: 0.1s; }
+.reveal:nth-child(3) { transition-delay: 0.2s; }

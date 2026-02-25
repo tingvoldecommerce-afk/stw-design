@@ -205,3 +205,18 @@ window.addEventListener('load', () => {
     addMessage('Hej! 👋 Jeg er STW Designs chatbot. Hvad kan jeg hjælpe dig med?', 'bot');
   }, 500);
 });
+
+// ─── Scroll reveal ─────────────────────────────────────────────────────────
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      revealObserver.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll('.service-card, .why-item').forEach(el => {
+  el.classList.add('reveal');
+  revealObserver.observe(el);
+});
