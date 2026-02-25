@@ -56,6 +56,9 @@ Hold svarene korte og venlige.`;
     }
   };
 
+  console.log('API KEY sat:', !!process.env.ANTHROPIC_API_KEY);
+  console.log('Besked modtaget:', message);
+
   try {
     const response = await new Promise((resolve, reject) => {
       const request = https.request(options, (r) => {
@@ -74,13 +77,17 @@ Hold svarene korte og venlige.`;
       request.end();
     });
 
+    console.log('Anthropic svar:', JSON.stringify(response).slice(0, 200));
+
     if (response.error) {
+      console.error('Anthropic fejl:', response.error);
       return res.status(500).json({ error: response.error.message });
     }
 
     const reply = response.content[0].text;
     res.status(200).json({ reply });
   } catch (error) {
+    console.error('Catch fejl:', error.message);
     res.status(500).json({ error: 'Noget gik galt: ' + error.message });
   }
 };
