@@ -80,7 +80,7 @@
     <div class="hero-blob hero-blob-2"></div>
     <div class="hero-blob hero-blob-3"></div>
     <div class="hero-content">
-      <div class="hero-eyebrow" data-da="Dansk digital bureau" data-en="Danish digital agency">Dansk digital bureau</div>
+      <div class="hero-badge" data-da="Næste generations digitale løsninger" data-en="Next generation digital solutions">Næste generations digitale løsninger</div>
       <h1 data-da="Vi bygger din&nbsp;digitale fremtid" data-en="We build your&nbsp;digital future">Vi bygger din&nbsp;digitale fremtid</h1>
       <p data-da="Professionelle hjemmesider, intelligente AI chatbots og SEO der skaber vækst for danske virksomheder." data-en="Professional websites, intelligent AI chatbots and SEO that drive growth for Danish businesses.">Professionelle hjemmesider, intelligente AI chatbots og SEO der skaber vækst for danske virksomheder.</p>
       <div class="hero-actions">
@@ -97,7 +97,8 @@
       <p class="section-sub" data-da="Alt din virksomhed behøver for at vokse online – under ét tag." data-en="Everything your business needs to grow online – under one roof.">Alt din virksomhed behøver for at vokse online – under ét tag.</p>
       <div class="services-grid">
 
-        <div class="service-card">
+        <div class="service-card featured">
+          <div class="service-badge" data-da="Mest populær" data-en="Most popular">Mest populær</div>
           <div class="service-icon">🌐</div>
           <h3 data-da="Hjemmesider" data-en="Websites">Hjemmesider</h3>
           <p data-da="Hurtige, mobilvenlige og konverterende hjemmesider skræddersyet til din branche og dine kunder." data-en="Fast, mobile-friendly and converting websites tailored to your industry and your customers.">Hurtige, mobilvenlige og konverterende hjemmesider skræddersyet til din branche og dine kunder.</p>
@@ -108,8 +109,7 @@
           </ul>
         </div>
 
-        <div class="service-card featured">
-          <div class="service-badge" data-da="Mest populær" data-en="Most popular">Mest populær</div>
+        <div class="service-card">
           <div class="service-icon">🤖</div>
           <h3 data-da="AI Chatbots" data-en="AI Chatbots">AI Chatbots</h3>
           <p data-da="Intelligente chatbots der besvarer kundespørgsmål 24/7, booker møder og øger salget automatisk." data-en="Intelligent chatbots that answer customer questions 24/7, book meetings and automatically increase sales.">Intelligente chatbots der besvarer kundespørgsmål 24/7, booker møder og øger salget automatisk.</p>
@@ -224,7 +224,13 @@
     <button class="chat-toggle" id="chatToggle" aria-label="Åbn chat">🤖<span class="online-dot"></span></button>
     <div class="chat-window" id="chatWindow">
       <div class="chat-header">
-        <span>STW Design Chat</span>
+        <div class="chat-header-info">
+          <div class="chat-avatar">🤖</div>
+          <div>
+            <div class="chat-name">NEXUS <span class="chat-name-tag">by STW</span></div>
+            <div class="chat-status"><span class="chat-status-dot"></span>Online – klar til at hjælpe</div>
+          </div>
+        </div>
         <button class="chat-close" id="chatClose">✕</button>
       </div>
       <div class="chat-messages" id="chatMessages"></div>
