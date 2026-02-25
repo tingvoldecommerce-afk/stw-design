@@ -21,7 +21,10 @@
   --radius:       14px;
 }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
 
 body {
   font-family: 'Inter', sans-serif;
@@ -29,7 +32,10 @@ body {
   background: var(--bg);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
+
+.no-scroll { overflow: hidden; }
 
 /* ─── Navbar ────────────────────────────────────────────────────────────── */
 .navbar {
@@ -626,22 +632,49 @@ section h2 {
 /* ─── Responsive ────────────────────────────────────────────────────────── */
 @media (max-width: 900px) {
   .services-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
-  .why-grid { grid-template-columns: 1fr; }
+  .why-grid      { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 768px) {
-  .nav-links { display: none; }
-  .burger { display: flex; }
-  .hero { padding: 90px 24px 100px; }
-  section { padding: 72px 0; }
-  .form-row { grid-template-columns: 1fr; }
-  .footer-inner { flex-direction: column; text-align: center; }
+  .nav-links  { display: none; }
+  .burger     { display: flex; }
+
+  .hero       { padding: 90px 20px 100px; }
+  section     { padding: 64px 0; }
+
+  .services-grid { grid-template-columns: 1fr; max-width: 100%; }
+  .why-grid      { grid-template-columns: 1fr; }
+  .form-row      { grid-template-columns: 1fr; }
+
+  .contact-inner { max-width: 100%; }
+
+  .footer-inner  { flex-direction: column; text-align: center; }
+
+  /* Chatbot fylder næsten hele bredden på mobil */
+  .chat-widget {
+    left: 12px;
+    right: 12px;
+    bottom: 16px;
+  }
+  .chat-window {
+    width: calc(100vw - 24px);
+    left: 0;
+    bottom: 72px;
+  }
 }
 
 @media (max-width: 480px) {
-  .hero h1 { font-size: 2.2rem; }
+  .hero { padding: 80px 16px 88px; }
+  .hero h1 { font-size: 2rem; letter-spacing: -0.02em; }
   .hero p  { font-size: 1rem; }
+
+  .container { padding: 0 16px; }
+
+  .service-card { padding: 28px 20px 32px; }
+
   .why-item { flex-direction: column; gap: 10px; }
+
+  .chat-window { height: min(460px, calc(100vh - 120px)); }
 }
 
 /* ─── Scroll-to-top ─────────────────────────────────────────────────────── */

@@ -120,11 +120,13 @@ const chatLeadSubmit = document.getElementById('chatLeadSubmit');
 const chatHistory = []; // Gemmer samtalehistorik
 
 chatToggle.addEventListener('click', () => {
-  chatWindow.classList.toggle('open');
+  const isOpen = chatWindow.classList.toggle('open');
+  document.body.classList.toggle('no-scroll', isOpen);
 });
 
 chatClose.addEventListener('click', () => {
   chatWindow.classList.remove('open');
+  document.body.classList.remove('no-scroll');
 });
 
 function addMessage(text, sender) {
