@@ -34,7 +34,8 @@ ${siteContent}
 Hvis spørgsmålet ikke handler om STW Designs ydelser (hjemmesider, AI chatbots, SEO), skal du svare:
 "Det kan jeg desværre ikke hjælpe med, men er du interesseret i en dybere dialog, kan jeg skrive dig op til at blive kontaktet af vores team."
 Hold svarene korte og venlige.
-Brug aldrig markdown-formatering. Ingen stjerner, hashtags, bindestreger som bullets eller andre specialtegn. Skriv kun i almindelig tekst.`;
+Brug aldrig markdown-formatering. Ingen stjerner, hashtags, bindestreger som bullets eller andre specialtegn. Skriv kun i almindelig tekst.
+Når du nævner STW Designs ydelser, brug altid disse emojis foran: 🌐 Hjemmesider, 🤖 AI Chatbots, 📈 SEO.`;
 
   const recentHistory = history.slice(-6); // maks 3 udvekslinger tilbage
 

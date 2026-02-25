@@ -552,6 +552,7 @@ img { loading: lazy; }
 }
 
 .chat-toggle {
+  position: relative;
   width: 56px;
   height: 56px;
   border-radius: 50%;
@@ -561,6 +562,17 @@ img { loading: lazy; }
   cursor: pointer;
   box-shadow: 0 4px 16px rgba(0,0,0,0.2);
   transition: transform 0.2s;
+}
+
+.online-dot {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  width: 13px;
+  height: 13px;
+  background: #22c55e;
+  border-radius: 50%;
+  border: 2px solid #fff;
 }
 
 .chat-toggle:hover {
