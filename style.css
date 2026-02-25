@@ -159,7 +159,7 @@ body {
 .hero {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(145deg, #EEF2FF 0%, #F4F7FF 45%, #FAFBFF 100%);
+  background: #ffffff;
   color: var(--primary);
   padding: 120px 24px 130px;
   text-align: center;
@@ -170,23 +170,66 @@ body {
   position: absolute;
   inset: 0;
   background-image: radial-gradient(circle, rgba(59,130,246,0.07) 1.5px, transparent 1.5px);
-  background-size: 28px 28px;
+  background-size: 30px 30px;
   pointer-events: none;
+  z-index: 0;
 }
 
-.hero-glow {
+/* Animated blobs */
+.hero-blob {
   position: absolute;
-  inset: 0;
+  border-radius: 50%;
+  filter: blur(90px);
   pointer-events: none;
-  background:
-    radial-gradient(ellipse 900px 600px at 85% -5%,  rgba(59,130,246,0.13) 0%, transparent 55%),
-    radial-gradient(ellipse 600px 500px at 5%  105%, rgba(99,102,241,0.09) 0%, transparent 55%),
-    radial-gradient(ellipse 500px 400px at 50%  80%, rgba(59,130,246,0.05) 0%, transparent 60%);
+  z-index: 0;
+}
+
+.hero-blob-1 {
+  width: 560px;
+  height: 560px;
+  background: rgba(59, 130, 246, 0.28);
+  top: -220px;
+  right: -80px;
+  animation: blob1 11s ease-in-out infinite;
+}
+
+.hero-blob-2 {
+  width: 420px;
+  height: 420px;
+  background: rgba(99, 102, 241, 0.22);
+  bottom: -160px;
+  left: -60px;
+  animation: blob2 13s ease-in-out infinite;
+}
+
+.hero-blob-3 {
+  width: 320px;
+  height: 320px;
+  background: rgba(14, 165, 233, 0.18);
+  top: 35%;
+  right: 20%;
+  animation: blob3 15s ease-in-out infinite;
+}
+
+@keyframes blob1 {
+  0%, 100% { transform: translate(0,    0)   scale(1);    }
+  40%       { transform: translate(-50px, 40px) scale(1.08); }
+  70%       { transform: translate(25px, -25px) scale(0.94); }
+}
+@keyframes blob2 {
+  0%, 100% { transform: translate(0,    0)    scale(1);    }
+  35%       { transform: translate(55px, -45px) scale(1.07); }
+  65%       { transform: translate(-30px, 30px) scale(0.95); }
+}
+@keyframes blob3 {
+  0%, 100% { transform: translate(0,    0)    scale(1);    }
+  45%       { transform: translate(-40px, 50px) scale(1.12); }
+  75%       { transform: translate(30px, -35px) scale(0.90); }
 }
 
 .hero-content {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   max-width: 780px;
   margin: 0 auto;
 }
