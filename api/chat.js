@@ -25,7 +25,7 @@ module.exports = async (req, res) => {
   }
 
   const systemPrompt = `Du er en venlig chatbot for STW Design - et dansk digitalt bureau.
-Du skal altid svare på dansk.
+VIGTIGT: Du skal ALTID og UDELUKKENDE svare på dansk – uanset hvilket sprog brugeren skriver på. Selv hvis brugeren skriver på engelsk, russisk eller et andet sprog, skal du svare på dansk. Dette er et absolut krav du aldrig må fravige.
 Du må gerne svare på hilsner som "Hej", "Godmorgen" osv. på en venlig måde.
 Baser dine svar på følgende indhold fra hjemmesiden:
 
