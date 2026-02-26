@@ -208,6 +208,58 @@ window.addEventListener('load', () => {
   }, 500);
 });
 
+// ─── Cookie Consent & Modals ───────────────────────────────────────────────
+function openModal(id) {
+  document.getElementById(id).classList.add('open');
+  document.body.classList.add('no-scroll');
+}
+
+function closeModal(id) {
+  document.getElementById(id).classList.remove('open');
+  document.body.classList.remove('no-scroll');
+}
+
+document.querySelectorAll('.modal-overlay').forEach(overlay => {
+  overlay.addEventListener('click', e => {
+    if (e.target === overlay) closeModal(overlay.id);
+  });
+});
+
+function loadSpeedInsights() {
+  if (!document.querySelector('script[src="/_vercel/speed-insights/script.js"]')) {
+    const s = document.createElement('script');
+    s.defer = true;
+    s.src = '/_vercel/speed-insights/script.js';
+    document.body.appendChild(s);
+  }
+}
+
+function resetConsent() {
+  localStorage.removeItem('cookie-consent');
+  closeModal('cookieModal');
+  document.getElementById('cookieBanner').classList.add('visible');
+}
+
+const cookieBanner = document.getElementById('cookieBanner');
+const storedConsent = localStorage.getItem('cookie-consent');
+
+if (!storedConsent) {
+  cookieBanner.classList.add('visible');
+} else if (storedConsent === 'accepted') {
+  loadSpeedInsights();
+}
+
+document.getElementById('cookieAccept').addEventListener('click', () => {
+  localStorage.setItem('cookie-consent', 'accepted');
+  cookieBanner.classList.remove('visible');
+  loadSpeedInsights();
+});
+
+document.getElementById('cookieDecline').addEventListener('click', () => {
+  localStorage.setItem('cookie-consent', 'declined');
+  cookieBanner.classList.remove('visible');
+});
+
 // ─── Scroll reveal ─────────────────────────────────────────────────────────
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach(e => {

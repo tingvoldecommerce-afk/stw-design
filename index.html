@@ -213,6 +213,11 @@
   <footer class="footer">
     <div class="container footer-inner">
       <a href="#" class="logo">STW<span>Design</span></a>
+      <div class="footer-links">
+        <button onclick="openModal('privacyModal')" data-da="Privatlivspolitik" data-en="Privacy Policy">Privatlivspolitik</button>
+        <button onclick="openModal('cookieModal')" data-da="Cookiepolitik" data-en="Cookie Policy">Cookiepolitik</button>
+        <a href="mailto:tingvold.ecommerce@gmail.com">tingvold.ecommerce@gmail.com</a>
+      </div>
       <p data-da="© 2026 STW Design. Alle rettigheder forbeholdes." data-en="© 2026 STW Design. All rights reserved.">© 2026 STW Design. Alle rettigheder forbeholdes.</p>
     </div>
   </footer>
@@ -242,6 +247,54 @@
       <div class="chat-input-row">
         <input type="text" id="chatInput" placeholder="Skriv en besked..." />
         <button id="chatSend">→</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- COOKIE BANNER -->
+  <div class="cookie-banner" id="cookieBanner">
+    <div class="cookie-banner-inner">
+      <p>Vi bruger <strong>Google Fonts</strong> (ekstern skrifttype) og <strong>Vercel Speed Insights</strong> (anonym besøgsstatistik). Læs vores <button class="link-btn" onclick="openModal('cookieModal')">cookiepolitik</button> og <button class="link-btn" onclick="openModal('privacyModal')">privatlivspolitik</button>.</p>
+      <div class="cookie-banner-actions">
+        <button id="cookieDecline">Kun nødvendige</button>
+        <button id="cookieAccept">Accepter alle</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRIVATLIVSPOLITIK MODAL -->
+  <div class="modal-overlay" id="privacyModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 data-da="Privatlivspolitik" data-en="Privacy Policy">Privatlivspolitik</h3>
+        <button class="modal-close" onclick="closeModal('privacyModal')">✕</button>
+      </div>
+      <div class="modal-body">
+        <p><strong>Dataansvarlig</strong><br>STW Design<br>E-mail: <a href="mailto:tingvold.ecommerce@gmail.com">tingvold.ecommerce@gmail.com</a></p>
+        <p><strong>Hvilke oplysninger indsamler vi?</strong><br>Når du udfylder kontaktformularen eller chatbotten, indsamler vi dit navn, din e-mailadresse og din besked.</p>
+        <p><strong>Formål</strong><br>Oplysningerne bruges udelukkende til at besvare din henvendelse.</p>
+        <p><strong>Behandlingsgrundlag</strong><br>Behandlingen sker på grundlag af GDPR art. 6(1)(b) – behandlingen er nødvendig for at besvare din henvendelse.</p>
+        <p><strong>Tredjepart: Formspree</strong><br>Kontaktformularen behandles via Formspree (formspree.io), der fungerer som databehandler. Formspree er GDPR-compliant.</p>
+        <p><strong>Opbevaring</strong><br>Dine oplysninger slettes, når henvendelsen er afsluttet og ikke længere nødvendig at opbevare.</p>
+        <p><strong>Dine rettigheder</strong><br>Du har ret til indsigt, berigtigelse, sletning og begrænsning af behandlingen. Kontakt os på <a href="mailto:tingvold.ecommerce@gmail.com">tingvold.ecommerce@gmail.com</a>. Du har desuden ret til at klage til <a href="https://www.datatilsynet.dk" target="_blank" rel="noopener noreferrer">Datatilsynet</a>.</p>
+        <p class="modal-updated">Senest opdateret: februar 2026</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- COOKIEPOLITIK MODAL -->
+  <div class="modal-overlay" id="cookieModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 data-da="Cookiepolitik" data-en="Cookie Policy">Cookiepolitik</h3>
+        <button class="modal-close" onclick="closeModal('cookieModal')">✕</button>
+      </div>
+      <div class="modal-body">
+        <p>STW Design sætter ingen egne cookies. Vi anvender følgende tredjeparts-ressourcer:</p>
+        <p><strong>Google Fonts (funktionel)</strong><br>Hjemmesiden henter skrifttyper fra Googles servere (fonts.googleapis.com). Din IP-adresse overføres til Google i forbindelse hermed. Der sættes ingen cookie. Grundlag: legitim interesse i korrekt visning af hjemmesiden.</p>
+        <p><strong>Vercel Speed Insights (statistik)</strong><br>Med dit samtykke indlæses et anonymt statistikscript fra Vercel, der tæller sidevisninger. Ingen personoplysninger gemmes. Grundlag: samtykke (GDPR art. 6(1)(a)).</p>
+        <p>Du kan til enhver tid trække dit samtykke tilbage ved at klikke <button class="link-btn" onclick="resetConsent()">her</button>.</p>
+        <p class="modal-updated">Senest opdateret: februar 2026</p>
       </div>
     </div>
   </div>
