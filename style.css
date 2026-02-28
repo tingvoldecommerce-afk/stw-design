@@ -257,6 +257,14 @@ body {
   margin: 0 auto;
 }
 
+.hero-logo-globe {
+  width: 90px;
+  height: 90px;
+  margin: 0 auto 24px;
+  display: block;
+  animation: fadeInUp 0.7s ease both;
+}
+
 .hero-badge {
   display: inline-flex;
   align-items: center;

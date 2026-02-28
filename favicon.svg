@@ -5,9 +5,6 @@
     </clipPath>
   </defs>
 
-  <!-- Baggrund -->
-  <rect width="80" height="80" rx="16" fill="#020617"/>
-
   <!-- Globe baggrund -->
   <circle cx="40" cy="40" r="35" fill="rgba(59,130,246,0.08)"/>
 
