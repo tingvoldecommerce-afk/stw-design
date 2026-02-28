@@ -5,11 +5,14 @@
     </clipPath>
   </defs>
 
+  <!-- Baggrund -->
+  <rect width="80" height="80" rx="16" fill="#020617"/>
+
   <!-- Globe baggrund -->
-  <circle cx="40" cy="40" r="35" fill="#fef4f0"/>
+  <circle cx="40" cy="40" r="35" fill="rgba(59,130,246,0.08)"/>
 
   <!-- Globe grid -->
-  <g clip-path="url(#gc2)" fill="none" stroke="#e8440a" stroke-width="1.5" opacity="0.45">
+  <g clip-path="url(#gc2)" fill="none" stroke="#3B82F6" stroke-width="1.5" opacity="0.5">
     <line x1="5"  y1="27" x2="75" y2="27"/>
     <line x1="5"  y1="40" x2="75" y2="40"/>
     <line x1="5"  y1="53" x2="75" y2="53"/>
@@ -18,12 +21,12 @@
   </g>
 
   <!-- Globe ramme -->
-  <circle cx="40" cy="40" r="35" fill="none" stroke="#e8440a" stroke-width="3"/>
+  <circle cx="40" cy="40" r="35" fill="none" stroke="#3B82F6" stroke-width="3"/>
 
   <!-- STW -->
   <text
     x="40" y="46"
     font-family="Inter,-apple-system,BlinkMacSystemFont,Arial,sans-serif"
     font-size="18" font-weight="800"
-    fill="#111010" text-anchor="middle" letter-spacing="2">STW</text>
+    fill="#ffffff" text-anchor="middle" letter-spacing="2">STW</text>
 </svg>
