@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80">
+  <defs>
+    <clipPath id="gc2">
+      <circle cx="40" cy="40" r="35"/>
+    </clipPath>
+  </defs>
+
+  <!-- Globe baggrund -->
+  <circle cx="40" cy="40" r="35" fill="#fef4f0"/>
+
+  <!-- Globe grid -->
+  <g clip-path="url(#gc2)" fill="none" stroke="#e8440a" stroke-width="1.5" opacity="0.45">
+    <line x1="5"  y1="27" x2="75" y2="27"/>
+    <line x1="5"  y1="40" x2="75" y2="40"/>
+    <line x1="5"  y1="53" x2="75" y2="53"/>
+    <ellipse cx="40" cy="40" rx="35" ry="12"/>
+    <ellipse cx="40" cy="40" rx="17" ry="35"/>
+  </g>
+
+  <!-- Globe ramme -->
+  <circle cx="40" cy="40" r="35" fill="none" stroke="#e8440a" stroke-width="3"/>
+
+  <!-- STW -->
+  <text
+    x="40" y="46"
+    font-family="Inter,-apple-system,BlinkMacSystemFont,Arial,sans-serif"
+    font-size="18" font-weight="800"
+    fill="#111010" text-anchor="middle" letter-spacing="2">STW</text>
+</svg>

@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 80" width="260" height="80">
+  <defs>
+    <clipPath id="gc">
+      <circle cx="40" cy="40" r="33"/>
+    </clipPath>
+  </defs>
+
+  <!-- Globe baggrund -->
+  <circle cx="40" cy="40" r="33" fill="#fef4f0"/>
+
+  <!-- Globe grid (klippet til cirklen) -->
+  <g clip-path="url(#gc)" fill="none" stroke="#e8440a" stroke-width="1.2" opacity="0.45">
+    <!-- Breddegrader -->
+    <line x1="7"  y1="27" x2="73" y2="27"/>
+    <line x1="7"  y1="40" x2="73" y2="40"/>
+    <line x1="7"  y1="53" x2="73" y2="53"/>
+    <!-- Længdegrader -->
+    <ellipse cx="40" cy="40" rx="33" ry="11"/>
+    <ellipse cx="40" cy="40" rx="16" ry="33"/>
+  </g>
+
+  <!-- Globe ramme -->
+  <circle cx="40" cy="40" r="33" fill="none" stroke="#e8440a" stroke-width="2.5"/>
+
+  <!-- STW inde i globusen -->
+  <text
+    x="40" y="46"
+    font-family="Inter,-apple-system,BlinkMacSystemFont,Arial,sans-serif"
+    font-size="17" font-weight="800"
+    fill="#111010" text-anchor="middle" letter-spacing="2">STW</text>
+
+  <!-- Separator -->
+  <line x1="86" y1="20" x2="86" y2="60" stroke="#e8440a" stroke-width="1.5" opacity="0.25"/>
+
+  <!-- Design tekst -->
+  <text
+    x="98" y="50"
+    font-family="Inter,-apple-system,BlinkMacSystemFont,Arial,sans-serif"
+    font-size="29" font-weight="700"
+    fill="#111010">Design</text>
+</svg>
