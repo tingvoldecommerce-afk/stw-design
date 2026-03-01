@@ -201,10 +201,13 @@ chatLeadSubmit.addEventListener('click', async () => {
   }
 });
 
-// Velkomstbesked
+// Velkomstbesked (respekterer currentLang)
 window.addEventListener('load', () => {
   setTimeout(() => {
-    addMessage('Hej! 👋 Jeg er STW Designs chatbot. Hvad kan jeg hjælpe dig med?', 'bot');
+    const welcomeMsg = currentLang === 'da'
+      ? 'Hej! 👋 Jeg er STW Designs chatbot. Hvad kan jeg hjælpe dig med?'
+      : "Hi! 👋 I'm STW Design's chatbot. How can I help you?";
+    addMessage(welcomeMsg, 'bot');
   }, 500);
 });
 
@@ -258,6 +261,23 @@ document.getElementById('cookieAccept').addEventListener('click', () => {
 document.getElementById('cookieDecline').addEventListener('click', () => {
   localStorage.setItem('cookie-consent', 'declined');
   cookieBanner.classList.remove('visible');
+});
+
+// ─── FAQ Accordion ─────────────────────────────────────────────────────────
+document.querySelectorAll('.faq-question').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+    // Luk alle
+    document.querySelectorAll('.faq-question').forEach(other => {
+      other.setAttribute('aria-expanded', 'false');
+      other.nextElementSibling.classList.remove('open');
+    });
+    // Åbn klikket (hvis det var lukket)
+    if (!isExpanded) {
+      btn.setAttribute('aria-expanded', 'true');
+      btn.nextElementSibling.classList.add('open');
+    }
+  });
 });
 
 // ─── Scroll reveal ─────────────────────────────────────────────────────────
