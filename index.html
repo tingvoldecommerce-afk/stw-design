@@ -167,6 +167,7 @@
   <!-- HERO -->
   <section class="hero">
     <img src="/globe-bg.svg" class="hero-globe" alt="" aria-hidden="true" />
+    <div class="hero-aurora"></div>
     <div class="hero-blob hero-blob-1"></div>
     <div class="hero-blob hero-blob-2"></div>
     <div class="hero-blob hero-blob-3"></div>
@@ -182,6 +183,47 @@
     </div>
   </section>
 
+  <!-- STATS -->
+  <section class="stats" aria-label="Nøgletal">
+    <div class="container">
+      <div class="stats-grid">
+
+        <div class="stat-item">
+          <div class="stat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <span class="stat-number" data-target="10" data-suffix="+">10+</span>
+          <span class="stat-label" data-da="Tilfredse kunder" data-en="Happy clients">Tilfredse kunder</span>
+        </div>
+
+        <div class="stat-item">
+          <div class="stat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <span class="stat-number">24/7</span>
+          <span class="stat-label" data-da="Support tilgængeligt" data-en="Support available">Support tilgængeligt</span>
+        </div>
+
+        <div class="stat-item">
+          <div class="stat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <span class="stat-number" data-target="100" data-suffix="%">100%</span>
+          <span class="stat-label" data-da="Dansk service" data-en="Danish service">Dansk service</span>
+        </div>
+
+        <div class="stat-item">
+          <div class="stat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <span class="stat-number">1–2 uger</span>
+          <span class="stat-label" data-da="Gennemsnitlig levering" data-en="Average delivery">Gennemsnitlig levering</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- SERVICES -->
   <section class="services" id="services">
     <div class="container">
@@ -191,7 +233,9 @@
 
         <div class="service-card featured">
           <div class="service-badge" data-da="Mest populær" data-en="Most popular">Mest populær</div>
-          <div class="service-icon">🌐</div>
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
           <h3 data-da="Hjemmesider" data-en="Websites">Hjemmesider</h3>
           <p data-da="Hurtige, mobilvenlige og konverterende hjemmesider skræddersyet til din branche og dine kunder." data-en="Fast, mobile-friendly and converting websites tailored to your industry and your customers.">Hurtige, mobilvenlige og konverterende hjemmesider skræddersyet til din branche og dine kunder.</p>
           <ul class="service-features">
@@ -202,7 +246,9 @@
         </div>
 
         <div class="service-card">
-          <div class="service-icon">🤖</div>
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="15" x2="23" y2="15"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="15" x2="4" y2="15"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/></svg>
+          </div>
           <h3 data-da="AI Chatbots" data-en="AI Chatbots">AI Chatbots</h3>
           <p data-da="Intelligente chatbots der besvarer kundespørgsmål 24/7, booker møder og øger salget automatisk." data-en="Intelligent chatbots that answer customer questions 24/7, book meetings and automatically increase sales.">Intelligente chatbots der besvarer kundespørgsmål 24/7, booker møder og øger salget automatisk.</p>
           <ul class="service-features">
@@ -213,7 +259,9 @@
         </div>
 
         <div class="service-card">
-          <div class="service-icon">📈</div>
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+          </div>
           <h3 data-da="SEO" data-en="SEO">SEO</h3>
           <p data-da="Bliv fundet på Google. Vi optimerer din synlighed så de rigtige kunder finder dig – ikke konkurrenterne." data-en="Get found on Google. We optimize your visibility so the right customers find you – not your competitors.">Bliv fundet på Google. Vi optimerer din synlighed så de rigtige kunder finder dig – ikke konkurrenterne.</p>
           <ul class="service-features">
@@ -233,28 +281,36 @@
       <h2 data-da="Hvorfor STW Design?" data-en="Why STW Design?">Hvorfor STW Design?</h2>
       <div class="why-grid">
         <div class="why-item">
-          <span class="why-icon">⚡</span>
+          <span class="why-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </span>
           <div>
             <h4 data-da="Hurtig levering" data-en="Fast delivery">Hurtig levering</h4>
             <p data-da="Din løsning er klar på rekordtid – uden at gå på kompromis med kvaliteten." data-en="Your solution is ready in record time – without compromising on quality.">Din løsning er klar på rekordtid – uden at gå på kompromis med kvaliteten.</p>
           </div>
         </div>
         <div class="why-item">
-          <span class="why-icon">🇩🇰</span>
+          <span class="why-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </span>
           <div>
             <h4 data-da="Dansk support" data-en="Danish support">Dansk support</h4>
             <p data-da="Vi taler dit sprog og kender det danske marked. Altid tilgængelige på dansk." data-en="We speak your language and know the Danish market. Always available in Danish.">Vi taler dit sprog og kender det danske marked. Altid tilgængelige på dansk.</p>
           </div>
         </div>
         <div class="why-item">
-          <span class="why-icon">🎯</span>
+          <span class="why-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg>
+          </span>
           <div>
             <h4 data-da="Skræddersyede løsninger" data-en="Tailored solutions">Skræddersyede løsninger</h4>
             <p data-da="Ingen copy-paste templates. Vi bygger præcis det din forretning har brug for." data-en="No copy-paste templates. We build exactly what your business needs.">Ingen copy-paste templates. Vi bygger præcis det din forretning har brug for.</p>
           </div>
         </div>
         <div class="why-item">
-          <span class="why-icon">📊</span>
+          <span class="why-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="2" y1="20" x2="22" y2="20"/></svg>
+          </span>
           <div>
             <h4 data-da="Målbare resultater" data-en="Measurable results">Målbare resultater</h4>
             <p data-da="Vi måler alt. Du ved altid præcis hvad du får for din investering." data-en="We measure everything. You always know exactly what you get for your investment.">Vi måler alt. Du ved altid præcis hvad du får for din investering.</p>
@@ -391,11 +447,16 @@
 
   <!-- CHATBOT WIDGET -->
   <div class="chat-widget">
-    <button class="chat-toggle" id="chatToggle" aria-label="Åbn chat">🤖<span class="online-dot"></span></button>
+    <button class="chat-toggle" id="chatToggle" aria-label="Åbn chat">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      <span class="online-dot"></span>
+    </button>
     <div class="chat-window" id="chatWindow">
       <div class="chat-header">
         <div class="chat-header-info">
-          <div class="chat-avatar">🤖</div>
+          <div class="chat-avatar">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="15" x2="23" y2="15"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="15" x2="4" y2="15"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/></svg>
+          </div>
           <div>
             <div class="chat-name">NEXUS <span class="chat-name-tag">by STW</span></div>
             <div class="chat-status"><span class="chat-status-dot"></span>Online – klar til at hjælpe</div>
