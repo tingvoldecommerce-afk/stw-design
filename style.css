@@ -6,16 +6,16 @@
 }
 
 :root {
-  --primary:      #1a100d;
-  --accent:       #e8440a;
-  --accent-hover: #d13a08;
-  --accent-light: rgba(232, 68, 10, 0.12);
-  --bg:           #ede8df;
-  --bg-card:      #e2dbd0;
-  --subtle:       #d8d0c4;
-  --text:         #2d2520;
-  --muted:        #7a6b62;
-  --border:       rgba(45, 37, 32, 0.15);
+  --primary:      #1a1410;
+  --accent:       #1e3a5f;
+  --accent-hover: #152d4a;
+  --accent-light: rgba(30, 58, 95, 0.1);
+  --bg:           #c8bfb0;
+  --bg-card:      #d4cbbe;
+  --subtle:       #b8ae9e;
+  --text:         #1a1410;
+  --muted:        #5c5047;
+  --border:       rgba(26, 20, 16, 0.18);
   --radius:       14px;
 }
 
@@ -40,7 +40,7 @@ body {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: rgba(237, 232, 223, 0.88);
+  background: rgba(200, 191, 176, 0.88);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
   border-bottom: 1px solid var(--border);
@@ -139,7 +139,7 @@ body {
 .mobile-menu {
   display: none;
   border-top: 1px solid var(--border);
-  background: rgba(237, 232, 223, 0.97);
+  background: rgba(200, 191, 176, 0.97);
   padding: 12px 24px 20px;
 }
 .mobile-menu.open { display: block; }
