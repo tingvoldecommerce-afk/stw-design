@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { motion } from "motion/react";
 import FadeIn from "@/components/FadeIn";
 import { useLang } from "@/components/LangProvider";
 import { Globe, Bot, TrendingUp, ArrowRight } from "lucide-react";
@@ -45,7 +44,7 @@ export default function HomePage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative min-h-screen flex items-end pb-20">
+      <section className="relative min-h-screen flex items-end pb-20 bg-gray-900 overflow-hidden">
         <Image
           src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1920&q=80"
           alt="Hero"
@@ -53,37 +52,24 @@ export default function HomePage() {
           className="object-cover object-center"
           priority
         />
-        <div className="absolute inset-0 bg-black/60" />
+        {/* Dark overlay – z-[1] so image stays behind */}
+        <div className="absolute inset-0 bg-black/60" style={{ zIndex: 1 }} />
 
         {/* Scroll indicator */}
-        <motion.div
-          className="absolute right-8 top-1/2 -translate-y-1/2 flex flex-col items-center gap-2 hidden md:flex"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.2 }}
+        <div
+          className="absolute right-8 top-1/2 -translate-y-1/2 flex-col items-center gap-2 hidden md:flex"
+          style={{ zIndex: 2 }}
         >
-          <motion.div
-            className="w-px bg-white/40"
-            initial={{ height: 0 }}
-            animate={{ height: 80 }}
-            transition={{ delay: 1.5, duration: 0.8 }}
-          />
+          <div className="w-px h-20 bg-white/30" />
           <span className="text-white/40 text-[10px] tracking-[0.2em] rotate-90 mt-2">SCROLL</span>
-        </motion.div>
+        </div>
 
-        <div className="relative max-w-6xl mx-auto px-6 w-full">
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            className="text-white/60 text-sm tracking-[0.3em] uppercase mb-4"
-          >
+        {/* Content – always visible, z-[10] above everything */}
+        <div className="relative w-full max-w-6xl mx-auto px-6" style={{ zIndex: 10 }}>
+          <p className="text-white/60 text-sm tracking-[0.3em] uppercase mb-4">
             {lang === "da" ? "Dansk digitalt bureau" : "Danish digital agency"}
-          </motion.p>
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.8 }}
+          </p>
+          <h1
             className="text-5xl md:text-7xl lg:text-8xl text-white max-w-3xl leading-tight"
             style={{ fontFamily: "var(--font-playfair)" }}
           >
@@ -92,13 +78,8 @@ export default function HomePage() {
             ) : (
               <>We build digital solutions <em className="italic font-normal">that work.</em></>
             )}
-          </motion.h1>
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.9 }}
-            className="mt-10 flex flex-wrap gap-4"
-          >
+          </h1>
+          <div className="mt-10 flex flex-wrap gap-4">
             <Link
               href="/kontakt"
               className="bg-white text-black text-sm font-semibold tracking-widest uppercase px-8 py-3.5 hover:bg-gray-100 transition-colors"
@@ -111,7 +92,7 @@ export default function HomePage() {
             >
               {lang === "da" ? "Se ydelser" : "Our services"}
             </Link>
-          </motion.div>
+          </div>
         </div>
       </section>
 

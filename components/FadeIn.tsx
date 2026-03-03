@@ -1,8 +1,7 @@
 "use client";
 
-import { motion } from "motion/react";
+import { useRef, useState, useEffect } from "react";
 import { useInView } from "motion/react";
-import { useRef } from "react";
 
 interface FadeInProps {
   children: React.ReactNode;
@@ -11,30 +10,42 @@ interface FadeInProps {
   direction?: "up" | "left" | "right" | "none";
 }
 
+// Safe scroll animation: content is always visible (opacity 1) during SSR
+// and initial client render. Animation activates after hydration.
 export default function FadeIn({
   children,
   delay = 0,
   className = "",
   direction = "up",
 }: FadeInProps) {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-80px" });
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: true, margin: "-40px" });
+  const [ready, setReady] = useState(false);
 
-  const initial = {
-    opacity: 0,
-    y: direction === "up" ? 24 : 0,
-    x: direction === "left" ? -24 : direction === "right" ? 24 : 0,
-  };
+  useEffect(() => {
+    setReady(true);
+  }, []);
+
+  const yOffset = direction === "up" ? 20 : 0;
+  const xOffset = direction === "left" ? -20 : direction === "right" ? 20 : 0;
+
+  const visible = !ready || isInView;
 
   return (
-    <motion.div
+    <div
       ref={ref}
-      initial={initial}
-      animate={isInView ? { opacity: 1, y: 0, x: 0 } : initial}
-      transition={{ duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] }}
       className={className}
+      style={{
+        opacity: visible ? 1 : 0,
+        transform: visible
+          ? "translate(0,0)"
+          : `translate(${xOffset}px, ${yOffset}px)`,
+        transition: ready
+          ? `opacity 0.55s ${delay}s ease-out, transform 0.55s ${delay}s ease-out`
+          : "none",
+      }}
     >
       {children}
-    </motion.div>
+    </div>
   );
 }
