@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { motion, AnimatePresence } from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
 import { useLang } from "./LangProvider";
 import { Menu, X } from "lucide-react";
 
@@ -13,9 +13,13 @@ export default function Navbar() {
   const { lang, setLang } = useLang();
   const pathname = usePathname();
 
+  // Only transparent on homepage hero (not scrolled)
+  const isHero = pathname === "/";
+  const transparent = isHero && !scrolled && !mobileOpen;
+
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
-    window.addEventListener("scroll", onScroll);
+    const onScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
@@ -43,26 +47,25 @@ export default function Navbar() {
 
   return (
     <>
-      <motion.header
-        initial={{ y: -20, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.5 }}
+      <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled || mobileOpen
-            ? "bg-white/95 backdrop-blur-sm border-b border-gray-100 shadow-sm"
-            : "bg-transparent"
+          transparent
+            ? "bg-transparent"
+            : "bg-white border-b border-slate-100 shadow-sm"
         }`}
       >
         <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2.5">
-            <div className="w-8 h-8 bg-black flex items-center justify-center">
-              <span className="text-white text-xs font-bold tracking-widest">STW</span>
+          <Link href="/" className="flex items-center gap-2.5 shrink-0">
+            <div
+              className="w-8 h-8 flex items-center justify-center"
+              style={{ background: "var(--navy)" }}
+            >
+              <span className="text-white text-[10px] font-bold tracking-widest">STW</span>
             </div>
             <span
-              className={`font-semibold text-sm tracking-wide transition-colors ${
-                scrolled || mobileOpen ? "text-black" : "text-white"
-              }`}
+              className="font-semibold text-sm tracking-wide"
+              style={{ color: transparent ? "#fff" : "var(--navy)" }}
             >
               Design
             </span>
@@ -74,20 +77,22 @@ export default function Navbar() {
               <Link
                 key={l.href}
                 href={l.href}
-                className={`text-sm font-medium transition-colors hover:opacity-70 ${
-                  scrolled ? "text-black" : "text-white"
-                } ${pathname === l.href ? "border-b border-current" : ""}`}
+                className="text-sm font-medium transition-opacity hover:opacity-60"
+                style={{
+                  color: transparent ? "#fff" : "var(--navy)",
+                  borderBottom: pathname === l.href ? "1px solid currentColor" : "none",
+                }}
               >
                 {l.label}
               </Link>
             ))}
             <button
               onClick={() => setLang(lang === "da" ? "en" : "da")}
-              className={`text-xs font-semibold tracking-widest border px-2.5 py-1 transition-colors ${
-                scrolled
-                  ? "border-black text-black hover:bg-black hover:text-white"
-                  : "border-white text-white hover:bg-white hover:text-black"
-              }`}
+              className="text-xs font-semibold tracking-widest px-2.5 py-1 border transition-colors"
+              style={{
+                borderColor: transparent ? "rgba(255,255,255,0.6)" : "var(--navy)",
+                color: transparent ? "#fff" : "var(--navy)",
+              }}
             >
               {lang === "da" ? "EN" : "DA"}
             </button>
@@ -95,18 +100,18 @@ export default function Navbar() {
 
           {/* Mobile toggle */}
           <button
-            className="md:hidden p-1"
+            className="md:hidden p-1.5"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Menu"
           >
             {mobileOpen ? (
-              <X size={22} className="text-black" />
+              <X size={22} style={{ color: "var(--navy)" }} />
             ) : (
-              <Menu size={22} className={scrolled ? "text-black" : "text-white"} />
+              <Menu size={22} style={{ color: transparent ? "#fff" : "var(--navy)" }} />
             )}
           </button>
         </nav>
-      </motion.header>
+      </header>
 
       {/* Mobile overlay */}
       <AnimatePresence>
@@ -115,20 +120,21 @@ export default function Navbar() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.25 }}
-            className="fixed inset-0 z-40 bg-white flex flex-col items-center justify-center"
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-40 flex flex-col items-center justify-center"
+            style={{ background: "var(--navy)" }}
           >
-            <nav className="flex flex-col items-center gap-10">
+            <nav className="flex flex-col items-center gap-8">
               {links.map((l, i) => (
                 <motion.div
                   key={l.href}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 16 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.08 }}
+                  transition={{ delay: i * 0.07 }}
                 >
                   <Link
                     href={l.href}
-                    className="font-playfair text-4xl text-black hover:opacity-60 transition-opacity"
+                    className="text-white text-3xl hover:opacity-60 transition-opacity"
                     style={{ fontFamily: "var(--font-playfair)" }}
                   >
                     {l.label}
@@ -138,9 +144,9 @@ export default function Navbar() {
               <motion.button
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 0.3 }}
+                transition={{ delay: 0.28 }}
                 onClick={() => setLang(lang === "da" ? "en" : "da")}
-                className="text-sm font-semibold tracking-widest border border-black text-black px-4 py-2 mt-4 hover:bg-black hover:text-white transition-colors"
+                className="mt-4 text-sm font-semibold tracking-widest border border-white/40 text-white px-5 py-2 hover:bg-white/10 transition-colors"
               >
                 {lang === "da" ? "Switch to EN" : "Skift til DA"}
               </motion.button>

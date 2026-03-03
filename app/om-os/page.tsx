@@ -30,35 +30,48 @@ export default function OmOsPage() {
 
   return (
     <>
-      {/* Hero */}
-      <section className="pt-36 pb-20">
+      {/* Header */}
+      <section
+        style={{
+          background: "var(--bg-soft)",
+          paddingTop: "8rem",
+          paddingBottom: "4rem",
+          borderBottom: "1px solid var(--border)",
+        }}
+      >
         <div className="max-w-6xl mx-auto px-6">
           <FadeIn>
-            <p className="text-xs tracking-[0.3em] uppercase text-gray-400 mb-5">
+            <p className="text-xs tracking-[0.3em] uppercase mb-4" style={{ color: "var(--blue)" }}>
               {lang === "da" ? "Hvem er vi?" : "Who are we?"}
             </p>
-            <h1 className="text-5xl md:text-7xl max-w-3xl" style={{ fontFamily: "var(--font-playfair)" }}>
+            <h1
+              style={{
+                fontFamily: "var(--font-playfair)",
+                color: "var(--navy)",
+                fontSize: "clamp(2.5rem, 6vw, 4.5rem)",
+              }}
+            >
               {lang === "da" ? "Om os" : "About us"}
             </h1>
-            <p className="mt-8 text-gray-600 max-w-2xl text-lg leading-relaxed">
+            <p className="mt-5 max-w-2xl text-lg leading-relaxed" style={{ color: "var(--text-muted)" }}>
               {lang === "da"
-                ? "STW Design er et dansk digitalt bureau grundlagt af Sebastian. Vi hjælper virksomheder med at skabe en stærk digital tilstedeværelse gennem skræddersyede hjemmesider, intelligente AI-løsninger og strategisk SEO."
-                : "STW Design is a Danish digital agency founded by Sebastian. We help businesses create a strong digital presence through custom websites, intelligent AI solutions and strategic SEO."}
+                ? "STW Design er et dansk digitalt bureau grundlagt af Sebastian. Vi hjælper virksomheder med at skabe en stærk digital tilstedeværelse."
+                : "STW Design is a Danish digital agency founded by Sebastian. We help businesses create a strong digital presence."}
             </p>
           </FadeIn>
         </div>
       </section>
 
-      {/* Image section */}
-      <section className="pb-24">
+      {/* Image */}
+      <section style={{ background: "var(--bg)", paddingTop: "5rem", paddingBottom: "5rem" }}>
         <div className="max-w-6xl mx-auto px-6">
           <FadeIn>
-            <div className="relative aspect-[16/7] overflow-hidden bg-gray-100">
+            <div className="relative overflow-hidden" style={{ aspectRatio: "16/6", background: "#0f172a" }}>
               <Image
                 src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&q=80"
                 alt="STW Design workspace"
                 fill
-                className="object-cover object-center"
+                className="object-cover"
               />
             </div>
           </FadeIn>
@@ -66,62 +79,75 @@ export default function OmOsPage() {
       </section>
 
       {/* Mission / Vision */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16">
+      <section style={{ background: "var(--bg-soft)", paddingTop: "5rem", paddingBottom: "5rem" }}>
+        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 md:gap-16">
           <FadeIn direction="left">
-            <div>
-              <p className="text-xs tracking-[0.3em] uppercase text-gray-400 mb-5">Mission</p>
-              <h2 className="text-3xl md:text-4xl mb-6" style={{ fontFamily: "var(--font-playfair)" }}>
-                {lang === "da"
-                  ? "At gøre professionel digital tilstedeværelse tilgængelig for alle"
-                  : "To make professional digital presence accessible to all"}
-              </h2>
-              <p className="text-gray-600 leading-relaxed">
-                {lang === "da"
-                  ? "Vi tror på, at alle virksomheder – uanset størrelse – fortjener et professionelt digitalt fundament. Vi bygger løsninger der er effektive, overskuelige og skalérbare."
-                  : "We believe all businesses – regardless of size – deserve a professional digital foundation. We build solutions that are effective, manageable and scalable."}
-              </p>
-            </div>
+            <p className="text-xs tracking-[0.3em] uppercase mb-4" style={{ color: "var(--blue)" }}>Mission</p>
+            <h2
+              className="mb-5"
+              style={{ fontFamily: "var(--font-playfair)", color: "var(--navy)", fontSize: "clamp(1.5rem, 3vw, 2rem)" }}
+            >
+              {lang === "da"
+                ? "At gøre professionel digital tilstedeværelse tilgængelig for alle"
+                : "To make professional digital presence accessible to all"}
+            </h2>
+            <p className="leading-relaxed" style={{ color: "var(--text-muted)" }}>
+              {lang === "da"
+                ? "Vi tror på, at alle virksomheder – uanset størrelse – fortjener et professionelt digitalt fundament. Vi bygger løsninger der er effektive, overskuelige og skalérbare."
+                : "We believe all businesses – regardless of size – deserve a professional digital foundation. We build solutions that are effective, manageable and scalable."}
+            </p>
           </FadeIn>
           <FadeIn direction="right">
-            <div>
-              <p className="text-xs tracking-[0.3em] uppercase text-gray-400 mb-5">Vision</p>
-              <h2 className="text-3xl md:text-4xl mb-6" style={{ fontFamily: "var(--font-playfair)" }}>
-                {lang === "da"
-                  ? "At være det foretrukne digitale bureau for danske SMV'er"
-                  : "To be the preferred digital agency for Danish SMEs"}
-              </h2>
-              <p className="text-gray-600 leading-relaxed">
-                {lang === "da"
-                  ? "Vores mål er at være det bureau, du ringer til når du vil have noget gjort ordentligt. Vi bygger langvarige relationer baseret på resultater og gennemsigtighed."
-                  : "Our goal is to be the agency you call when you want something done properly. We build long-lasting relationships based on results and transparency."}
-              </p>
-            </div>
+            <p className="text-xs tracking-[0.3em] uppercase mb-4" style={{ color: "var(--blue)" }}>Vision</p>
+            <h2
+              className="mb-5"
+              style={{ fontFamily: "var(--font-playfair)", color: "var(--navy)", fontSize: "clamp(1.5rem, 3vw, 2rem)" }}
+            >
+              {lang === "da"
+                ? "At være det foretrukne digitale bureau for danske SMV'er"
+                : "To be the preferred digital agency for Danish SMEs"}
+            </h2>
+            <p className="leading-relaxed" style={{ color: "var(--text-muted)" }}>
+              {lang === "da"
+                ? "Vores mål er at være det bureau, du ringer til når du vil have noget gjort ordentligt. Vi bygger langvarige relationer baseret på resultater og gennemsigtighed."
+                : "Our goal is to be the agency you call when you want something done properly. We build long-lasting relationships based on results and transparency."}
+            </p>
           </FadeIn>
         </div>
       </section>
 
       {/* Values */}
-      <section className="py-24">
+      <section style={{ background: "var(--bg)", paddingTop: "5rem", paddingBottom: "5rem" }}>
         <div className="max-w-6xl mx-auto px-6">
           <FadeIn>
-            <p className="text-xs tracking-[0.3em] uppercase text-gray-400 mb-4">
+            <p className="text-xs tracking-[0.3em] uppercase mb-3" style={{ color: "var(--blue)" }}>
               {lang === "da" ? "Hvad vi står for" : "What we stand for"}
             </p>
-            <h2 className="text-4xl md:text-5xl mb-14" style={{ fontFamily: "var(--font-playfair)" }}>
+            <h2
+              className="mb-10"
+              style={{ fontFamily: "var(--font-playfair)", color: "var(--navy)", fontSize: "clamp(1.8rem, 4vw, 3rem)" }}
+            >
               {lang === "da" ? "Vores værdier" : "Our values"}
             </h2>
           </FadeIn>
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 gap-5">
             {values.map((v, i) => {
               const t = lang === "da" ? v.da : v.en;
               return (
                 <FadeIn key={i} delay={i * 0.08}>
-                  <div className="border border-gray-200 p-8">
-                    <h3 className="text-xl font-semibold mb-3" style={{ fontFamily: "var(--font-playfair)" }}>
+                  <div
+                    className="p-8"
+                    style={{ border: "1px solid var(--border)", background: "var(--bg-soft)" }}
+                  >
+                    <h3
+                      className="text-lg font-semibold mb-3"
+                      style={{ fontFamily: "var(--font-playfair)", color: "var(--navy)" }}
+                    >
                       {t.title}
                     </h3>
-                    <p className="text-gray-600 text-sm leading-relaxed">{t.desc}</p>
+                    <p className="text-sm leading-relaxed" style={{ color: "var(--text-muted)" }}>
+                      {t.desc}
+                    </p>
                   </div>
                 </FadeIn>
               );
@@ -131,21 +157,30 @@ export default function OmOsPage() {
       </section>
 
       {/* CTA */}
-      <section className="pb-20">
+      <section style={{ background: "var(--bg-soft)", paddingTop: "5rem", paddingBottom: "5rem" }}>
         <div className="max-w-6xl mx-auto px-6">
           <FadeIn>
-            <div className="bg-black rounded-2xl p-12 text-center">
-              <h2 className="text-4xl text-white mb-4" style={{ fontFamily: "var(--font-playfair)" }}>
+            <div
+              className="rounded-2xl p-10 md:p-14 text-center"
+              style={{ background: "var(--navy)" }}
+            >
+              <h2
+                className="text-white mb-4"
+                style={{ fontFamily: "var(--font-playfair)", fontSize: "clamp(1.6rem, 3.5vw, 2.5rem)" }}
+              >
                 {lang === "da" ? "Lad os arbejde sammen" : "Let's work together"}
               </h2>
-              <p className="text-white/60 mb-8">
+              <p className="mb-8 max-w-md mx-auto" style={{ color: "rgba(255,255,255,0.6)" }}>
                 {lang === "da"
                   ? "Tag kontakt og fortæl os om din virksomhed."
                   : "Get in touch and tell us about your business."}
               </p>
               <Link
                 href="/kontakt"
-                className="inline-flex items-center gap-2 bg-white text-black text-sm font-semibold tracking-widest uppercase px-10 py-3.5 rounded-full hover:bg-gray-100 transition-colors"
+                className="inline-flex items-center gap-2 text-sm font-semibold tracking-widest uppercase px-8 py-3.5 rounded-full transition-all"
+                style={{ background: "var(--blue)", color: "#fff" }}
+                onMouseEnter={(e) => (e.currentTarget.style.background = "#2563EB")}
+                onMouseLeave={(e) => (e.currentTarget.style.background = "var(--blue)")}
               >
                 {lang === "da" ? "Kontakt os" : "Contact us"} <ArrowRight size={14} />
               </Link>

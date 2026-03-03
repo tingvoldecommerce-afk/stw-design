@@ -25,66 +25,88 @@ export default function Footer({ onPrivacy, onCookies }: FooterProps) {
         ];
 
   return (
-    <footer className="bg-black text-white">
+    <footer style={{ background: "var(--navy)", color: "#fff" }}>
       {/* Big CTA text */}
-      <div className="max-w-6xl mx-auto px-6 pt-20 pb-14 border-b border-white/10">
+      <div
+        className="max-w-6xl mx-auto px-6 py-16 md:py-20"
+        style={{ borderBottom: "1px solid rgba(255,255,255,0.08)" }}
+      >
         <p
-          className="text-4xl md:text-6xl lg:text-7xl leading-tight"
-          style={{ fontFamily: "var(--font-playfair)" }}
+          className="leading-tight mb-8"
+          style={{
+            fontFamily: "var(--font-playfair)",
+            fontSize: "clamp(2rem, 5vw, 4.5rem)",
+          }}
         >
           {lang === "da" ? (
             <>
               Lad os skabe noget{" "}
-              <em className="italic font-normal">ekstraordinært.</em>
+              <em className="italic font-normal" style={{ color: "#93C5FD" }}>ekstraordinært.</em>
             </>
           ) : (
             <>
               Let&apos;s create something{" "}
-              <em className="italic font-normal">extraordinary.</em>
+              <em className="italic font-normal" style={{ color: "#93C5FD" }}>extraordinary.</em>
             </>
           )}
         </p>
-        <div className="mt-8">
-          <Link
-            href="/kontakt"
-            className="inline-block bg-white text-black text-sm font-semibold tracking-widest uppercase px-8 py-3 hover:bg-gray-100 transition-colors"
-          >
-            {lang === "da" ? "Kom i gang →" : "Get started →"}
-          </Link>
-        </div>
+        <Link
+          href="/kontakt"
+          className="inline-flex items-center gap-2 text-sm font-semibold tracking-widest uppercase px-7 py-3.5 transition-all"
+          style={{ background: "var(--blue)", color: "#fff" }}
+          onMouseEnter={(e) => (e.currentTarget.style.background = "#2563EB")}
+          onMouseLeave={(e) => (e.currentTarget.style.background = "var(--blue)")}
+        >
+          {lang === "da" ? "Kom i gang →" : "Get started →"}
+        </Link>
       </div>
 
-      {/* Bottom bar */}
-      <div className="max-w-6xl mx-auto px-6 py-8 flex flex-col md:flex-row items-center justify-between gap-6 text-sm text-white/50">
+      {/* Nav + contact */}
+      <div className="max-w-6xl mx-auto px-6 py-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 text-sm" style={{ color: "rgba(255,255,255,0.5)" }}>
         <div className="flex items-center gap-2.5">
-          <div className="w-6 h-6 bg-white flex items-center justify-center">
-            <span className="text-black text-[9px] font-bold tracking-widest">STW</span>
+          <div className="w-6 h-6 flex items-center justify-center" style={{ background: "#fff" }}>
+            <span className="text-[9px] font-bold tracking-widest" style={{ color: "var(--navy)" }}>STW</span>
           </div>
-          <span className="text-white/70 font-medium">STW Design</span>
+          <span className="font-medium" style={{ color: "rgba(255,255,255,0.8)" }}>STW Design</span>
         </div>
 
-        <nav className="flex gap-6">
+        <nav className="flex flex-wrap gap-5">
           {links.map((l) => (
-            <Link key={l.href} href={l.href} className="hover:text-white transition-colors">
+            <Link
+              key={l.href}
+              href={l.href}
+              className="transition-colors hover:text-white"
+            >
               {l.label}
             </Link>
           ))}
         </nav>
 
-        <div className="flex gap-4 items-center">
-          <a href="mailto:kontakt@stw-webdesign.dk" className="hover:text-white transition-colors">
-            kontakt@stw-webdesign.dk
-          </a>
-        </div>
+        <a
+          href="mailto:kontakt@stw-webdesign.dk"
+          className="transition-colors hover:text-white"
+        >
+          kontakt@stw-webdesign.dk
+        </a>
       </div>
 
-      <div className="max-w-6xl mx-auto px-6 pb-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-white/30">
-        <span>© 2026 STW Design</span>
-        <div className="flex gap-4">
-          <button onClick={onPrivacy} className="hover:text-white/60 transition-colors">
+      {/* Bottom bar */}
+      <div
+        className="max-w-6xl mx-auto px-6 pb-6 flex flex-col md:flex-row items-center justify-between gap-3 text-xs"
+        style={{ color: "rgba(255,255,255,0.25)", borderTop: "1px solid rgba(255,255,255,0.06)" }}
+      >
+        <span className="pt-5">© 2026 STW Design</span>
+        <div className="flex gap-4 pt-5">
+          <button
+            onClick={onPrivacy}
+            className="transition-colors hover:text-white/60"
+          >
             {lang === "da" ? "Privatlivspolitik" : "Privacy Policy"}
           </button>
-          <button onClick={onCookies} className="hover:text-white/60 transition-colors">
+          <button
+            onClick={onCookies}
+            className="transition-colors hover:text-white/60"
+          >
             {lang === "da" ? "Cookiepolitik" : "Cookie Policy"}
           </button>
         </div>

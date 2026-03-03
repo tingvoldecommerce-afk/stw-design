@@ -82,9 +82,9 @@ export default function ChatbotWidget() {
         animate={{ scale: 1 }}
         transition={{ delay: 1.5, type: "spring" }}
         onClick={() => setOpen(!open)}
-        className="fixed bottom-6 right-6 z-50 w-13 h-13 bg-black text-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-800 transition-colors"
+        className="fixed bottom-6 right-6 z-50 rounded-full shadow-lg flex items-center justify-center transition-colors"
         aria-label="Åbn chat"
-        style={{ width: 52, height: 52 }}
+        style={{ width: 52, height: 52, background: "var(--navy)", color: "#fff" }}
       >
         {open ? <X size={20} /> : <MessageCircle size={20} />}
       </motion.button>
@@ -101,7 +101,7 @@ export default function ChatbotWidget() {
             style={{ height: 420 }}
           >
             {/* Header */}
-            <div className="bg-black text-white px-4 py-3 flex items-center gap-2.5">
+            <div className="px-4 py-3 flex items-center gap-2.5" style={{ background: "var(--navy)", color: "#fff" }}>
               <div className="w-2 h-2 rounded-full bg-green-400" />
               <span className="text-sm font-semibold tracking-wide">NEXUS · STW Design</span>
             </div>
@@ -111,11 +111,12 @@ export default function ChatbotWidget() {
               {messages.map((m, i) => (
                 <div
                   key={i}
-                  className={`max-w-[85%] px-3 py-2 text-sm leading-relaxed ${
-                    m.role === "user"
-                      ? "bg-black text-white self-end"
-                      : "bg-gray-100 text-black self-start"
-                  }`}
+                  className="max-w-[85%] px-3 py-2 text-sm leading-relaxed"
+                  style={{
+                    alignSelf: m.role === "user" ? "flex-end" : "flex-start",
+                    background: m.role === "user" ? "var(--navy)" : "#F1F5F9",
+                    color: m.role === "user" ? "#fff" : "var(--navy)",
+                  }}
                 >
                   {m.content}
                 </div>
