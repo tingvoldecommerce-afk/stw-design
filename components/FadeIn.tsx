@@ -10,13 +10,12 @@ interface FadeInProps {
   direction?: "up" | "left" | "right" | "none";
 }
 
-// Safe scroll animation: content is always visible (opacity 1) during SSR
-// and initial client render. Animation activates after hydration.
+// Content is always visible on SSR. Animation activates after hydration.
+// Only animates on Y-axis to prevent horizontal overflow.
 export default function FadeIn({
   children,
   delay = 0,
   className = "",
-  direction = "up",
 }: FadeInProps) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-40px" });
@@ -26,9 +25,6 @@ export default function FadeIn({
     setReady(true);
   }, []);
 
-  const yOffset = direction === "up" ? 20 : 0;
-  const xOffset = direction === "left" ? -20 : direction === "right" ? 20 : 0;
-
   const visible = !ready || isInView;
 
   return (
@@ -37,11 +33,9 @@ export default function FadeIn({
       className={className}
       style={{
         opacity: visible ? 1 : 0,
-        transform: visible
-          ? "translate(0,0)"
-          : `translate(${xOffset}px, ${yOffset}px)`,
+        transform: visible ? "translateY(0)" : "translateY(16px)",
         transition: ready
-          ? `opacity 0.55s ${delay}s ease-out, transform 0.55s ${delay}s ease-out`
+          ? `opacity 0.5s ${delay}s ease-out, transform 0.5s ${delay}s ease-out`
           : "none",
       }}
     >
