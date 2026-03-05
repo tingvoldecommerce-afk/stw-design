@@ -28,7 +28,7 @@ export default function Footer({ onPrivacy, onCookies }: FooterProps) {
     <footer style={{ background: "var(--navy)", color: "#fff", marginTop: "0" }}>
       {/* Big CTA text */}
       <div
-        className="max-w-6xl mx-auto"
+        className="max-w-5xl mx-auto"
         style={{
           paddingTop: "5rem",
           paddingBottom: "5rem",
@@ -72,7 +72,7 @@ export default function Footer({ onPrivacy, onCookies }: FooterProps) {
       </div>
 
       {/* Nav + contact */}
-      <div className="max-w-6xl mx-auto px-6 py-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 text-sm" style={{ color: "rgba(255,255,255,0.5)" }}>
+      <div className="max-w-5xl mx-auto px-6 py-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 text-sm" style={{ color: "rgba(255,255,255,0.5)" }}>
         <div className="flex items-center gap-2.5">
           <div className="w-6 h-6 flex items-center justify-center" style={{ background: "#fff" }}>
             <span className="text-[9px] font-bold tracking-widest" style={{ color: "var(--navy)" }}>STW</span>
@@ -102,7 +102,7 @@ export default function Footer({ onPrivacy, onCookies }: FooterProps) {
 
       {/* Bottom bar */}
       <div
-        className="max-w-6xl mx-auto px-6 pb-6 flex flex-col md:flex-row items-center justify-between gap-3 text-xs"
+        className="max-w-5xl mx-auto px-6 pb-6 flex flex-col md:flex-row items-center justify-between gap-3 text-xs"
         style={{ color: "rgba(255,255,255,0.25)", borderTop: "1px solid rgba(255,255,255,0.06)" }}
       >
         <span className="pt-5">© 2026 STW-Webdesign</span>

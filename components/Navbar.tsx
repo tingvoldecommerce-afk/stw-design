@@ -54,7 +54,7 @@ export default function Navbar() {
             : "bg-white border-b border-slate-100 shadow-sm"
         }`}
       >
-        <nav className="max-w-7xl mx-auto px-8 h-20 flex items-center justify-between gap-8">
+        <nav className="max-w-5xl mx-auto px-8 h-20 flex items-center justify-between gap-8">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 shrink-0">
             <div

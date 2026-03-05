@@ -83,8 +83,8 @@ export default function HomePage() {
         />
 
         <div
-          className="relative w-full max-w-6xl mx-auto"
-          style={{ zIndex: 10, padding: "5rem clamp(1.5rem, 6vw, 5rem)" }}
+          className="relative w-full max-w-5xl mx-auto"
+          style={{ zIndex: 10, padding: "5rem 2rem" }}
         >
           <div
             style={{
@@ -519,7 +519,7 @@ export default function HomePage() {
 
       {/* ── Services ──────────────────────────────────── */}
       <section style={{ background: "var(--bg)", padding: "6rem 0" }}>
-        <div className="max-w-6xl mx-auto" style={{ padding: "0 clamp(1.5rem, 6vw, 5rem)" }}>
+        <div className="max-w-5xl mx-auto" style={{ padding: "0 2rem" }}>
           <FadeIn>
             <div className="text-center mb-12">
               <p
@@ -640,7 +640,7 @@ export default function HomePage() {
 
       {/* ── Process ───────────────────────────────────── */}
       <section style={{ background: "var(--bg-grey)", padding: "6rem 0" }}>
-        <div className="max-w-6xl mx-auto" style={{ padding: "0 clamp(1.5rem, 6vw, 5rem)" }}>
+        <div className="max-w-5xl mx-auto" style={{ padding: "0 2rem" }}>
           <div
             style={{
               display: "grid",
@@ -726,7 +726,7 @@ export default function HomePage() {
 
       {/* ── CTA ───────────────────────────────────────── */}
       <section style={{ background: "var(--bg)", padding: "6rem 0" }}>
-        <div className="max-w-6xl mx-auto" style={{ padding: "0 clamp(1.5rem, 6vw, 5rem)" }}>
+        <div className="max-w-5xl mx-auto" style={{ padding: "0 2rem" }}>
           <FadeIn>
             <div
               className="relative overflow-hidden"

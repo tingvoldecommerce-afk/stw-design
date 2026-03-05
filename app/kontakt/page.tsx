@@ -55,7 +55,7 @@ export default function KontaktPage() {
           borderBottom: "1px solid var(--border)",
         }}
       >
-        <div className="max-w-6xl mx-auto px-6 lg:px-16 text-center">
+        <div className="max-w-5xl mx-auto px-6 lg:px-10 text-center">
           <FadeIn>
             <p className="text-xs tracking-[0.3em] uppercase mb-4" style={{ color: "var(--blue)" }}>
               {lang === "da" ? "Tag kontakt" : "Get in touch"}
@@ -75,7 +75,7 @@ export default function KontaktPage() {
 
       {/* 2-col layout */}
       <section style={{ background: "var(--bg)", paddingTop: "5rem", paddingBottom: "6rem" }}>
-        <div className="max-w-6xl mx-auto px-6 lg:px-16 grid md:grid-cols-2 gap-12 md:gap-16">
+        <div className="max-w-5xl mx-auto px-6 lg:px-10 grid md:grid-cols-2 gap-12 md:gap-16">
           {/* Info column */}
           <FadeIn direction="left">
             <p className="text-lg leading-relaxed mb-10" style={{ color: "var(--text-muted)" }}>
