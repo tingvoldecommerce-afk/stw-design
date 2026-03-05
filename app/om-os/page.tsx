@@ -140,7 +140,7 @@ export default function OmOsPage() {
                     style={{ border: "1px solid var(--border)", background: "var(--bg-soft)" }}
                   >
                     <h3
-                      className="text-lg font-semibold mb-3"
+                      className="text-lg font-bold mb-3"
                       style={{ fontFamily: "var(--font-montserrat)", color: "var(--navy)" }}
                     >
                       {t.title}

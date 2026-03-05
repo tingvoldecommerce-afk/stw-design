@@ -129,7 +129,7 @@ export default function YdelserPage() {
                     </div>
                     <div className="flex-1">
                       <h2
-                        className="text-xl font-semibold"
+                        className="text-xl font-bold"
                         style={{ fontFamily: "var(--font-montserrat)", color: "var(--navy)" }}
                       >
                         {t.title}
@@ -194,7 +194,7 @@ export default function YdelserPage() {
                 <FadeIn key={i} delay={i * 0.1}>
                   <div style={{ borderTop: "2px solid rgba(59,130,246,0.4)", paddingTop: "1.5rem" }}>
                     <h3
-                      className="text-base font-semibold mb-2"
+                      className="text-base font-bold mb-2"
                       style={{ fontFamily: "var(--font-montserrat)", color: "#ffffff" }}
                     >
                       {t.title}

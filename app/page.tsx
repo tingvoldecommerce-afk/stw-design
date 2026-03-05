@@ -107,7 +107,7 @@ export default function HomePage() {
                 className="mb-6"
                 style={{
                   fontFamily: "var(--font-montserrat)",
-                  fontWeight: 800,
+                  fontWeight: 900,
                   fontSize: "clamp(2.1rem, 4.5vw, 3.75rem)",
                   lineHeight: 1.2,
                   color: "var(--navy)",
@@ -598,11 +598,12 @@ export default function HomePage() {
                       {s.icon}
                     </div>
                     <h3
-                      className="font-semibold mb-3"
+                      className="mb-3"
                       style={{
                         fontFamily: "var(--font-montserrat)",
                         color: "var(--navy)",
                         fontSize: "1.1rem",
+                        fontWeight: 700,
                         lineHeight: 1.35,
                         overflowWrap: "break-word",
                       }}
@@ -654,7 +655,7 @@ export default function HomePage() {
                 {lang === "da" ? "Sådan arbejder vi" : "How we work"}
               </p>
               <h2
-                className="leading-tight mb-5"
+                className="mb-5"
                 style={{
                   fontFamily: "var(--font-montserrat)",
                   color: "var(--navy)",

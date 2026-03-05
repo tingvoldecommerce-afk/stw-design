@@ -142,7 +142,7 @@ export default function KontaktPage() {
                     <CheckCircle size={26} style={{ color: "#16a34a" }} />
                   </div>
                   <h2
-                    className="text-2xl font-semibold mb-3"
+                    className="text-2xl font-bold mb-3"
                     style={{ fontFamily: "var(--font-montserrat)", color: "var(--navy)" }}
                   >
                     {lang === "da" ? "Tak for din besked!" : "Thank you for your message!"}
