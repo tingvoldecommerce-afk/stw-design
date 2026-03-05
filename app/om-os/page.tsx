@@ -165,8 +165,8 @@ export default function OmOsPage() {
               style={{ background: "var(--navy)" }}
             >
               <h2
-                className="text-white mb-4"
-                style={{ fontFamily: "var(--font-playfair)", fontSize: "clamp(1.6rem, 3.5vw, 2.5rem)" }}
+                className="mb-4"
+                style={{ fontFamily: "var(--font-playfair)", fontSize: "clamp(1.6rem, 3.5vw, 2.5rem)", color: "#ffffff" }}
               >
                 {lang === "da" ? "Lad os arbejde sammen" : "Let's work together"}
               </h2>

@@ -181,8 +181,8 @@ export default function YdelserPage() {
               {lang === "da" ? "Arbejdsproces" : "Work process"}
             </p>
             <h2
-              className="text-white mb-12"
-              style={{ fontFamily: "var(--font-playfair)", fontSize: "clamp(1.8rem, 4vw, 3rem)" }}
+              className="mb-12"
+              style={{ fontFamily: "var(--font-playfair)", fontSize: "clamp(1.8rem, 4vw, 3rem)", color: "#ffffff" }}
             >
               {lang === "da" ? "Vores proces" : "Our process"}
             </h2>
@@ -194,8 +194,8 @@ export default function YdelserPage() {
                 <FadeIn key={i} delay={i * 0.1}>
                   <div style={{ borderTop: "2px solid rgba(59,130,246,0.4)", paddingTop: "1.5rem" }}>
                     <h3
-                      className="text-base font-semibold text-white mb-2"
-                      style={{ fontFamily: "var(--font-playfair)" }}
+                      className="text-base font-semibold mb-2"
+                      style={{ fontFamily: "var(--font-playfair)", color: "#ffffff" }}
                     >
                       {t.title}
                     </h3>
