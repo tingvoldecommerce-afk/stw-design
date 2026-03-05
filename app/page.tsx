@@ -550,9 +550,11 @@ export default function HomePage() {
               className="mb-12"
               style={{
                 color: "var(--text-muted)",
-                maxWidth: "30rem",
+                maxWidth: "34rem",
                 fontSize: "0.95rem",
-                lineHeight: 1.7,
+                lineHeight: 1.75,
+                textWrap: "balance",
+                overflowWrap: "break-word",
               }}
             >
               {lang === "da"
@@ -610,13 +612,20 @@ export default function HomePage() {
                         fontFamily: "var(--font-playfair)",
                         color: "var(--navy)",
                         fontSize: "1.1rem",
+                        lineHeight: 1.35,
+                        overflowWrap: "break-word",
                       }}
                     >
                       {t.title}
                     </h3>
                     <p
-                      className="leading-relaxed mb-5"
-                      style={{ color: "var(--text-muted)", fontSize: "0.875rem" }}
+                      className="mb-5"
+                      style={{
+                        color: "var(--text-muted)",
+                        fontSize: "0.875rem",
+                        lineHeight: 1.75,
+                        overflowWrap: "break-word",
+                      }}
                     >
                       {t.desc}
                     </p>
