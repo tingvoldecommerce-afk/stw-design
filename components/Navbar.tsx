@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "motion/react";
 import { useLang } from "./LangProvider";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ArrowRight } from "lucide-react";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -54,48 +54,77 @@ export default function Navbar() {
             : "bg-white border-b border-slate-100 shadow-sm"
         }`}
       >
-        <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+        <nav className="max-w-7xl mx-auto px-8 h-20 flex items-center justify-between gap-8">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2.5 shrink-0">
+          <Link href="/" className="flex items-center gap-3 shrink-0">
             <div
-              className="w-8 h-8 flex items-center justify-center"
+              className="w-11 h-11 flex items-center justify-center shrink-0"
               style={{ background: "var(--navy)" }}
             >
-              <span className="text-white text-[10px] font-bold tracking-widest">STW</span>
+              <span
+                className="text-white font-black tracking-widest"
+                style={{ fontSize: "11px", fontFamily: "var(--font-montserrat)" }}
+              >
+                STW
+              </span>
             </div>
             <span
-              className="font-semibold text-sm tracking-wide"
-              style={{ color: transparent ? "#fff" : "var(--navy)" }}
+              className="font-black tracking-tight"
+              style={{
+                fontFamily: "var(--font-montserrat)",
+                fontSize: "1.2rem",
+                letterSpacing: "-0.02em",
+                color: transparent ? "#fff" : "var(--navy)",
+              }}
             >
               Webdesign
             </span>
           </Link>
 
           {/* Desktop links */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-10 flex-1 justify-center">
             {links.map((l) => (
               <Link
                 key={l.href}
                 href={l.href}
-                className="text-sm font-medium transition-opacity hover:opacity-60"
+                className="text-sm font-semibold tracking-wide transition-opacity hover:opacity-60"
                 style={{
                   color: transparent ? "#fff" : "var(--navy)",
-                  borderBottom: pathname === l.href ? "1px solid currentColor" : "none",
+                  borderBottom: pathname === l.href ? "2px solid currentColor" : "2px solid transparent",
+                  paddingBottom: "2px",
                 }}
               >
                 {l.label}
               </Link>
             ))}
+          </div>
+
+          {/* Right: CTA + lang */}
+          <div className="hidden md:flex items-center gap-4 shrink-0">
             <button
               onClick={() => setLang(lang === "da" ? "en" : "da")}
-              className="text-xs font-semibold tracking-widest px-2.5 py-1 border transition-colors"
+              className="text-xs font-bold tracking-widest px-3 py-1.5 border transition-colors"
               style={{
-                borderColor: transparent ? "rgba(255,255,255,0.6)" : "var(--navy)",
+                borderColor: transparent ? "rgba(255,255,255,0.5)" : "var(--navy)",
                 color: transparent ? "#fff" : "var(--navy)",
               }}
             >
               {lang === "da" ? "EN" : "DA"}
             </button>
+            <Link
+              href="/kontakt"
+              className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase transition-all"
+              style={{
+                background: transparent ? "rgba(255,255,255,0.15)" : "var(--navy)",
+                color: "#fff",
+                padding: "0.6rem 1.25rem",
+                border: transparent ? "1px solid rgba(255,255,255,0.4)" : "1px solid transparent",
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.background = "var(--navy-mid)")}
+              onMouseLeave={(e) => (e.currentTarget.style.background = transparent ? "rgba(255,255,255,0.15)" : "var(--navy)")}
+            >
+              {lang === "da" ? "Gratis analyse" : "Free analysis"} <ArrowRight size={12} />
+            </Link>
           </div>
 
           {/* Mobile toggle */}
