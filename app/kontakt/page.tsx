@@ -142,7 +142,7 @@ export default function KontaktPage() {
                   </p>
                 </motion.div>
               ) : (
-                <motion.form key="form" onSubmit={handleSubmit} className="space-y-4">
+                <motion.form key="form" onSubmit={handleSubmit} className="space-y-5">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label
@@ -244,8 +244,8 @@ export default function KontaktPage() {
                   <button
                     type="submit"
                     disabled={loading}
-                    className="w-full text-sm font-semibold tracking-widest uppercase py-4 transition-all"
-                    style={{ background: loading ? "var(--text-muted)" : "var(--navy)", color: "#fff", cursor: loading ? "not-allowed" : "pointer" }}
+                    className="w-full text-sm font-bold tracking-widest uppercase transition-all"
+                    style={{ background: loading ? "var(--text-muted)" : "var(--navy)", color: "#fff", cursor: loading ? "not-allowed" : "pointer", padding: "1.1rem 2rem", letterSpacing: "0.1em" }}
                     onMouseEnter={(e) => { if (!loading) e.currentTarget.style.background = "var(--navy-mid)"; }}
                     onMouseLeave={(e) => { if (!loading) e.currentTarget.style.background = "var(--navy)"; }}
                   >

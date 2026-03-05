@@ -121,7 +121,7 @@ export default function HomePage() {
             <Link
               href="/kontakt"
               className="inline-flex items-center gap-2 text-sm font-semibold tracking-wider uppercase transition-all"
-              style={{ background: "var(--navy)", color: "#fff", padding: "0.85rem 2rem" }}
+              style={{ background: "var(--navy)", color: "#fff", padding: "1rem 2rem" }}
               onMouseEnter={(e) => (e.currentTarget.style.background = "var(--navy-mid)")}
               onMouseLeave={(e) => (e.currentTarget.style.background = "var(--navy)")}
             >
@@ -131,7 +131,7 @@ export default function HomePage() {
             <Link
               href="/ydelser"
               className="inline-flex items-center gap-2 text-sm font-semibold tracking-wider uppercase transition-all"
-              style={{ border: "1.5px solid var(--navy)", color: "var(--navy)", padding: "0.85rem 2rem" }}
+              style={{ border: "1.5px solid var(--navy)", color: "var(--navy)", padding: "1rem 2rem" }}
               onMouseEnter={(e) => { e.currentTarget.style.background = "var(--navy)"; e.currentTarget.style.color = "#fff"; }}
               onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "var(--navy)"; }}
             >
@@ -155,7 +155,7 @@ export default function HomePage() {
       </section>
 
       {/* ── Services ──────────────────────────────────── */}
-      <section style={{ background: "var(--bg)", padding: "6rem 0" }}>
+      <section style={{ background: "var(--bg)", padding: "5rem 0" }}>
         <div className="max-w-5xl mx-auto" style={{ padding: "0 2rem" }}>
           <FadeIn>
             <div className="text-center mb-12">
@@ -276,7 +276,7 @@ export default function HomePage() {
       </section>
 
       {/* ── Process ───────────────────────────────────── */}
-      <section style={{ background: "var(--bg-grey)", padding: "6rem 0" }}>
+      <section style={{ background: "var(--bg-grey)", padding: "5rem 0" }}>
         <div className="max-w-5xl mx-auto" style={{ padding: "0 2rem" }}>
           <FadeIn>
             <div className="text-center mb-12">
@@ -349,7 +349,7 @@ export default function HomePage() {
       </section>
 
       {/* ── CTA ───────────────────────────────────────── */}
-      <section style={{ background: "var(--bg)", padding: "6rem 0" }}>
+      <section style={{ background: "var(--bg)", padding: "5rem 0" }}>
         <div className="max-w-5xl mx-auto" style={{ padding: "0 2rem" }}>
           <FadeIn>
             <div
@@ -440,7 +440,7 @@ export default function HomePage() {
                   style={{
                     background: "#fff",
                     color: "var(--navy)",
-                    padding: "0.85rem 2rem",
+                    padding: "1rem 2rem",
                   }}
                   onMouseEnter={(e) =>
                     (e.currentTarget.style.background = "#e8edf5")
