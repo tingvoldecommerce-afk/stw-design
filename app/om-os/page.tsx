@@ -55,8 +55,8 @@ export default function OmOsPage() {
             </h1>
             <p className="mt-5 max-w-2xl text-lg leading-relaxed" style={{ color: "var(--text-muted)" }}>
               {lang === "da"
-                ? "STW Design er et dansk digitalt bureau grundlagt af Sebastian. Vi hjælper virksomheder med at skabe en stærk digital tilstedeværelse."
-                : "STW Design is a Danish digital agency founded by Sebastian. We help businesses create a strong digital presence."}
+                ? "STW-Webdesign er et dansk digitalt bureau grundlagt af Sebastian. Vi hjælper virksomheder med at skabe en stærk digital tilstedeværelse."
+                : "STW-Webdesign is a Danish digital agency founded by Sebastian. We help businesses create a strong digital presence."}
             </p>
           </FadeIn>
         </div>

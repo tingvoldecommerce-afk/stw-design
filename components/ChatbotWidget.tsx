@@ -14,7 +14,7 @@ const LEAD_TRIGGER_COUNT = 3;
 export default function ChatbotWidget() {
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
-    { role: "assistant", content: "Hej! Jeg er NEXUS, STW Designs AI-assistent. Hvordan kan jeg hjælpe dig? 😊" },
+    { role: "assistant", content: "Hej! Jeg er NEXUS, STW-Webdesigns AI-assistent. Hvordan kan jeg hjælpe dig? 😊" },
   ]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
@@ -103,7 +103,7 @@ export default function ChatbotWidget() {
             {/* Header */}
             <div className="px-4 py-3 flex items-center gap-2.5" style={{ background: "var(--navy)", color: "#fff" }}>
               <div className="w-2 h-2 rounded-full bg-green-400" />
-              <span className="text-sm font-semibold tracking-wide">NEXUS · STW Design</span>
+              <span className="text-sm font-semibold tracking-wide">NEXUS · STW-Webdesign</span>
             </div>
 
             {/* Messages */}

@@ -18,8 +18,8 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "STW Design – Professionelle hjemmesider & AI chatbots",
-    template: "%s · STW Design",
+    default: "STW-Webdesign – Professionelle hjemmesider & AI chatbots",
+    template: "%s · STW-Webdesign",
   },
   description:
     "Vi bygger skræddersyede hjemmesider, AI chatbots og SEO-løsninger til danske virksomheder. Hurtig levering, dansk support, målbare resultater.",
@@ -28,8 +28,8 @@ export const metadata: Metadata = {
     type: "website",
     locale: "da_DK",
     url: "https://www.stw-webdesign.dk",
-    siteName: "STW Design",
-    title: "STW Design – Professionelle hjemmesider & AI chatbots",
+    siteName: "STW-Webdesign",
+    title: "STW-Webdesign – Professionelle hjemmesider & AI chatbots",
     description: "Skræddersyede digitale løsninger til danske virksomheder.",
     images: [{ url: "/og-image.png", width: 1200, height: 630 }],
   },

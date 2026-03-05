@@ -67,7 +67,7 @@ export default function Navbar() {
               className="font-semibold text-sm tracking-wide"
               style={{ color: transparent ? "#fff" : "var(--navy)" }}
             >
-              Design
+              Webdesign
             </span>
           </Link>
 

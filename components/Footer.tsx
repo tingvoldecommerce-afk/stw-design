@@ -25,17 +25,24 @@ export default function Footer({ onPrivacy, onCookies }: FooterProps) {
         ];
 
   return (
-    <footer style={{ background: "var(--navy)", color: "#fff" }}>
+    <footer style={{ background: "var(--navy)", color: "#fff", marginTop: "0" }}>
       {/* Big CTA text */}
       <div
-        className="max-w-6xl mx-auto px-6 py-16 md:py-20"
-        style={{ borderBottom: "1px solid rgba(255,255,255,0.08)" }}
+        className="max-w-6xl mx-auto px-6"
+        style={{
+          paddingTop: "5rem",
+          paddingBottom: "5rem",
+          borderBottom: "1px solid rgba(255,255,255,0.08)",
+        }}
       >
         <p
           className="leading-tight mb-8"
           style={{
             fontFamily: "var(--font-playfair)",
             fontSize: "clamp(2rem, 5vw, 4.5rem)",
+            overflowWrap: "break-word",
+            wordBreak: "break-word",
+            maxWidth: "100%",
           }}
         >
           {lang === "da" ? (
@@ -67,7 +74,7 @@ export default function Footer({ onPrivacy, onCookies }: FooterProps) {
           <div className="w-6 h-6 flex items-center justify-center" style={{ background: "#fff" }}>
             <span className="text-[9px] font-bold tracking-widest" style={{ color: "var(--navy)" }}>STW</span>
           </div>
-          <span className="font-medium" style={{ color: "rgba(255,255,255,0.8)" }}>STW Design</span>
+          <span className="font-medium" style={{ color: "rgba(255,255,255,0.8)" }}>STW-Webdesign</span>
         </div>
 
         <nav className="flex flex-wrap gap-5">
@@ -95,7 +102,7 @@ export default function Footer({ onPrivacy, onCookies }: FooterProps) {
         className="max-w-6xl mx-auto px-6 pb-6 flex flex-col md:flex-row items-center justify-between gap-3 text-xs"
         style={{ color: "rgba(255,255,255,0.25)", borderTop: "1px solid rgba(255,255,255,0.06)" }}
       >
-        <span className="pt-5">© 2026 STW Design</span>
+        <span className="pt-5">© 2026 STW-Webdesign</span>
         <div className="flex gap-4 pt-5">
           <button
             onClick={onPrivacy}

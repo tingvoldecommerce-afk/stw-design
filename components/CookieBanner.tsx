@@ -83,7 +83,7 @@ export default function CookieBanner({ onPrivacyOpen, onCookiesOpen }: CookieBan
             <p className="text-sm text-gray-600 mb-3">Sidst opdateret: Januar 2026</p>
             <h3 className="font-semibold mb-2">1. Dataansvar</h3>
             <p className="text-sm text-gray-700 mb-4">
-              STW Design er dataansvarlig for de personoplysninger, vi behandler om dig.
+              STW-Webdesign er dataansvarlig for de personoplysninger, vi behandler om dig.
               Kontakt: kontakt@stw-webdesign.dk
             </p>
             <h3 className="font-semibold mb-2">2. Hvilke data indsamler vi?</h3>
