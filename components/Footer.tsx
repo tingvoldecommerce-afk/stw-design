@@ -28,21 +28,24 @@ export default function Footer({ onPrivacy, onCookies }: FooterProps) {
     <footer style={{ background: "var(--navy)", color: "#fff", marginTop: "0" }}>
       {/* Big CTA text */}
       <div
-        className="max-w-6xl mx-auto px-6"
+        className="max-w-6xl mx-auto"
         style={{
           paddingTop: "5rem",
           paddingBottom: "5rem",
+          paddingLeft: "1.5rem",
+          paddingRight: "1.5rem",
           borderBottom: "1px solid rgba(255,255,255,0.08)",
         }}
       >
         <p
-          className="leading-tight mb-8"
           style={{
             fontFamily: "var(--font-playfair)",
             fontSize: "clamp(2rem, 5vw, 4.5rem)",
+            lineHeight: 1.35,
             overflowWrap: "break-word",
             wordBreak: "break-word",
             maxWidth: "100%",
+            marginBottom: "2.5rem",
           }}
         >
           {lang === "da" ? (

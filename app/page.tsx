@@ -773,10 +773,12 @@ export default function HomePage() {
                   {lang === "da" ? "Klar til at starte?" : "Ready to start?"}
                 </p>
                 <h2
-                  className="text-white leading-tight mb-4"
+                  className="text-white mb-4"
                   style={{
                     fontFamily: "var(--font-playfair)",
                     fontSize: "clamp(1.75rem, 3.5vw, 2.75rem)",
+                    lineHeight: 1.45,
+                    overflowWrap: "break-word",
                   }}
                 >
                   {lang === "da" ? (
