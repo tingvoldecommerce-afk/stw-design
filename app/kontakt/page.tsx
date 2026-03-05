@@ -73,60 +73,50 @@ export default function KontaktPage() {
         </div>
       </section>
 
-      {/* 2-col layout */}
+      {/* Centered form layout */}
       <section style={{ background: "var(--bg)", paddingTop: "5rem", paddingBottom: "6rem" }}>
-        <div className="max-w-5xl mx-auto px-6 lg:px-10 grid md:grid-cols-2 gap-12 md:gap-16">
-          {/* Info column */}
-          <FadeIn direction="left">
-            <p className="text-lg leading-relaxed mb-10" style={{ color: "var(--text-muted)" }}>
-              {lang === "da"
-                ? "Vi glæder os til at høre om dit projekt. Udfyld formularen, og vi vender tilbage inden for 24 timer."
-                : "We look forward to hearing about your project. Fill out the form and we'll get back to you within 24 hours."}
-            </p>
-            <div className="space-y-6">
-              <div className="flex items-start gap-4">
+        <div className="max-w-5xl mx-auto px-6 lg:px-10">
+          {/* Info row centered above form */}
+          <FadeIn>
+            <div className="flex flex-wrap justify-center gap-8 mb-10 text-center">
+              <div className="flex flex-col items-center gap-2">
                 <div
-                  className="w-10 h-10 flex items-center justify-center shrink-0"
+                  className="w-10 h-10 flex items-center justify-center"
                   style={{ background: "rgba(59,130,246,0.1)", color: "var(--blue)", borderRadius: "8px" }}
                 >
                   <Mail size={17} />
                 </div>
-                <div>
-                  <p className="text-xs tracking-[0.2em] uppercase mb-1" style={{ color: "var(--text-muted)" }}>
-                    Email
-                  </p>
-                  <a
-                    href="mailto:kontakt@stw-webdesign.dk"
-                    className="font-medium transition-colors"
-                    style={{ color: "var(--navy)" }}
-                    onMouseEnter={(e) => (e.currentTarget.style.color = "var(--blue)")}
-                    onMouseLeave={(e) => (e.currentTarget.style.color = "var(--navy)")}
-                  >
-                    kontakt@stw-webdesign.dk
-                  </a>
-                </div>
+                <p className="text-xs tracking-[0.2em] uppercase" style={{ color: "var(--text-muted)" }}>Email</p>
+                <a
+                  href="mailto:kontakt@stw-webdesign.dk"
+                  className="font-medium text-sm transition-colors"
+                  style={{ color: "var(--navy)" }}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = "var(--blue)")}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = "var(--navy)")}
+                >
+                  kontakt@stw-webdesign.dk
+                </a>
               </div>
-              <div className="flex items-start gap-4">
+              <div className="flex flex-col items-center gap-2">
                 <div
-                  className="w-10 h-10 flex items-center justify-center shrink-0"
+                  className="w-10 h-10 flex items-center justify-center"
                   style={{ background: "rgba(59,130,246,0.1)", color: "var(--blue)", borderRadius: "8px" }}
                 >
                   <Clock size={17} />
                 </div>
-                <div>
-                  <p className="text-xs tracking-[0.2em] uppercase mb-1" style={{ color: "var(--text-muted)" }}>
-                    {lang === "da" ? "Svartid" : "Response time"}
-                  </p>
-                  <p className="font-medium" style={{ color: "var(--navy)" }}>
-                    {lang === "da" ? "Inden for 24 timer på hverdage" : "Within 24 hours on weekdays"}
-                  </p>
-                </div>
+                <p className="text-xs tracking-[0.2em] uppercase" style={{ color: "var(--text-muted)" }}>
+                  {lang === "da" ? "Svartid" : "Response time"}
+                </p>
+                <p className="font-medium text-sm" style={{ color: "var(--navy)" }}>
+                  {lang === "da" ? "Inden for 24 timer" : "Within 24 hours"}
+                </p>
               </div>
             </div>
           </FadeIn>
 
-          {/* Form */}
-          <FadeIn direction="right">
+          {/* Form centered, max-width 600px */}
+          <FadeIn>
+            <div style={{ maxWidth: "600px", margin: "0 auto" }}>
             <AnimatePresence mode="wait">
               {submitted ? (
                 <motion.div
@@ -266,6 +256,7 @@ export default function KontaktPage() {
                 </motion.form>
               )}
             </AnimatePresence>
+            </div>
           </FadeIn>
         </div>
       </section>

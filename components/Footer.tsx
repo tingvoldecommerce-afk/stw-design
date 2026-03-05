@@ -28,12 +28,12 @@ export default function Footer({ onPrivacy, onCookies }: FooterProps) {
     <footer style={{ background: "var(--navy)", color: "#fff", marginTop: "0" }}>
       {/* Big CTA text */}
       <div
-        className="max-w-5xl mx-auto"
+        className="max-w-5xl mx-auto text-center"
         style={{
           paddingTop: "5rem",
           paddingBottom: "5rem",
-          paddingLeft: "1.5rem",
-          paddingRight: "1.5rem",
+          paddingLeft: "2rem",
+          paddingRight: "2rem",
           borderBottom: "1px solid rgba(255,255,255,0.08)",
         }}
       >
