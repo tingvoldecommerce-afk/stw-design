@@ -55,7 +55,7 @@ export default function KontaktPage() {
           borderBottom: "1px solid var(--border)",
         }}
       >
-        <div className="max-w-5xl mx-auto px-6 lg:px-10 text-center">
+        <div className="wrap text-center">
           <FadeIn>
             <p className="text-xs tracking-[0.3em] uppercase mb-4" style={{ color: "var(--blue)" }}>
               {lang === "da" ? "Tag kontakt" : "Get in touch"}
@@ -75,7 +75,7 @@ export default function KontaktPage() {
 
       {/* Centered form layout */}
       <section style={{ background: "var(--bg)", paddingTop: "5rem", paddingBottom: "6rem" }}>
-        <div className="max-w-5xl mx-auto px-6 lg:px-10">
+        <div className="wrap">
           {/* Info row centered above form */}
           <FadeIn>
             <div className="flex flex-wrap justify-center gap-8 mb-10 text-center">
@@ -116,20 +116,29 @@ export default function KontaktPage() {
 
           {/* Form centered, max-width 600px */}
           <FadeIn>
-            <div style={{ maxWidth: "600px", margin: "0 auto" }}>
+            <div
+              style={{
+                maxWidth: "600px",
+                margin: "0 auto",
+                background: "var(--bg-soft)",
+                border: "1px solid var(--border)",
+                borderRadius: "12px",
+                padding: "2.5rem",
+              }}
+            >
             <AnimatePresence mode="wait">
               {submitted ? (
                 <motion.div
                   key="success"
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="flex flex-col items-center justify-center py-16 text-center"
+                  className="flex flex-col items-center justify-center py-12 text-center"
                 >
                   <div
-                    className="w-14 h-14 flex items-center justify-center mb-5"
+                    className="w-16 h-16 flex items-center justify-center mb-6"
                     style={{ background: "rgba(22,163,74,0.1)", borderRadius: "50%" }}
                   >
-                    <CheckCircle size={26} style={{ color: "#16a34a" }} />
+                    <CheckCircle size={30} style={{ color: "#16a34a" }} />
                   </div>
                   <h2
                     className="text-2xl font-bold mb-3"
@@ -142,12 +151,12 @@ export default function KontaktPage() {
                   </p>
                 </motion.div>
               ) : (
-                <motion.form key="form" onSubmit={handleSubmit} className="space-y-5">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <motion.form key="form" onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
                       <label
-                        className="block text-xs tracking-[0.2em] uppercase mb-1.5"
-                        style={{ color: "var(--text-muted)" }}
+                        className="block text-xs font-semibold tracking-[0.15em] uppercase mb-2"
+                        style={{ color: "var(--navy)" }}
                       >
                         {lang === "da" ? "Navn" : "Name"}
                       </label>
@@ -156,21 +165,23 @@ export default function KontaktPage() {
                         required
                         value={form.name}
                         onChange={(e) => setForm({ ...form, name: e.target.value })}
-                        className="w-full px-4 py-3 text-sm outline-none transition-colors"
+                        className="w-full px-4 text-sm outline-none transition-colors"
                         style={{
-                          border: "1px solid var(--border)",
-                          background: "var(--bg-soft)",
+                          border: "1.5px solid var(--border)",
+                          background: "#fff",
                           color: "var(--navy)",
+                          borderRadius: "6px",
+                          padding: "0.8rem 1rem",
                         }}
                         onFocus={(e) => (e.currentTarget.style.borderColor = "var(--blue)")}
                         onBlur={(e) => (e.currentTarget.style.borderColor = "var(--border)")}
-                        placeholder={lang === "da" ? "Dit navn" : "Your name"}
+                        placeholder={lang === "da" ? "Dit fulde navn" : "Your full name"}
                       />
                     </div>
                     <div>
                       <label
-                        className="block text-xs tracking-[0.2em] uppercase mb-1.5"
-                        style={{ color: "var(--text-muted)" }}
+                        className="block text-xs font-semibold tracking-[0.15em] uppercase mb-2"
+                        style={{ color: "var(--navy)" }}
                       >
                         Email
                       </label>
@@ -179,39 +190,43 @@ export default function KontaktPage() {
                         required
                         value={form.email}
                         onChange={(e) => setForm({ ...form, email: e.target.value })}
-                        className="w-full px-4 py-3 text-sm outline-none transition-colors"
+                        className="w-full text-sm outline-none transition-colors"
                         style={{
-                          border: "1px solid var(--border)",
-                          background: "var(--bg-soft)",
+                          border: "1.5px solid var(--border)",
+                          background: "#fff",
                           color: "var(--navy)",
+                          borderRadius: "6px",
+                          padding: "0.8rem 1rem",
                         }}
                         onFocus={(e) => (e.currentTarget.style.borderColor = "var(--blue)")}
                         onBlur={(e) => (e.currentTarget.style.borderColor = "var(--border)")}
-                        placeholder={lang === "da" ? "Din email" : "Your email"}
+                        placeholder={lang === "da" ? "din@email.dk" : "your@email.com"}
                       />
                     </div>
                   </div>
                   <div>
                     <label
-                      className="block text-xs tracking-[0.2em] uppercase mb-1.5"
-                      style={{ color: "var(--text-muted)" }}
+                      className="block text-xs font-semibold tracking-[0.15em] uppercase mb-2"
+                      style={{ color: "var(--navy)" }}
                     >
-                      {lang === "da" ? "Hvad er du interesseret i?" : "What are you interested in?"}
+                      {lang === "da" ? "Hvad har du brug for?" : "What do you need?"}
                     </label>
                     <select
                       value={form.service}
                       onChange={(e) => setForm({ ...form, service: e.target.value })}
-                      className="w-full px-4 py-3 text-sm outline-none cursor-pointer"
+                      className="w-full text-sm outline-none cursor-pointer"
                       style={{
-                        border: "1px solid var(--border)",
-                        background: "var(--bg-soft)",
+                        border: "1.5px solid var(--border)",
+                        background: "#fff",
                         color: form.service ? "var(--navy)" : "var(--text-muted)",
+                        borderRadius: "6px",
+                        padding: "0.8rem 1rem",
                         appearance: "none",
                       }}
                       onFocus={(e) => (e.currentTarget.style.borderColor = "var(--blue)")}
                       onBlur={(e) => (e.currentTarget.style.borderColor = "var(--border)")}
                     >
-                      <option value="">{lang === "da" ? "Vælg ydelse..." : "Select service..."}</option>
+                      <option value="">{lang === "da" ? "Vælg en ydelse..." : "Select a service..."}</option>
                       {services.map((s) => (
                         <option key={s} value={s}>{s}</option>
                       ))}
@@ -219,39 +234,53 @@ export default function KontaktPage() {
                   </div>
                   <div>
                     <label
-                      className="block text-xs tracking-[0.2em] uppercase mb-1.5"
-                      style={{ color: "var(--text-muted)" }}
+                      className="block text-xs font-semibold tracking-[0.15em] uppercase mb-2"
+                      style={{ color: "var(--navy)" }}
                     >
-                      {lang === "da" ? "Besked" : "Message"}
+                      {lang === "da" ? "Din besked" : "Your message"}
                     </label>
                     <textarea
                       required
                       rows={5}
                       value={form.message}
                       onChange={(e) => setForm({ ...form, message: e.target.value })}
-                      className="w-full px-4 py-3 text-sm outline-none resize-none"
+                      className="w-full text-sm outline-none resize-none"
                       style={{
-                        border: "1px solid var(--border)",
-                        background: "var(--bg-soft)",
+                        border: "1.5px solid var(--border)",
+                        background: "#fff",
                         color: "var(--navy)",
+                        borderRadius: "6px",
+                        padding: "0.8rem 1rem",
+                        lineHeight: 1.7,
                       }}
                       onFocus={(e) => (e.currentTarget.style.borderColor = "var(--blue)")}
                       onBlur={(e) => (e.currentTarget.style.borderColor = "var(--border)")}
-                      placeholder={lang === "da" ? "Fortæl os om dit projekt..." : "Tell us about your project..."}
+                      placeholder={lang === "da" ? "Beskriv dit projekt og dine mål..." : "Describe your project and goals..."}
                     />
                   </div>
-                  {error && <p className="text-sm" style={{ color: "#dc2626" }}>{error}</p>}
+                  {error && (
+                    <p className="text-sm px-4 py-3" style={{ color: "#dc2626", background: "#fef2f2", borderRadius: "6px" }}>
+                      {error}
+                    </p>
+                  )}
                   <button
                     type="submit"
                     disabled={loading}
                     className="w-full text-sm font-bold tracking-widest uppercase transition-all"
-                    style={{ background: loading ? "var(--text-muted)" : "var(--navy)", color: "#fff", cursor: loading ? "not-allowed" : "pointer", padding: "1.1rem 2rem", letterSpacing: "0.1em" }}
+                    style={{
+                      background: loading ? "var(--text-muted)" : "var(--navy)",
+                      color: "#fff",
+                      cursor: loading ? "not-allowed" : "pointer",
+                      padding: "1rem 2rem",
+                      borderRadius: "6px",
+                      letterSpacing: "0.1em",
+                    }}
                     onMouseEnter={(e) => { if (!loading) e.currentTarget.style.background = "var(--navy-mid)"; }}
                     onMouseLeave={(e) => { if (!loading) e.currentTarget.style.background = "var(--navy)"; }}
                   >
                     {loading
                       ? (lang === "da" ? "Sender..." : "Sending...")
-                      : (lang === "da" ? "Send besked" : "Send message")}
+                      : (lang === "da" ? "Send besked →" : "Send message →")}
                   </button>
                 </motion.form>
               )}

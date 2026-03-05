@@ -39,7 +39,7 @@ export default function OmOsPage() {
           borderBottom: "1px solid var(--border)",
         }}
       >
-        <div className="max-w-5xl mx-auto px-6 lg:px-10 text-center">
+        <div className="wrap text-center">
           <FadeIn>
             <p className="text-xs tracking-[0.3em] uppercase mb-4" style={{ color: "var(--blue)" }}>
               {lang === "da" ? "Hvem er vi?" : "Who are we?"}
@@ -64,7 +64,7 @@ export default function OmOsPage() {
 
       {/* Image */}
       <section style={{ background: "var(--bg)", paddingTop: "5rem", paddingBottom: "5rem" }}>
-        <div className="max-w-5xl mx-auto px-6 lg:px-10">
+        <div className="wrap">
           <FadeIn>
             <div className="relative overflow-hidden" style={{ aspectRatio: "16/6", background: "#0f172a" }}>
               <Image
@@ -80,7 +80,7 @@ export default function OmOsPage() {
 
       {/* Mission / Vision */}
       <section style={{ background: "var(--bg-soft)", paddingTop: "5rem", paddingBottom: "5rem" }}>
-        <div className="max-w-5xl mx-auto px-6 lg:px-10 grid md:grid-cols-2 gap-10 md:gap-16">
+        <div className="wrap grid md:grid-cols-2 gap-10 md:gap-16">
           <FadeIn direction="left">
             <p className="text-xs tracking-[0.3em] uppercase mb-4" style={{ color: "var(--blue)" }}>Mission</p>
             <h2
@@ -118,7 +118,7 @@ export default function OmOsPage() {
 
       {/* Values */}
       <section style={{ background: "var(--bg)", paddingTop: "5rem", paddingBottom: "5rem" }}>
-        <div className="max-w-5xl mx-auto px-6 lg:px-10">
+        <div className="wrap">
           <FadeIn>
             <div className="text-center mb-10">
               <p className="text-xs tracking-[0.3em] uppercase mb-3" style={{ color: "var(--blue)" }}>
@@ -159,7 +159,7 @@ export default function OmOsPage() {
 
       {/* CTA */}
       <section style={{ background: "var(--bg-soft)", paddingTop: "5rem", paddingBottom: "5rem" }}>
-        <div className="max-w-5xl mx-auto px-6 lg:px-10">
+        <div className="wrap">
           <FadeIn>
             <div
               className="rounded-2xl p-10 md:p-14 text-center"

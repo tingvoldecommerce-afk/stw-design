@@ -86,7 +86,7 @@ export default function YdelserPage() {
           borderBottom: "1px solid var(--border)",
         }}
       >
-        <div className="max-w-5xl mx-auto px-6 lg:px-10 text-center">
+        <div className="wrap text-center">
           <FadeIn>
             <p className="text-xs tracking-[0.3em] uppercase mb-4" style={{ color: "var(--blue)" }}>
               {lang === "da" ? "Hvad vi kan gøre for dig" : "What we can do for you"}
@@ -111,7 +111,7 @@ export default function YdelserPage() {
 
       {/* Services accordion */}
       <section style={{ background: "var(--bg)", paddingTop: "4rem", paddingBottom: "4rem" }}>
-        <div className="max-w-5xl mx-auto px-6 lg:px-10">
+        <div className="wrap">
           {services.map((s, i) => {
             const t = lang === "da" ? s.da : s.en;
             return (
@@ -175,7 +175,7 @@ export default function YdelserPage() {
 
       {/* Process */}
       <section style={{ background: "var(--navy)", paddingTop: "5rem", paddingBottom: "5rem" }}>
-        <div className="max-w-5xl mx-auto px-6 lg:px-10">
+        <div className="wrap">
           <FadeIn>
             <div className="text-center mb-12">
               <p className="text-xs tracking-[0.3em] uppercase mb-4" style={{ color: "rgba(255,255,255,0.4)" }}>
@@ -213,7 +213,7 @@ export default function YdelserPage() {
 
       {/* CTA */}
       <section style={{ background: "var(--bg)", paddingTop: "5rem", paddingBottom: "5rem" }}>
-        <div className="max-w-5xl mx-auto px-6 lg:px-10 text-center">
+        <div className="wrap text-center">
           <FadeIn>
             <h2
               className="mb-5"

@@ -31,7 +31,7 @@ export default function Navbar() {
         className="fixed top-0 left-0 right-0 bg-white border-b border-slate-100 shadow-sm"
         style={{ zIndex: 1000 }}
       >
-        <nav className="max-w-5xl mx-auto px-8 h-20 flex items-center justify-between gap-8">
+        <nav className="wrap h-20 flex items-center justify-between gap-8">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 shrink-0">
             <div

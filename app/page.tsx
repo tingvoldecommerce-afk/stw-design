@@ -156,7 +156,7 @@ export default function HomePage() {
 
       {/* ── Services ──────────────────────────────────── */}
       <section style={{ background: "var(--bg)", padding: "5rem 0" }}>
-        <div className="max-w-5xl mx-auto" style={{ padding: "0 2rem" }}>
+        <div className="wrap">
           <FadeIn>
             <div className="text-center mb-12">
               <p
@@ -277,7 +277,7 @@ export default function HomePage() {
 
       {/* ── Process ───────────────────────────────────── */}
       <section style={{ background: "var(--bg-grey)", padding: "5rem 0" }}>
-        <div className="max-w-5xl mx-auto" style={{ padding: "0 2rem" }}>
+        <div className="wrap">
           <FadeIn>
             <div className="text-center mb-12">
               <p
@@ -350,7 +350,7 @@ export default function HomePage() {
 
       {/* ── CTA ───────────────────────────────────────── */}
       <section style={{ background: "var(--bg)", padding: "5rem 0" }}>
-        <div className="max-w-5xl mx-auto" style={{ padding: "0 2rem" }}>
+        <div className="wrap">
           <FadeIn>
             <div
               className="relative overflow-hidden"
