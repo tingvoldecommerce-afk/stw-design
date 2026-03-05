@@ -62,7 +62,7 @@ export default function KontaktPage() {
             </p>
             <h1
               style={{
-                fontFamily: "var(--font-playfair)",
+                fontFamily: "var(--font-montserrat)",
                 color: "var(--navy)",
                 fontSize: "clamp(2.5rem, 6vw, 4.5rem)",
               }}
@@ -143,7 +143,7 @@ export default function KontaktPage() {
                   </div>
                   <h2
                     className="text-2xl font-semibold mb-3"
-                    style={{ fontFamily: "var(--font-playfair)", color: "var(--navy)" }}
+                    style={{ fontFamily: "var(--font-montserrat)", color: "var(--navy)" }}
                   >
                     {lang === "da" ? "Tak for din besked!" : "Thank you for your message!"}
                   </h2>

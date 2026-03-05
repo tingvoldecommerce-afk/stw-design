@@ -39,7 +39,7 @@ export default function Footer({ onPrivacy, onCookies }: FooterProps) {
       >
         <p
           style={{
-            fontFamily: "var(--font-playfair)",
+            fontFamily: "var(--font-montserrat)",
             fontSize: "clamp(2rem, 5vw, 4.5rem)",
             lineHeight: 1.35,
             overflowWrap: "break-word",
@@ -51,12 +51,12 @@ export default function Footer({ onPrivacy, onCookies }: FooterProps) {
           {lang === "da" ? (
             <>
               Lad os skabe noget{" "}
-              <em className="italic font-normal" style={{ color: "#93C5FD" }}>ekstraordinært.</em>
+              <em className="font-semibold" style={{ color: "#93C5FD" }}>ekstraordinært.</em>
             </>
           ) : (
             <>
               Let&apos;s create something{" "}
-              <em className="italic font-normal" style={{ color: "#93C5FD" }}>extraordinary.</em>
+              <em className="font-semibold" style={{ color: "#93C5FD" }}>extraordinary.</em>
             </>
           )}
         </p>

@@ -46,7 +46,7 @@ export default function OmOsPage() {
             </p>
             <h1
               style={{
-                fontFamily: "var(--font-playfair)",
+                fontFamily: "var(--font-montserrat)",
                 color: "var(--navy)",
                 fontSize: "clamp(2.5rem, 6vw, 4.5rem)",
               }}
@@ -85,7 +85,7 @@ export default function OmOsPage() {
             <p className="text-xs tracking-[0.3em] uppercase mb-4" style={{ color: "var(--blue)" }}>Mission</p>
             <h2
               className="mb-5"
-              style={{ fontFamily: "var(--font-playfair)", color: "var(--navy)", fontSize: "clamp(1.5rem, 3vw, 2rem)" }}
+              style={{ fontFamily: "var(--font-montserrat)", color: "var(--navy)", fontSize: "clamp(1.5rem, 3vw, 2rem)" }}
             >
               {lang === "da"
                 ? "At gøre professionel digital tilstedeværelse tilgængelig for alle"
@@ -101,7 +101,7 @@ export default function OmOsPage() {
             <p className="text-xs tracking-[0.3em] uppercase mb-4" style={{ color: "var(--blue)" }}>Vision</p>
             <h2
               className="mb-5"
-              style={{ fontFamily: "var(--font-playfair)", color: "var(--navy)", fontSize: "clamp(1.5rem, 3vw, 2rem)" }}
+              style={{ fontFamily: "var(--font-montserrat)", color: "var(--navy)", fontSize: "clamp(1.5rem, 3vw, 2rem)" }}
             >
               {lang === "da"
                 ? "At være det foretrukne digitale bureau for danske SMV'er"
@@ -125,7 +125,7 @@ export default function OmOsPage() {
             </p>
             <h2
               className="mb-10"
-              style={{ fontFamily: "var(--font-playfair)", color: "var(--navy)", fontSize: "clamp(1.8rem, 4vw, 3rem)" }}
+              style={{ fontFamily: "var(--font-montserrat)", color: "var(--navy)", fontSize: "clamp(1.8rem, 4vw, 3rem)" }}
             >
               {lang === "da" ? "Vores værdier" : "Our values"}
             </h2>
@@ -141,7 +141,7 @@ export default function OmOsPage() {
                   >
                     <h3
                       className="text-lg font-semibold mb-3"
-                      style={{ fontFamily: "var(--font-playfair)", color: "var(--navy)" }}
+                      style={{ fontFamily: "var(--font-montserrat)", color: "var(--navy)" }}
                     >
                       {t.title}
                     </h3>
@@ -166,7 +166,7 @@ export default function OmOsPage() {
             >
               <h2
                 className="mb-4"
-                style={{ fontFamily: "var(--font-playfair)", fontSize: "clamp(1.6rem, 3.5vw, 2.5rem)", color: "#ffffff" }}
+                style={{ fontFamily: "var(--font-montserrat)", fontSize: "clamp(1.6rem, 3.5vw, 2.5rem)", color: "#ffffff" }}
               >
                 {lang === "da" ? "Lad os arbejde sammen" : "Let's work together"}
               </h2>

@@ -1,13 +1,14 @@
 import type { Metadata, Viewport } from "next";
-import { Playfair_Display, Inter } from "next/font/google";
+import { Montserrat, Inter } from "next/font/google";
 import "./globals.css";
 import { LangProvider } from "@/components/LangProvider";
 import LayoutShell from "@/components/LayoutShell";
 
-const playfair = Playfair_Display({
+const montserrat = Montserrat({
   subsets: ["latin"],
-  variable: "--font-playfair",
+  variable: "--font-montserrat",
   display: "swap",
+  weight: ["400", "500", "600", "700", "800", "900"],
 });
 
 const inter = Inter({
@@ -43,7 +44,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="da" className={`${playfair.variable} ${inter.variable}`}>
+    <html lang="da" className={`${montserrat.variable} ${inter.variable}`}>
       <body>
         <LangProvider>
           <LayoutShell>{children}</LayoutShell>

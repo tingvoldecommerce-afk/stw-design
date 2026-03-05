@@ -106,7 +106,7 @@ export default function HomePage() {
               <h1
                 className="mb-6"
                 style={{
-                  fontFamily: "var(--font-playfair)",
+                  fontFamily: "var(--font-montserrat)",
                   fontWeight: 800,
                   fontSize: "clamp(2.1rem, 4.5vw, 3.75rem)",
                   lineHeight: 1.2,
@@ -530,7 +530,7 @@ export default function HomePage() {
             <h2
               className="mb-3"
               style={{
-                fontFamily: "var(--font-playfair)",
+                fontFamily: "var(--font-montserrat)",
                 color: "var(--navy)",
                 fontSize: "clamp(1.75rem, 3.5vw, 2.75rem)",
               }}
@@ -600,7 +600,7 @@ export default function HomePage() {
                     <h3
                       className="font-semibold mb-3"
                       style={{
-                        fontFamily: "var(--font-playfair)",
+                        fontFamily: "var(--font-montserrat)",
                         color: "var(--navy)",
                         fontSize: "1.1rem",
                         lineHeight: 1.35,
@@ -656,7 +656,7 @@ export default function HomePage() {
               <h2
                 className="leading-tight mb-5"
                 style={{
-                  fontFamily: "var(--font-playfair)",
+                  fontFamily: "var(--font-montserrat)",
                   color: "var(--navy)",
                   fontSize: "clamp(1.75rem, 3.5vw, 2.5rem)",
                 }}
@@ -697,7 +697,7 @@ export default function HomePage() {
                   >
                     <span
                       style={{
-                        fontFamily: "var(--font-playfair)",
+                        fontFamily: "var(--font-montserrat)",
                         color: "var(--blue)",
                         opacity: 0.4,
                         fontSize: "2rem",
@@ -766,7 +766,7 @@ export default function HomePage() {
                 <h2
                   className="mb-4"
                   style={{
-                    fontFamily: "var(--font-playfair)",
+                    fontFamily: "var(--font-montserrat)",
                     fontSize: "clamp(1.75rem, 3.5vw, 2.75rem)",
                     lineHeight: 1.45,
                     overflowWrap: "break-word",
@@ -777,7 +777,7 @@ export default function HomePage() {
                     <>
                       Lad os løfte din{" "}
                       <em
-                        className="italic font-normal"
+                        className="font-semibold"
                         style={{ color: "#93C5FD" }}
                       >
                         digitale tilstedeværelse.
@@ -787,7 +787,7 @@ export default function HomePage() {
                     <>
                       Let&apos;s elevate your{" "}
                       <em
-                        className="italic font-normal"
+                        className="font-semibold"
                         style={{ color: "#93C5FD" }}
                       >
                         digital presence.

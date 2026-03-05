@@ -93,7 +93,7 @@ export default function YdelserPage() {
             </p>
             <h1
               style={{
-                fontFamily: "var(--font-playfair)",
+                fontFamily: "var(--font-montserrat)",
                 color: "var(--navy)",
                 fontSize: "clamp(2.5rem, 6vw, 4.5rem)",
               }}
@@ -130,7 +130,7 @@ export default function YdelserPage() {
                     <div className="flex-1">
                       <h2
                         className="text-xl font-semibold"
-                        style={{ fontFamily: "var(--font-playfair)", color: "var(--navy)" }}
+                        style={{ fontFamily: "var(--font-montserrat)", color: "var(--navy)" }}
                       >
                         {t.title}
                       </h2>
@@ -182,7 +182,7 @@ export default function YdelserPage() {
             </p>
             <h2
               className="mb-12"
-              style={{ fontFamily: "var(--font-playfair)", fontSize: "clamp(1.8rem, 4vw, 3rem)", color: "#ffffff" }}
+              style={{ fontFamily: "var(--font-montserrat)", fontSize: "clamp(1.8rem, 4vw, 3rem)", color: "#ffffff" }}
             >
               {lang === "da" ? "Vores proces" : "Our process"}
             </h2>
@@ -195,7 +195,7 @@ export default function YdelserPage() {
                   <div style={{ borderTop: "2px solid rgba(59,130,246,0.4)", paddingTop: "1.5rem" }}>
                     <h3
                       className="text-base font-semibold mb-2"
-                      style={{ fontFamily: "var(--font-playfair)", color: "#ffffff" }}
+                      style={{ fontFamily: "var(--font-montserrat)", color: "#ffffff" }}
                     >
                       {t.title}
                     </h3>
@@ -216,7 +216,7 @@ export default function YdelserPage() {
           <FadeIn>
             <h2
               className="mb-5"
-              style={{ fontFamily: "var(--font-playfair)", color: "var(--navy)", fontSize: "clamp(1.8rem, 4vw, 3rem)" }}
+              style={{ fontFamily: "var(--font-montserrat)", color: "var(--navy)", fontSize: "clamp(1.8rem, 4vw, 3rem)" }}
             >
               {lang === "da" ? "Klar til at starte?" : "Ready to start?"}
             </h2>

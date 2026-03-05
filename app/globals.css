@@ -8,8 +8,8 @@
   --bg-soft: #F8FAFC;
   --bg-grey: #f1f4f8;
   --bg-dark: #1a2b4c;
-  --text: #1a2b4c;
-  --text-muted: #64748B;
+  --text: #2D3748;
+  --text-muted: #4A5568;
   --text-light: #ffffff;
   --border: #E2E8F0;
 }
@@ -38,9 +38,10 @@ body {
 
 @layer base {
   h1, h2, h3, h4 {
-    font-family: var(--font-playfair), Georgia, serif;
-    font-weight: 800;
-    line-height: 1.2;
+    font-family: var(--font-montserrat), system-ui, sans-serif;
+    font-weight: 900;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
     color: var(--navy);
     overflow-wrap: break-word;
     word-break: break-word;

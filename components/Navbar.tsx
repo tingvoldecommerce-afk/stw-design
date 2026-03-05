@@ -135,7 +135,7 @@ export default function Navbar() {
                   <Link
                     href={l.href}
                     className="text-white text-3xl hover:opacity-60 transition-opacity"
-                    style={{ fontFamily: "var(--font-playfair)" }}
+                    style={{ fontFamily: "var(--font-montserrat)" }}
                   >
                     {l.label}
                   </Link>
