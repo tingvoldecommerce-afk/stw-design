@@ -67,7 +67,7 @@ export default function Footer({ onPrivacy, onCookies }: FooterProps) {
           onMouseEnter={(e) => (e.currentTarget.style.background = "#2563EB")}
           onMouseLeave={(e) => (e.currentTarget.style.background = "var(--blue)")}
         >
-          {lang === "da" ? "Kom i gang →" : "Get started →"}
+          {lang === "da" ? "Få en gratis analyse →" : "Get a free analysis →"}
         </Link>
       </div>
 

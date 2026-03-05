@@ -10,34 +10,34 @@ const services = [
   {
     icon: <Globe size={22} />,
     da: {
-      title: "Hjemmesider",
-      desc: "Skræddersyede, hurtige og mobilvenlige hjemmesider – bygget til at konvertere besøgende til kunder.",
+      title: "Hjemmesider der sælger",
+      desc: "Hurtige, mobilvenlige hjemmesider bygget til at konvertere besøgende til betalende kunder.",
     },
     en: {
-      title: "Websites",
-      desc: "Custom, fast and mobile-friendly websites – built to convert visitors into customers.",
+      title: "Websites that sell",
+      desc: "Fast, mobile-friendly websites built to convert visitors into paying customers.",
     },
   },
   {
     icon: <Bot size={22} />,
     da: {
-      title: "AI Chatbots",
-      desc: "Intelligente chatbots der håndterer kundehenvendelser 24/7 og genererer leads mens du sover.",
+      title: "AI-Chatbots der automatiserer dit salg",
+      desc: "Intelligente chatbots der håndterer henvendelser og genererer leads 24/7 – uden ekstra ressourcer.",
     },
     en: {
-      title: "AI Chatbots",
-      desc: "Intelligent chatbots that handle customer inquiries 24/7 and generate leads while you sleep.",
+      title: "AI Chatbots that automate your sales",
+      desc: "Intelligent chatbots that handle inquiries and generate leads 24/7 – without extra resources.",
     },
   },
   {
     icon: <TrendingUp size={22} />,
     da: {
-      title: "SEO",
-      desc: "Søgemaskineoptimering der øger din organiske synlighed og bringer de rigtige kunder til dig.",
+      title: "SEO der gør dig synlig for de rigtige",
+      desc: "Søgemaskineoptimering der øger din synlighed og bringer de rigtige kunder direkte til dig.",
     },
     en: {
-      title: "SEO",
-      desc: "Search engine optimisation that increases your organic visibility and brings the right customers to you.",
+      title: "SEO that makes you visible to the right people",
+      desc: "Search engine optimisation that increases your visibility and brings the right customers to you.",
     },
   },
 ];
@@ -104,43 +104,34 @@ export default function HomePage() {
               </p>
 
               <h1
-                className="leading-tight mb-6"
+                className="mb-6"
                 style={{
                   fontFamily: "var(--font-playfair)",
+                  fontWeight: 800,
                   fontSize: "clamp(2.1rem, 4.5vw, 3.75rem)",
+                  lineHeight: 1.2,
                   color: "var(--navy)",
                   maxWidth: "32rem",
                   overflowWrap: "break-word",
                 }}
               >
-                {lang === "da" ? (
-                  <>
-                    Vi bygger digitale løsninger{" "}
-                    <em className="italic font-normal" style={{ color: "var(--blue)" }}>
-                      der virker.
-                    </em>
-                  </>
-                ) : (
-                  <>
-                    We build digital solutions{" "}
-                    <em className="italic font-normal" style={{ color: "var(--blue)" }}>
-                      that work.
-                    </em>
-                  </>
-                )}
+                {lang === "da"
+                  ? "Vi bygger hjemmesider, der arbejder lige så hårdt som dig."
+                  : "We build websites that work as hard as you do."}
               </h1>
 
               <p
-                className="mb-8 leading-relaxed"
+                className="mb-8"
                 style={{
                   color: "var(--text-muted)",
                   maxWidth: "29rem",
                   fontSize: "1.05rem",
+                  lineHeight: 1.7,
                 }}
               >
                 {lang === "da"
-                  ? "Professionelle hjemmesider, AI chatbots og SEO til danske virksomheder."
-                  : "Professional websites, AI chatbots and SEO for Danish businesses."}
+                  ? "Få en digital platform, der konverterer besøgende til kunder."
+                  : "Get a digital platform that converts visitors into customers."}
               </p>
 
               <div className="flex flex-wrap gap-3 mb-8">
@@ -159,7 +150,7 @@ export default function HomePage() {
                     (e.currentTarget.style.background = "var(--navy)")
                   }
                 >
-                  {lang === "da" ? "Kom i gang" : "Get started"}{" "}
+                  {lang === "da" ? "Få en gratis analyse" : "Get a free analysis"}{" "}
                   <ArrowRight size={14} />
                 </Link>
                 <Link
@@ -179,7 +170,7 @@ export default function HomePage() {
                     e.currentTarget.style.color = "var(--navy)";
                   }}
                 >
-                  {lang === "da" ? "Se ydelser" : "Our services"}
+                  {lang === "da" ? "Se hvordan vi løfter din forretning" : "See how we elevate your business"}
                 </Link>
               </div>
 
@@ -831,7 +822,7 @@ export default function HomePage() {
                     (e.currentTarget.style.background = "#fff")
                   }
                 >
-                  {lang === "da" ? "Kontakt os" : "Contact us"}{" "}
+                  {lang === "da" ? "Start din rejse her" : "Start your journey"}{" "}
                   <ArrowRight size={14} />
                 </Link>
               </div>
