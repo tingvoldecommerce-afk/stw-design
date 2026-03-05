@@ -84,7 +84,7 @@ export default function HomePage() {
 
         <div
           className="relative w-full max-w-6xl mx-auto"
-          style={{ zIndex: 10, padding: "5rem 1.5rem" }}
+          style={{ zIndex: 10, padding: "5rem clamp(1.5rem, 6vw, 5rem)" }}
         >
           <div
             style={{
@@ -519,39 +519,41 @@ export default function HomePage() {
 
       {/* ── Services ──────────────────────────────────── */}
       <section style={{ background: "var(--bg)", padding: "6rem 0" }}>
-        <div className="max-w-6xl mx-auto" style={{ padding: "0 1.5rem" }}>
+        <div className="max-w-6xl mx-auto" style={{ padding: "0 clamp(1.5rem, 6vw, 5rem)" }}>
           <FadeIn>
-            <p
-              className="text-xs tracking-[0.3em] uppercase font-semibold mb-3"
-              style={{ color: "var(--blue)" }}
-            >
-              {lang === "da" ? "Hvad vi tilbyder" : "What we offer"}
-            </p>
-            <h2
-              className="mb-3"
-              style={{
-                fontFamily: "var(--font-montserrat)",
-                color: "var(--navy)",
-                fontSize: "clamp(1.75rem, 3.5vw, 2.75rem)",
-              }}
-            >
-              {lang === "da" ? "Vores ydelser" : "Our services"}
-            </h2>
-            <p
-              className="mb-12"
-              style={{
-                color: "var(--text-muted)",
-                maxWidth: "34rem",
-                fontSize: "0.95rem",
-                lineHeight: 1.75,
-                textWrap: "balance",
-                overflowWrap: "break-word",
-              }}
-            >
-              {lang === "da"
-                ? "Alt hvad din virksomhed behøver for at lykkes digitalt – under ét tag."
-                : "Everything your business needs to succeed digitally – under one roof."}
-            </p>
+            <div className="text-center mb-12">
+              <p
+                className="text-xs tracking-[0.3em] uppercase font-semibold mb-3"
+                style={{ color: "var(--blue)" }}
+              >
+                {lang === "da" ? "Hvad vi tilbyder" : "What we offer"}
+              </p>
+              <h2
+                className="mb-3"
+                style={{
+                  fontFamily: "var(--font-montserrat)",
+                  color: "var(--navy)",
+                  fontSize: "clamp(1.75rem, 3.5vw, 2.75rem)",
+                }}
+              >
+                {lang === "da" ? "Vores ydelser" : "Our services"}
+              </h2>
+              <p
+                className="mx-auto"
+                style={{
+                  color: "var(--text-muted)",
+                  maxWidth: "34rem",
+                  fontSize: "0.95rem",
+                  lineHeight: 1.75,
+                  textWrap: "balance",
+                  overflowWrap: "break-word",
+                }}
+              >
+                {lang === "da"
+                  ? "Alt hvad din virksomhed behøver for at lykkes digitalt – under ét tag."
+                  : "Everything your business needs to succeed digitally – under one roof."}
+              </p>
+            </div>
           </FadeIn>
 
           <div
@@ -638,7 +640,7 @@ export default function HomePage() {
 
       {/* ── Process ───────────────────────────────────── */}
       <section style={{ background: "var(--bg-grey)", padding: "6rem 0" }}>
-        <div className="max-w-6xl mx-auto" style={{ padding: "0 1.5rem" }}>
+        <div className="max-w-6xl mx-auto" style={{ padding: "0 clamp(1.5rem, 6vw, 5rem)" }}>
           <div
             style={{
               display: "grid",
@@ -724,7 +726,7 @@ export default function HomePage() {
 
       {/* ── CTA ───────────────────────────────────────── */}
       <section style={{ background: "var(--bg)", padding: "6rem 0" }}>
-        <div className="max-w-6xl mx-auto" style={{ padding: "0 1.5rem" }}>
+        <div className="max-w-6xl mx-auto" style={{ padding: "0 clamp(1.5rem, 6vw, 5rem)" }}>
           <FadeIn>
             <div
               className="relative overflow-hidden"

@@ -39,7 +39,7 @@ export default function OmOsPage() {
           borderBottom: "1px solid var(--border)",
         }}
       >
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-6xl mx-auto px-6 lg:px-16 text-center">
           <FadeIn>
             <p className="text-xs tracking-[0.3em] uppercase mb-4" style={{ color: "var(--blue)" }}>
               {lang === "da" ? "Hvem er vi?" : "Who are we?"}
@@ -53,7 +53,7 @@ export default function OmOsPage() {
             >
               {lang === "da" ? "Om os" : "About us"}
             </h1>
-            <p className="mt-5 max-w-2xl text-lg leading-relaxed" style={{ color: "var(--text-muted)" }}>
+            <p className="mt-5 text-lg leading-relaxed mx-auto" style={{ color: "var(--text-muted)", maxWidth: "42rem" }}>
               {lang === "da"
                 ? "STW-Webdesign er et dansk digitalt bureau grundlagt af Sebastian. Vi hjælper virksomheder med at skabe en stærk digital tilstedeværelse."
                 : "STW-Webdesign is a Danish digital agency founded by Sebastian. We help businesses create a strong digital presence."}
@@ -64,7 +64,7 @@ export default function OmOsPage() {
 
       {/* Image */}
       <section style={{ background: "var(--bg)", paddingTop: "5rem", paddingBottom: "5rem" }}>
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-6xl mx-auto px-6 lg:px-16">
           <FadeIn>
             <div className="relative overflow-hidden" style={{ aspectRatio: "16/6", background: "#0f172a" }}>
               <Image
@@ -80,7 +80,7 @@ export default function OmOsPage() {
 
       {/* Mission / Vision */}
       <section style={{ background: "var(--bg-soft)", paddingTop: "5rem", paddingBottom: "5rem" }}>
-        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 md:gap-16">
+        <div className="max-w-6xl mx-auto px-6 lg:px-16 grid md:grid-cols-2 gap-10 md:gap-16">
           <FadeIn direction="left">
             <p className="text-xs tracking-[0.3em] uppercase mb-4" style={{ color: "var(--blue)" }}>Mission</p>
             <h2
@@ -118,17 +118,18 @@ export default function OmOsPage() {
 
       {/* Values */}
       <section style={{ background: "var(--bg)", paddingTop: "5rem", paddingBottom: "5rem" }}>
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-6xl mx-auto px-6 lg:px-16">
           <FadeIn>
-            <p className="text-xs tracking-[0.3em] uppercase mb-3" style={{ color: "var(--blue)" }}>
-              {lang === "da" ? "Hvad vi står for" : "What we stand for"}
-            </p>
-            <h2
-              className="mb-10"
-              style={{ fontFamily: "var(--font-montserrat)", color: "var(--navy)", fontSize: "clamp(1.8rem, 4vw, 3rem)" }}
-            >
-              {lang === "da" ? "Vores værdier" : "Our values"}
-            </h2>
+            <div className="text-center mb-10">
+              <p className="text-xs tracking-[0.3em] uppercase mb-3" style={{ color: "var(--blue)" }}>
+                {lang === "da" ? "Hvad vi står for" : "What we stand for"}
+              </p>
+              <h2
+                style={{ fontFamily: "var(--font-montserrat)", color: "var(--navy)", fontSize: "clamp(1.8rem, 4vw, 3rem)" }}
+              >
+                {lang === "da" ? "Vores værdier" : "Our values"}
+              </h2>
+            </div>
           </FadeIn>
           <div className="grid md:grid-cols-2 gap-5">
             {values.map((v, i) => {
@@ -136,7 +137,7 @@ export default function OmOsPage() {
               return (
                 <FadeIn key={i} delay={i * 0.08}>
                   <div
-                    className="p-8"
+                    className="p-8 text-left"
                     style={{ border: "1px solid var(--border)", background: "var(--bg-soft)" }}
                   >
                     <h3
@@ -158,7 +159,7 @@ export default function OmOsPage() {
 
       {/* CTA */}
       <section style={{ background: "var(--bg-soft)", paddingTop: "5rem", paddingBottom: "5rem" }}>
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-6xl mx-auto px-6 lg:px-16">
           <FadeIn>
             <div
               className="rounded-2xl p-10 md:p-14 text-center"

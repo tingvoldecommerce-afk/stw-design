@@ -86,7 +86,7 @@ export default function YdelserPage() {
           borderBottom: "1px solid var(--border)",
         }}
       >
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-6xl mx-auto px-6 lg:px-16 text-center">
           <FadeIn>
             <p className="text-xs tracking-[0.3em] uppercase mb-4" style={{ color: "var(--blue)" }}>
               {lang === "da" ? "Hvad vi kan gøre for dig" : "What we can do for you"}
@@ -100,7 +100,7 @@ export default function YdelserPage() {
             >
               {lang === "da" ? "Ydelser" : "Services"}
             </h1>
-            <p className="mt-5 max-w-xl text-lg leading-relaxed" style={{ color: "var(--text-muted)" }}>
+            <p className="mt-5 text-lg leading-relaxed mx-auto" style={{ color: "var(--text-muted)", maxWidth: "38rem" }}>
               {lang === "da"
                 ? "Vi tilbyder skræddersyede digitale løsninger der hjælper din virksomhed med at vokse online."
                 : "We offer tailored digital solutions that help your business grow online."}
@@ -111,7 +111,7 @@ export default function YdelserPage() {
 
       {/* Services accordion */}
       <section style={{ background: "var(--bg)", paddingTop: "4rem", paddingBottom: "4rem" }}>
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-6xl mx-auto px-6 lg:px-16">
           {services.map((s, i) => {
             const t = lang === "da" ? s.da : s.en;
             return (
@@ -175,17 +175,18 @@ export default function YdelserPage() {
 
       {/* Process */}
       <section style={{ background: "var(--navy)", paddingTop: "5rem", paddingBottom: "5rem" }}>
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-6xl mx-auto px-6 lg:px-16">
           <FadeIn>
-            <p className="text-xs tracking-[0.3em] uppercase mb-4" style={{ color: "rgba(255,255,255,0.4)" }}>
-              {lang === "da" ? "Arbejdsproces" : "Work process"}
-            </p>
-            <h2
-              className="mb-12"
-              style={{ fontFamily: "var(--font-montserrat)", fontSize: "clamp(1.8rem, 4vw, 3rem)", color: "#ffffff" }}
-            >
-              {lang === "da" ? "Vores proces" : "Our process"}
-            </h2>
+            <div className="text-center mb-12">
+              <p className="text-xs tracking-[0.3em] uppercase mb-4" style={{ color: "rgba(255,255,255,0.4)" }}>
+                {lang === "da" ? "Arbejdsproces" : "Work process"}
+              </p>
+              <h2
+                style={{ fontFamily: "var(--font-montserrat)", fontSize: "clamp(1.8rem, 4vw, 3rem)", color: "#ffffff" }}
+              >
+                {lang === "da" ? "Vores proces" : "Our process"}
+              </h2>
+            </div>
           </FadeIn>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             {steps.map((step, i) => {
@@ -212,7 +213,7 @@ export default function YdelserPage() {
 
       {/* CTA */}
       <section style={{ background: "var(--bg)", paddingTop: "5rem", paddingBottom: "5rem" }}>
-        <div className="max-w-6xl mx-auto px-6 text-center">
+        <div className="max-w-6xl mx-auto px-6 lg:px-16 text-center">
           <FadeIn>
             <h2
               className="mb-5"
