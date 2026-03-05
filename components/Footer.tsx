@@ -38,12 +38,13 @@ export default function Footer({ onPrivacy, onCookies }: FooterProps) {
         <p
           style={{
             fontFamily: "var(--font-montserrat)",
-            fontSize: "clamp(2rem, 5vw, 4.5rem)",
+            fontSize: "clamp(1.8rem, 4vw, 3rem)",
             lineHeight: 1.35,
             overflowWrap: "break-word",
             wordBreak: "break-word",
-            maxWidth: "100%",
-            marginBottom: "2.5rem",
+            maxWidth: "700px",
+            margin: "0 auto 2.5rem",
+            textAlign: "center",
           }}
         >
           {lang === "da" ? (

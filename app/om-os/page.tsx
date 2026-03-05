@@ -53,7 +53,7 @@ export default function OmOsPage() {
             >
               {lang === "da" ? "Om os" : "About us"}
             </h1>
-            <p className="mt-5 text-lg leading-relaxed mx-auto" style={{ color: "var(--text-muted)", maxWidth: "42rem" }}>
+            <p className="mt-5 text-lg leading-relaxed mx-auto" style={{ color: "var(--text-muted)", maxWidth: "42rem", textAlign: "center" }}>
               {lang === "da"
                 ? "STW-Webdesign er et dansk digitalt bureau grundlagt af Sebastian. Vi hjælper virksomheder med at skabe en stærk digital tilstedeværelse."
                 : "STW-Webdesign is a Danish digital agency founded by Sebastian. We help businesses create a strong digital presence."}
@@ -131,13 +131,13 @@ export default function OmOsPage() {
               </h2>
             </div>
           </FadeIn>
-          <div className="grid md:grid-cols-2 gap-5">
+          <div className="grid md:grid-cols-2 gap-6">
             {values.map((v, i) => {
               const t = lang === "da" ? v.da : v.en;
               return (
-                <FadeIn key={i} delay={i * 0.08}>
+                <FadeIn key={i} delay={i * 0.08} className="h-full">
                   <div
-                    className="p-8 text-left"
+                    className="p-8 text-left h-full"
                     style={{ border: "1px solid var(--border)", background: "var(--bg-soft)" }}
                   >
                     <h3
@@ -162,8 +162,8 @@ export default function OmOsPage() {
         <div className="wrap">
           <FadeIn>
             <div
-              className="rounded-2xl p-10 md:p-14 text-center"
-              style={{ background: "var(--navy)" }}
+              className="p-10 md:p-16 text-center"
+              style={{ background: "var(--navy)", borderRadius: "12px", width: "100%" }}
             >
               <h2
                 className="mb-4"

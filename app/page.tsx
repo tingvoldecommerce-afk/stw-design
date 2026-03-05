@@ -298,7 +298,7 @@ export default function HomePage() {
               </h2>
               <p
                 className="mx-auto"
-                style={{ color: "var(--text-muted)", fontSize: "0.95rem", lineHeight: 1.7, maxWidth: "30rem" }}
+                style={{ color: "var(--text-muted)", fontSize: "0.95rem", lineHeight: 1.7, maxWidth: "600px", textAlign: "center" }}
               >
                 {lang === "da"
                   ? "Vi følger en gennemprøvet proces der sikrer, at dit projekt leveres til tiden og inden for budgettet."
@@ -379,7 +379,7 @@ export default function HomePage() {
                 style={{
                   position: "relative",
                   zIndex: 1,
-                  maxWidth: "36rem",
+                  maxWidth: "44rem",
                   margin: "0 auto",
                   textAlign: "center",
                 }}

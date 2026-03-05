@@ -186,6 +186,11 @@ export default function YdelserPage() {
               >
                 {lang === "da" ? "Vores proces" : "Our process"}
               </h2>
+              <p className="mx-auto mt-4" style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.95rem", lineHeight: 1.7, maxWidth: "600px", textAlign: "center" }}>
+                {lang === "da"
+                  ? "Fra idé til lancering – vi følger en gennemprøvet proces der sikrer, at dit projekt leveres til tiden."
+                  : "From idea to launch – we follow a proven process that ensures your project is delivered on time."}
+              </p>
             </div>
           </FadeIn>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
