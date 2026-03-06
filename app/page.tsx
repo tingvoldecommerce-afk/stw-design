@@ -179,10 +179,9 @@ export default function HomePage() {
                 className="mx-auto"
                 style={{
                   color: "var(--text-muted)",
-                  maxWidth: "34rem",
-                  fontSize: "0.95rem",
+                  maxWidth: "48rem",
+                  fontSize: "1rem",
                   lineHeight: 1.75,
-                  textWrap: "balance",
                   overflowWrap: "break-word",
                 }}
               >
@@ -209,16 +208,18 @@ export default function HomePage() {
                     className="block h-full transition-all duration-200 text-center"
                     style={{
                       border: "1px solid var(--border)",
-                      background: "var(--bg)",
+                      background: "var(--bg-soft)",
                       padding: "2rem",
+                      borderRadius: "16px",
                     }}
                     onMouseEnter={(e) => {
+                      e.currentTarget.style.background = "var(--bg)";
                       e.currentTarget.style.borderColor = "var(--navy)";
-                      e.currentTarget.style.boxShadow =
-                        "0 8px 30px rgba(26,43,76,0.07)";
-                      e.currentTarget.style.transform = "translateY(-2px)";
+                      e.currentTarget.style.boxShadow = "0 8px 32px rgba(26,43,76,0.09)";
+                      e.currentTarget.style.transform = "translateY(-3px)";
                     }}
                     onMouseLeave={(e) => {
+                      e.currentTarget.style.background = "var(--bg-soft)";
                       e.currentTarget.style.borderColor = "var(--border)";
                       e.currentTarget.style.boxShadow = "none";
                       e.currentTarget.style.transform = "translateY(0)";
@@ -298,7 +299,7 @@ export default function HomePage() {
               </h2>
               <p
                 className="mx-auto"
-                style={{ color: "var(--text-muted)", fontSize: "0.95rem", lineHeight: 1.7, maxWidth: "600px", textAlign: "center" }}
+                style={{ color: "var(--text-muted)", fontSize: "0.95rem", lineHeight: 1.7, maxWidth: "42rem", textAlign: "center" }}
               >
                 {lang === "da"
                   ? "Vi følger en gennemprøvet proces der sikrer, at dit projekt leveres til tiden og inden for budgettet."

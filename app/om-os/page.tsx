@@ -53,7 +53,7 @@ export default function OmOsPage() {
             >
               {lang === "da" ? "Om os" : "About us"}
             </h1>
-            <p className="mt-5 text-lg leading-relaxed mx-auto" style={{ color: "var(--text-muted)", maxWidth: "42rem", textAlign: "center" }}>
+            <p className="mt-5 text-lg leading-relaxed mx-auto" style={{ color: "var(--text-muted)", maxWidth: "48rem", textAlign: "center" }}>
               {lang === "da"
                 ? "STW-Webdesign er et dansk digitalt bureau grundlagt af Sebastian. Vi hjælper virksomheder med at skabe en stærk digital tilstedeværelse."
                 : "STW-Webdesign is a Danish digital agency founded by Sebastian. We help businesses create a strong digital presence."}
@@ -138,7 +138,7 @@ export default function OmOsPage() {
                 <FadeIn key={i} delay={i * 0.08} className="h-full">
                   <div
                     className="p-8 text-left h-full"
-                    style={{ border: "1px solid var(--border)", background: "var(--bg-soft)" }}
+                    style={{ border: "1px solid var(--border)", background: "var(--bg-soft)", borderRadius: "16px" }}
                   >
                     <h3
                       className="text-lg font-bold mb-3"
@@ -171,7 +171,7 @@ export default function OmOsPage() {
               >
                 {lang === "da" ? "Lad os arbejde sammen" : "Let's work together"}
               </h2>
-              <p className="mb-8 max-w-md mx-auto" style={{ color: "rgba(255,255,255,0.6)" }}>
+              <p className="mb-8 max-w-lg mx-auto" style={{ color: "rgba(255,255,255,0.6)" }}>
                 {lang === "da"
                   ? "Tag kontakt og fortæl os om din virksomhed."
                   : "Get in touch and tell us about your business."}

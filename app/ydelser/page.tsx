@@ -103,7 +103,7 @@ export default function YdelserPage() {
             >
               {lang === "da" ? "Ydelser" : "Services"}
             </h1>
-            <p className="mt-5 text-lg leading-relaxed mx-auto" style={{ color: "var(--text-muted)", maxWidth: "38rem" }}>
+            <p className="mt-5 text-lg leading-relaxed mx-auto" style={{ color: "var(--text-muted)", maxWidth: "48rem" }}>
               {lang === "da"
                 ? "Vi tilbyder skræddersyede digitale løsninger der hjælper din virksomhed med at vokse online."
                 : "We offer tailored digital solutions that help your business grow online."}
@@ -217,7 +217,7 @@ export default function YdelserPage() {
               const t = lang === "da" ? step.da : step.en;
               return (
                 <FadeIn key={i} delay={i * 0.1}>
-                  <div style={{ borderTop: "2px solid rgba(59,130,246,0.4)", paddingTop: "1.5rem" }}>
+                  <div style={{ borderTop: "2px solid rgba(59,130,246,0.4)", paddingTop: "1.5rem", paddingBottom: "0.5rem" }}>
                     <h3
                       className="text-base font-bold mb-2"
                       style={{ fontFamily: "var(--font-montserrat)", color: "#ffffff" }}

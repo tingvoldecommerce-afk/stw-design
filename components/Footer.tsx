@@ -71,7 +71,7 @@ export default function Footer({ onPrivacy, onCookies }: FooterProps) {
       </div>
 
       {/* Nav + contact */}
-      <div className="wrap py-8 flex flex-col md:flex-row items-center justify-center gap-8 text-sm" style={{ color: "rgba(255,255,255,0.5)" }}>
+      <div className="wrap py-8 flex flex-col md:flex-row items-center justify-between gap-8 text-sm" style={{ color: "rgba(255,255,255,0.5)" }}>
         <div className="flex items-center gap-2.5">
           <div className="w-6 h-6 flex items-center justify-center" style={{ background: "#fff" }}>
             <span className="text-[9px] font-bold tracking-widest" style={{ color: "var(--navy)" }}>STW</span>

@@ -122,7 +122,7 @@ export default function KontaktPage() {
                 margin: "0 auto",
                 background: "var(--bg-soft)",
                 border: "1px solid var(--border)",
-                borderRadius: "12px",
+                borderRadius: "20px",
                 padding: "2.5rem",
               }}
             >
