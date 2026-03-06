@@ -103,7 +103,7 @@ export default function YdelserPage() {
             >
               {lang === "da" ? "Ydelser" : "Services"}
             </h1>
-            <p className="mt-5 text-lg leading-relaxed mx-auto" style={{ color: "var(--text-muted)", maxWidth: "48rem" }}>
+            <p className="mt-5 text-lg leading-relaxed mx-auto text-balance" style={{ color: "var(--text-muted)", maxWidth: "48rem" }}>
               {lang === "da"
                 ? "Vi tilbyder skræddersyede digitale løsninger der hjælper din virksomhed med at vokse online."
                 : "We offer tailored digital solutions that help your business grow online."}
@@ -245,7 +245,7 @@ export default function YdelserPage() {
             >
               {lang === "da" ? "Klar til at starte?" : "Ready to start?"}
             </h2>
-            <p className="mb-8 max-w-md mx-auto" style={{ color: "var(--text-muted)" }}>
+            <p className="mb-8 max-w-md mx-auto" style={{ color: "var(--text-muted)", textAlign: "center" }}>
               {lang === "da"
                 ? "Tag kontakt i dag og få en gratis konsultation."
                 : "Get in touch today and receive a free consultation."}
