@@ -1,7 +1,9 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import { ArrowRight, Globe, Bot, TrendingUp } from "lucide-react";
+import { AnimatePresence, motion } from "motion/react";
 import FadeIn from "@/components/FadeIn";
 import { useLang } from "@/components/LangProvider";
 
@@ -74,6 +76,7 @@ const steps = [
 
 export default function YdelserPage() {
   const { lang } = useLang();
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
     <>
@@ -114,12 +117,14 @@ export default function YdelserPage() {
         <div className="wrap">
           {services.map((s, i) => {
             const t = lang === "da" ? s.da : s.en;
+            const isOpen = openIndex === i;
             return (
               <FadeIn key={i} delay={i * 0.08}>
-                <details className="group" style={{ borderBottom: "1px solid var(--border)" }}>
-                  <summary
-                    className="flex items-center gap-5 py-7 cursor-pointer list-none select-none"
-                    style={{ outline: "none" }}
+                <div style={{ borderBottom: "1px solid var(--border)" }}>
+                  <button
+                    onClick={() => setOpenIndex(isOpen ? null : i)}
+                    className="w-full flex items-center gap-5 py-8 text-left"
+                    style={{ background: "none", border: "none", outline: "none", cursor: "pointer" }}
                   >
                     <div
                       className="w-11 h-11 flex items-center justify-center shrink-0"
@@ -127,7 +132,7 @@ export default function YdelserPage() {
                     >
                       {s.icon}
                     </div>
-                    <div className="flex-1">
+                    <div className="flex-1 min-w-0">
                       <h2
                         className="text-xl font-bold"
                         style={{ fontFamily: "var(--font-montserrat)", color: "var(--navy)" }}
@@ -138,35 +143,49 @@ export default function YdelserPage() {
                         {t.subtitle}
                       </p>
                     </div>
-                    <span
-                      className="text-2xl font-light shrink-0 transition-transform group-open:rotate-45"
-                      style={{ color: "var(--text-muted)" }}
+                    <motion.span
+                      animate={{ rotate: isOpen ? 45 : 0 }}
+                      transition={{ duration: 0.2, ease: "easeInOut" }}
+                      className="text-2xl font-light shrink-0"
+                      style={{ color: "var(--text-muted)", display: "inline-block" }}
                     >
                       +
-                    </span>
-                  </summary>
-                  <div className="pb-8 grid md:grid-cols-2 gap-8">
-                    <p className="leading-relaxed" style={{ color: "var(--text-muted)" }}>
-                      {t.desc}
-                    </p>
-                    <div>
-                      <p className="text-xs tracking-[0.2em] uppercase mb-3" style={{ color: "var(--text-muted)" }}>
-                        {lang === "da" ? "Hvad leveres" : "What's delivered"}
-                      </p>
-                      <ul className="space-y-2">
-                        {t.delivers.map((d, j) => (
-                          <li key={j} className="flex items-center gap-2.5 text-sm" style={{ color: "var(--text)" }}>
-                            <span
-                              className="w-1.5 h-1.5 rounded-full shrink-0"
-                              style={{ background: "var(--blue)" }}
-                            />
-                            {d}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                </details>
+                    </motion.span>
+                  </button>
+                  <AnimatePresence initial={false}>
+                    {isOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+                        style={{ overflow: "hidden" }}
+                      >
+                        <div className="pb-10 grid md:grid-cols-2 gap-8">
+                          <p className="leading-relaxed" style={{ color: "var(--text-muted)" }}>
+                            {t.desc}
+                          </p>
+                          <div>
+                            <p className="text-xs tracking-[0.2em] uppercase mb-3" style={{ color: "var(--text-muted)" }}>
+                              {lang === "da" ? "Hvad leveres" : "What's delivered"}
+                            </p>
+                            <ul className="space-y-2.5">
+                              {t.delivers.map((d, j) => (
+                                <li key={j} className="flex items-center gap-2.5 text-sm" style={{ color: "var(--text)" }}>
+                                  <span
+                                    className="w-1.5 h-1.5 rounded-full shrink-0"
+                                    style={{ background: "var(--blue)" }}
+                                  />
+                                  {d}
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
               </FadeIn>
             );
           })}

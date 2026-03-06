@@ -76,3 +76,10 @@ img, video, svg {
   background: var(--blue);
   color: #ffffff;
 }
+
+/* Tactile press feedback on interactive elements */
+button:not([disabled]):active {
+  opacity: 0.75;
+  transform: scale(0.98);
+  transition: transform 0.08s ease, opacity 0.08s ease;
+}

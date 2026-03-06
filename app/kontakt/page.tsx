@@ -8,7 +8,7 @@ import { useLang } from "@/components/LangProvider";
 
 export default function KontaktPage() {
   const { lang } = useLang();
-  const [form, setForm] = useState({ name: "", email: "", service: "", message: "" });
+  const [form, setForm] = useState({ name: "", email: "", phone: "", service: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -158,14 +158,15 @@ export default function KontaktPage() {
                         className="block text-xs font-semibold tracking-[0.15em] uppercase mb-2"
                         style={{ color: "var(--navy)" }}
                       >
-                        {lang === "da" ? "Navn" : "Name"}
+                        {lang === "da" ? "Navn" : "Name"}{" "}
+                        <span style={{ color: "var(--blue)" }}>*</span>
                       </label>
                       <input
                         type="text"
                         required
                         value={form.name}
                         onChange={(e) => setForm({ ...form, name: e.target.value })}
-                        className="w-full px-4 text-sm outline-none transition-colors"
+                        className="w-full text-sm outline-none transition-colors"
                         style={{
                           border: "1.5px solid var(--border)",
                           background: "#fff",
@@ -183,7 +184,7 @@ export default function KontaktPage() {
                         className="block text-xs font-semibold tracking-[0.15em] uppercase mb-2"
                         style={{ color: "var(--navy)" }}
                       >
-                        Email
+                        Email <span style={{ color: "var(--blue)" }}>*</span>
                       </label>
                       <input
                         type="email"
@@ -203,6 +204,33 @@ export default function KontaktPage() {
                         placeholder={lang === "da" ? "din@email.dk" : "your@email.com"}
                       />
                     </div>
+                  </div>
+                  <div>
+                    <label
+                      className="block text-xs font-semibold tracking-[0.15em] uppercase mb-2"
+                      style={{ color: "var(--navy)" }}
+                    >
+                      {lang === "da" ? "Telefon" : "Phone"}{" "}
+                      <span className="normal-case font-normal" style={{ color: "var(--text-muted)", letterSpacing: 0 }}>
+                        ({lang === "da" ? "valgfri" : "optional"})
+                      </span>
+                    </label>
+                    <input
+                      type="tel"
+                      value={form.phone}
+                      onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                      className="w-full text-sm outline-none transition-colors"
+                      style={{
+                        border: "1.5px solid var(--border)",
+                        background: "#fff",
+                        color: "var(--navy)",
+                        borderRadius: "6px",
+                        padding: "0.8rem 1rem",
+                      }}
+                      onFocus={(e) => (e.currentTarget.style.borderColor = "var(--blue)")}
+                      onBlur={(e) => (e.currentTarget.style.borderColor = "var(--border)")}
+                      placeholder="+45 12 34 56 78"
+                    />
                   </div>
                   <div>
                     <label
@@ -237,7 +265,8 @@ export default function KontaktPage() {
                       className="block text-xs font-semibold tracking-[0.15em] uppercase mb-2"
                       style={{ color: "var(--navy)" }}
                     >
-                      {lang === "da" ? "Din besked" : "Your message"}
+                      {lang === "da" ? "Din besked" : "Your message"}{" "}
+                        <span style={{ color: "var(--blue)" }}>*</span>
                     </label>
                     <textarea
                       required
