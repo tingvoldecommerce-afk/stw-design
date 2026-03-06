@@ -74,7 +74,7 @@ export default function KontaktPage() {
       </section>
 
       {/* Centered form layout */}
-      <section style={{ background: "var(--bg)", paddingTop: "5rem", paddingBottom: "6rem" }}>
+      <section style={{ background: "var(--bg)", paddingTop: "6.25rem", paddingBottom: "6.25rem" }}>
         <div className="wrap">
           {/* Info row centered above form */}
           <FadeIn>
@@ -172,7 +172,7 @@ export default function KontaktPage() {
                           background: "#fff",
                           color: "var(--navy)",
                           borderRadius: "6px",
-                          padding: "0.8rem 1rem",
+                          padding: "0.75rem 1rem",
                         }}
                         onFocus={(e) => (e.currentTarget.style.borderColor = "var(--blue)")}
                         onBlur={(e) => (e.currentTarget.style.borderColor = "var(--border)")}
@@ -197,7 +197,7 @@ export default function KontaktPage() {
                           background: "#fff",
                           color: "var(--navy)",
                           borderRadius: "6px",
-                          padding: "0.8rem 1rem",
+                          padding: "0.75rem 1rem",
                         }}
                         onFocus={(e) => (e.currentTarget.style.borderColor = "var(--blue)")}
                         onBlur={(e) => (e.currentTarget.style.borderColor = "var(--border)")}
@@ -225,7 +225,7 @@ export default function KontaktPage() {
                         background: "#fff",
                         color: "var(--navy)",
                         borderRadius: "6px",
-                        padding: "0.8rem 1rem",
+                        padding: "0.75rem 1rem",
                       }}
                       onFocus={(e) => (e.currentTarget.style.borderColor = "var(--blue)")}
                       onBlur={(e) => (e.currentTarget.style.borderColor = "var(--border)")}
@@ -248,7 +248,7 @@ export default function KontaktPage() {
                         background: "#fff",
                         color: form.service ? "var(--navy)" : "var(--text-muted)",
                         borderRadius: "6px",
-                        padding: "0.8rem 1rem",
+                        padding: "0.75rem 1rem",
                         appearance: "none",
                       }}
                       onFocus={(e) => (e.currentTarget.style.borderColor = "var(--blue)")}
@@ -279,7 +279,7 @@ export default function KontaktPage() {
                         background: "#fff",
                         color: "var(--navy)",
                         borderRadius: "6px",
-                        padding: "0.8rem 1rem",
+                        padding: "0.75rem 1rem",
                         lineHeight: 1.7,
                       }}
                       onFocus={(e) => (e.currentTarget.style.borderColor = "var(--blue)")}

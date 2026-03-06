@@ -28,8 +28,8 @@ export default function Navbar() {
   return (
     <>
       <header
-        className="fixed top-0 left-0 right-0 bg-white border-b border-slate-100 shadow-sm"
-        style={{ zIndex: 1000 }}
+        className="fixed top-0 left-0 right-0 bg-white border-b border-slate-100"
+        style={{ zIndex: 1000, boxShadow: "0 2px 10px rgba(0,0,0,0.05)" }}
       >
         <nav className="wrap h-20 flex items-center justify-between gap-8">
           {/* Logo */}

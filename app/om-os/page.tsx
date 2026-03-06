@@ -58,7 +58,7 @@ export default function OmOsPage() {
       </section>
 
       {/* Image */}
-      <section style={{ background: "var(--bg)", paddingTop: "5rem", paddingBottom: "5rem" }}>
+      <section style={{ background: "var(--bg)", paddingTop: "6.25rem", paddingBottom: "6.25rem" }}>
         <div className="wrap">
           <FadeIn>
             <div className="relative overflow-hidden" style={{ aspectRatio: "16/6", background: "#0f172a" }}>
@@ -74,7 +74,7 @@ export default function OmOsPage() {
       </section>
 
       {/* Mission / Vision */}
-      <section style={{ background: "var(--bg-soft)", paddingTop: "5rem", paddingBottom: "5rem" }}>
+      <section style={{ background: "var(--bg-soft)", paddingTop: "6.25rem", paddingBottom: "6.25rem" }}>
         <div className="wrap grid md:grid-cols-2 gap-10 md:gap-16">
           <FadeIn direction="left">
             <p className="text-xs tracking-[0.3em] uppercase mb-4" style={{ color: "var(--blue)" }}>Mission</p>
@@ -112,7 +112,7 @@ export default function OmOsPage() {
       </section>
 
       {/* Values */}
-      <section style={{ background: "var(--bg)", paddingTop: "5rem", paddingBottom: "5rem" }}>
+      <section style={{ background: "var(--bg)", paddingTop: "6.25rem", paddingBottom: "6.25rem" }}>
         <div className="wrap">
           <FadeIn>
             <div className="text-center mb-10">
@@ -154,7 +154,7 @@ export default function OmOsPage() {
       </section>
 
       {/* CTA */}
-      <section style={{ background: "var(--bg-soft)", paddingTop: "5rem", paddingBottom: "5rem" }}>
+      <section style={{ background: "var(--bg-soft)", paddingTop: "6.25rem", paddingBottom: "6.25rem" }}>
         <div className="wrap">
           <FadeIn>
             <div

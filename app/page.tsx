@@ -155,7 +155,7 @@ export default function HomePage() {
       </section>
 
       {/* ── Services ──────────────────────────────────── */}
-      <section style={{ background: "var(--bg)", padding: "5rem 0" }}>
+      <section style={{ background: "var(--bg)", padding: "6.25rem 0" }}>
         <div className="wrap">
           <FadeIn>
             <div className="text-center mb-12">
@@ -182,7 +182,7 @@ export default function HomePage() {
             style={{
               display: "grid",
               gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
-              gap: "1.5rem",
+              gap: "2rem",
             }}
           >
             {services.map((s, i) => {
@@ -263,7 +263,7 @@ export default function HomePage() {
       </section>
 
       {/* ── Process ───────────────────────────────────── */}
-      <section style={{ background: "var(--bg-grey)", padding: "5rem 0" }}>
+      <section style={{ background: "var(--bg-grey)", padding: "6.25rem 0" }}>
         <div className="wrap">
           <FadeIn>
             <div className="text-center mb-12">
@@ -336,7 +336,7 @@ export default function HomePage() {
       </section>
 
       {/* ── CTA ───────────────────────────────────────── */}
-      <section style={{ background: "var(--bg)", padding: "5rem 0" }}>
+      <section style={{ background: "var(--bg)", padding: "6.25rem 0" }}>
         <div className="wrap">
           <FadeIn>
             <div

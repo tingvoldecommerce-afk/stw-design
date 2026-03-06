@@ -113,7 +113,7 @@ export default function YdelserPage() {
       </section>
 
       {/* Services accordion */}
-      <section style={{ background: "var(--bg)", paddingTop: "4rem", paddingBottom: "4rem" }}>
+      <section style={{ background: "var(--bg)", paddingTop: "6.25rem", paddingBottom: "6.25rem" }}>
         <div className="wrap">
           {services.map((s, i) => {
             const t = lang === "da" ? s.da : s.en;
@@ -193,7 +193,7 @@ export default function YdelserPage() {
       </section>
 
       {/* Process */}
-      <section style={{ background: "var(--navy)", paddingTop: "5rem", paddingBottom: "5rem" }}>
+      <section style={{ background: "var(--navy)", paddingTop: "6.25rem", paddingBottom: "6.25rem" }}>
         <div className="wrap">
           <FadeIn>
             <div className="text-center mb-12">
@@ -207,7 +207,7 @@ export default function YdelserPage() {
               </h2>
             </div>
           </FadeIn>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
             {steps.map((step, i) => {
               const t = lang === "da" ? step.da : step.en;
               return (
@@ -231,7 +231,7 @@ export default function YdelserPage() {
       </section>
 
       {/* CTA */}
-      <section style={{ background: "var(--bg)", paddingTop: "5rem", paddingBottom: "5rem" }}>
+      <section style={{ background: "var(--bg)", paddingTop: "6.25rem", paddingBottom: "6.25rem" }}>
         <div className="wrap text-center">
           <FadeIn>
             <h2
