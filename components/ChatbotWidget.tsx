@@ -244,7 +244,7 @@ export default function ChatbotWidget() {
             className="fixed z-50 flex flex-col overflow-hidden"
             style={{
               width: "min(380px, calc(100vw - 32px))",
-              height: 540,
+              height: "min(540px, calc(100vh - 220px))",
               bottom: 100,
               right: 28,
               borderRadius: 16,
