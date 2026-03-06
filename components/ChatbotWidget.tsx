@@ -12,11 +12,7 @@ interface Message {
 
 const LEAD_TRIGGER_COUNT = 3;
 
-const navyGrad = "linear-gradient(135deg, #0c2240 0%, #163d6e 50%, #1a5296 100%)";
-const navyGradDark = "linear-gradient(135deg, #0f2a4a 0%, #1a5296 100%)";
-const fontSyne = "'Syne', system-ui, sans-serif";
-const fontDM = "'DM Sans', system-ui, sans-serif";
-
+// SVG icons
 const InfoSVG = () => (
   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/>
@@ -33,7 +29,7 @@ const SearchSVG = () => (
   </svg>
 );
 const ChatSVG = () => (
-  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
   </svg>
 );
@@ -64,8 +60,6 @@ export default function ChatbotWidget() {
   const [leadName, setLeadName] = useState("");
   const [leadEmail, setLeadEmail] = useState("");
   const [leadSent, setLeadSent] = useState(false);
-  const [sendHover, setSendHover] = useState(false);
-  const [sendPress, setSendPress] = useState(false);
   const [inputFocused, setInputFocused] = useState(false);
   const msgCount = useRef(0);
   const bottomRef = useRef<HTMLDivElement>(null);
@@ -76,7 +70,7 @@ export default function ChatbotWidget() {
   }, [messages, loading]);
 
   useEffect(() => {
-    if (open) setTimeout(() => textareaRef.current?.focus(), 350);
+    if (open) setTimeout(() => textareaRef.current?.focus(), 300);
   }, [open]);
 
   function growTextarea() {
@@ -141,60 +135,38 @@ export default function ChatbotWidget() {
   }
 
   const hasMessages = messages.length > 0;
-  const suggestions = lang === "da" ? suggestionsDa : suggestionsEn;
   const canSend = !!input.trim() && !loading;
+  const suggestions = lang === "da" ? suggestionsDa : suggestionsEn;
 
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap');
-
-        @keyframes nxPulse {
-          0%, 100% { transform: scale(1); opacity: 1; }
-          50% { transform: scale(1.6); opacity: 0; }
-        }
         @keyframes nxBounce {
           0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-4px); }
+          50% { transform: translateY(-3px); }
         }
         @keyframes nxFadeUp {
-          from { opacity: 0; transform: translateY(10px); }
+          from { opacity: 0; transform: translateY(6px); }
           to { opacity: 1; transform: translateY(0); }
         }
-
-        .nx-pulse { position: relative; }
-        .nx-pulse::after {
+        @keyframes nxPulse {
+          0%, 100% { opacity: 1; transform: scale(1); }
+          50% { opacity: 0; transform: scale(1.8); }
+        }
+        .nx-dot { animation: nxBounce 1s ease-in-out infinite; }
+        .nx-msg { animation: nxFadeUp 0.25s ease both; }
+        .nx-glow {
+          position: relative;
+        }
+        .nx-glow::after {
           content: '';
           position: absolute;
           inset: -3px;
           border-radius: 50%;
-          background: rgba(74,222,128,0.4);
+          background: rgba(74,222,128,0.45);
           animation: nxPulse 2s ease-in-out infinite;
           pointer-events: none;
         }
-
-        .nx-header { position: relative; overflow: hidden; }
-        .nx-header::before {
-          content: '';
-          position: absolute;
-          top: -30px; right: -30px;
-          width: 100px; height: 100px;
-          border-radius: 50%;
-          background: rgba(255,255,255,0.05);
-          pointer-events: none;
-        }
-        .nx-header::after {
-          content: '';
-          position: absolute;
-          bottom: -20px; left: -20px;
-          width: 70px; height: 70px;
-          border-radius: 50%;
-          background: rgba(255,255,255,0.04);
-          pointer-events: none;
-        }
-
-        .nx-msg { animation: nxFadeUp 0.3s ease both; }
-        .nx-dot { animation: nxBounce 1s ease-in-out infinite; }
       `}</style>
 
       {/* Toggle button */}
@@ -203,18 +175,19 @@ export default function ChatbotWidget() {
         animate={{ scale: 1, opacity: 1 }}
         transition={{ delay: 1.5, type: "spring", stiffness: 260, damping: 20 }}
         onClick={() => setOpen(!open)}
-        className="fixed bottom-6 right-6 z-50 flex items-center justify-center"
+        className="fixed bottom-6 right-7 z-50 flex items-center justify-center"
         style={{
-          width: 60,
-          height: 60,
+          width: 56,
+          height: 56,
           borderRadius: "50%",
-          background: navyGrad,
+          background: "#0c2240",
           color: "#fff",
           border: "none",
           cursor: "pointer",
-          boxShadow: "0 8px 32px rgba(12,34,64,0.35)",
+          boxShadow: "0 4px 16px rgba(12,34,64,0.25)",
+          transition: "box-shadow 0.2s ease",
         }}
-        whileHover={{ boxShadow: "0 12px 40px rgba(12,34,64,0.5)" }}
+        whileHover={{ boxShadow: "0 6px 24px rgba(12,34,64,0.35)" }}
         aria-label="Åbn chat"
       >
         <div style={{ position: "relative" }}>
@@ -222,35 +195,35 @@ export default function ChatbotWidget() {
             {open ? (
               <motion.div
                 key="close"
-                initial={{ rotate: -90, opacity: 0, scale: 0.5 }}
-                animate={{ rotate: 0, opacity: 1, scale: 1 }}
-                exit={{ rotate: 90, opacity: 0, scale: 0.5 }}
-                transition={{ type: "spring", stiffness: 300, damping: 22 }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.15 }}
               >
-                <X size={22} />
+                <X size={20} />
               </motion.div>
             ) : (
               <motion.div
                 key="chat"
-                initial={{ rotate: 90, opacity: 0, scale: 0.5 }}
-                animate={{ rotate: 0, opacity: 1, scale: 1 }}
-                exit={{ rotate: -90, opacity: 0, scale: 0.5 }}
-                transition={{ type: "spring", stiffness: 300, damping: 22 }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.15 }}
               >
                 <ChatSVG />
               </motion.div>
             )}
           </AnimatePresence>
 
-          {/* Pulsating green notification dot */}
+          {/* Pulsating green dot */}
           <span
-            className="nx-pulse"
+            className="nx-glow"
             style={{
               position: "absolute",
-              top: -4,
-              right: -4,
-              width: 10,
-              height: 10,
+              top: -3,
+              right: -3,
+              width: 9,
+              height: 9,
               borderRadius: "50%",
               background: "#4ade80",
               border: "2px solid #0c2240",
@@ -264,156 +237,128 @@ export default function ChatbotWidget() {
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={{ opacity: 0, y: 20, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 20, scale: 0.95 }}
-            transition={{ type: "spring", stiffness: 320, damping: 28 }}
-            className="fixed bottom-24 right-6 z-50 flex flex-col overflow-hidden"
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 8 }}
+            transition={{ duration: 0.2, ease: "easeOut" }}
+            className="fixed z-50 flex flex-col overflow-hidden"
             style={{
               width: "min(380px, calc(100vw - 32px))",
-              height: 560,
-              borderRadius: 24,
-              background: "#fff",
-              boxShadow: "0 24px 80px rgba(15,42,74,0.22)",
+              height: 540,
+              bottom: 100,
+              right: 28,
+              borderRadius: 16,
+              background: "#ffffff",
+              border: "1px solid #e2e8f0",
+              boxShadow: "0 8px 40px rgba(12,34,64,0.12)",
             }}
           >
             {/* Header */}
             <div
-              className="nx-header shrink-0 px-5 py-4"
-              style={{ background: navyGrad }}
+              className="shrink-0 px-4 py-3 flex items-center gap-3"
+              style={{ background: "#0c2240" }}
             >
-              <div style={{ display: "flex", alignItems: "flex-start", gap: 12, position: "relative", zIndex: 1 }}>
-                {/* Square avatar */}
-                <div style={{ position: "relative", flexShrink: 0 }}>
-                  <div
-                    style={{
-                      width: 46,
-                      height: 46,
-                      borderRadius: 14,
-                      background: "rgba(255,255,255,0.12)",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      fontFamily: fontSyne,
-                      fontWeight: 800,
-                      fontSize: 14,
-                      color: "#fff",
-                      letterSpacing: "0.06em",
-                    }}
-                  >
-                    NX
-                  </div>
-                  {/* Pulsating green dot on avatar */}
-                  <span
-                    className="nx-pulse"
-                    style={{
-                      position: "absolute",
-                      bottom: -2,
-                      right: -2,
-                      width: 10,
-                      height: 10,
-                      borderRadius: "50%",
-                      background: "#4ade80",
-                      border: "2px solid #0c2240",
-                      display: "block",
-                    }}
-                  />
-                </div>
-
-                {/* Title + subtitle + badge + close */}
-                <div style={{ flex: 1, minWidth: 0 }}>
-                  <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                    <span
-                      style={{
-                        fontFamily: fontSyne,
-                        fontWeight: 800,
-                        fontSize: 18,
-                        color: "#fff",
-                        letterSpacing: "-0.01em",
-                        lineHeight: 1.1,
-                      }}
-                    >
-                      NEXUS
-                    </span>
-
-                    {/* Online badge */}
-                    <div
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        gap: 4,
-                        padding: "3px 8px",
-                        borderRadius: 20,
-                        background: "rgba(74,222,128,0.15)",
-                        border: "1px solid rgba(74,222,128,0.3)",
-                        flexShrink: 0,
-                      }}
-                    >
-                      <span style={{ width: 5, height: 5, borderRadius: "50%", background: "#4ade80", flexShrink: 0, display: "block" }} />
-                      <span style={{ fontFamily: fontDM, fontSize: 10.5, color: "#4ade80", fontWeight: 500 }}>
-                        Online
-                      </span>
-                    </div>
-
-                    {/* Close button */}
-                    <button
-                      onClick={() => setOpen(false)}
-                      style={{
-                        marginLeft: "auto",
-                        width: 26,
-                        height: 26,
-                        borderRadius: 8,
-                        background: "transparent",
-                        border: "none",
-                        color: "rgba(255,255,255,0.5)",
-                        cursor: "pointer",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        transition: "background 0.15s, color 0.15s",
-                        flexShrink: 0,
-                      }}
-                      onMouseEnter={(e) => {
-                        e.currentTarget.style.background = "rgba(255,255,255,0.12)";
-                        e.currentTarget.style.color = "#fff";
-                      }}
-                      onMouseLeave={(e) => {
-                        e.currentTarget.style.background = "transparent";
-                        e.currentTarget.style.color = "rgba(255,255,255,0.5)";
-                      }}
-                    >
-                      <X size={14} />
-                    </button>
-                  </div>
-
-                  <p
-                    style={{
-                      fontFamily: fontDM,
-                      fontSize: 11.5,
-                      color: "rgba(255,255,255,0.6)",
-                      marginTop: 3,
-                      lineHeight: 1.3,
-                    }}
-                  >
-                    STW Webdesign AI-assistent
-                  </p>
-                </div>
-              </div>
-
-              {/* Tagline */}
-              <p
+              {/* NX avatar */}
+              <div
                 style={{
-                  fontFamily: fontDM,
+                  width: 36,
+                  height: 36,
+                  borderRadius: 10,
+                  background: "#1a5296",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  fontFamily: "var(--font-montserrat), system-ui, sans-serif",
+                  fontWeight: 700,
                   fontSize: 12,
-                  color: "rgba(255,255,255,0.45)",
-                  marginTop: 10,
-                  letterSpacing: "0.02em",
-                  position: "relative",
-                  zIndex: 1,
+                  color: "#fff",
+                  letterSpacing: "0.05em",
+                  flexShrink: 0,
                 }}
               >
-                Svar på sekunder · Tilgængelig 24/7
-              </p>
+                NX
+              </div>
+
+              {/* Title + subtitle */}
+              <div style={{ flex: 1, minWidth: 0 }}>
+                <p
+                  style={{
+                    fontFamily: "var(--font-montserrat), system-ui, sans-serif",
+                    fontWeight: 700,
+                    fontSize: 14,
+                    color: "#fff",
+                    lineHeight: 1.2,
+                  }}
+                >
+                  NEXUS
+                </p>
+                <p
+                  style={{
+                    fontFamily: "var(--font-inter), system-ui, sans-serif",
+                    fontSize: 12,
+                    color: "rgba(255,255,255,0.55)",
+                    lineHeight: 1.3,
+                    marginTop: 1,
+                  }}
+                >
+                  STW Webdesign AI-assistent
+                </p>
+              </div>
+
+              {/* Online badge */}
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 5,
+                  padding: "3px 9px",
+                  borderRadius: 20,
+                  background: "rgba(74,222,128,0.15)",
+                  border: "1px solid rgba(74,222,128,0.25)",
+                  flexShrink: 0,
+                }}
+              >
+                <span style={{ width: 5, height: 5, borderRadius: "50%", background: "#4ade80", display: "block" }} />
+                <span
+                  style={{
+                    fontFamily: "var(--font-inter), system-ui, sans-serif",
+                    fontSize: 11,
+                    color: "#4ade80",
+                    fontWeight: 500,
+                  }}
+                >
+                  Online
+                </span>
+              </div>
+
+              {/* Close button */}
+              <button
+                onClick={() => setOpen(false)}
+                style={{
+                  width: 28,
+                  height: 28,
+                  borderRadius: 7,
+                  background: "transparent",
+                  border: "none",
+                  color: "rgba(255,255,255,0.45)",
+                  cursor: "pointer",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  transition: "background 0.15s, color 0.15s",
+                  flexShrink: 0,
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = "rgba(255,255,255,0.1)";
+                  e.currentTarget.style.color = "#fff";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = "transparent";
+                  e.currentTarget.style.color = "rgba(255,255,255,0.45)";
+                }}
+              >
+                <X size={14} />
+              </button>
             </div>
 
             {/* Messages / Welcome */}
@@ -430,36 +375,51 @@ export default function ChatbotWidget() {
                     alignItems: "center",
                     justifyContent: "center",
                     height: "100%",
-                    gap: 14,
+                    gap: 16,
                     padding: "0 4px",
                   }}
                 >
                   <div
                     style={{
-                      width: 56,
-                      height: 56,
-                      borderRadius: 16,
-                      background: "linear-gradient(135deg, #e8f0fe 0%, #c7d9fb 100%)",
+                      width: 52,
+                      height: 52,
+                      borderRadius: 12,
+                      background: "#e8f0fe",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
                     }}
                   >
-                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1a5296" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1a5296" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
                     </svg>
                   </div>
 
                   <div style={{ textAlign: "center" }}>
-                    <p style={{ fontFamily: fontSyne, fontWeight: 700, fontSize: 15, color: "#0c2240", marginBottom: 6 }}>
+                    <p
+                      style={{
+                        fontFamily: "var(--font-montserrat), system-ui, sans-serif",
+                        fontWeight: 700,
+                        fontSize: 15,
+                        color: "#0c2240",
+                        marginBottom: 6,
+                      }}
+                    >
                       Hej! Hvad kan jeg hjælpe med?
                     </p>
-                    <p style={{ fontFamily: fontDM, fontSize: 13, color: "#64748b", lineHeight: 1.5 }}>
+                    <p
+                      style={{
+                        fontFamily: "var(--font-inter), system-ui, sans-serif",
+                        fontSize: 13,
+                        color: "#64748b",
+                        lineHeight: 1.5,
+                      }}
+                    >
                       Stil mig et spørgsmål om hjemmesider, SEO eller AI-løsninger.
                     </p>
                   </div>
 
-                  <div style={{ display: "flex", flexDirection: "column", gap: 8, width: "100%" }}>
+                  <div style={{ display: "flex", flexDirection: "column", gap: 7, width: "100%" }}>
                     {suggestions.map(({ text, Icon }, i) => (
                       <button
                         key={i}
@@ -468,36 +428,34 @@ export default function ChatbotWidget() {
                           display: "flex",
                           alignItems: "center",
                           gap: 10,
-                          padding: "10px 12px",
-                          borderRadius: 12,
+                          padding: "11px 14px",
+                          borderRadius: 10,
                           background: "#fff",
-                          border: "1.5px solid #e2e8f0",
+                          border: "1px solid #e2e8f0",
                           cursor: "pointer",
                           textAlign: "left",
-                          transition: "border-color 0.15s, background 0.15s, transform 0.15s",
-                          fontFamily: fontDM,
+                          transition: "border-color 0.15s, background 0.15s",
+                          fontFamily: "var(--font-inter), system-ui, sans-serif",
                           fontSize: 13,
                           color: "#0c2240",
                           fontWeight: 400,
                           width: "100%",
                         }}
                         onMouseEnter={(e) => {
-                          e.currentTarget.style.borderColor = "#1a5296";
-                          e.currentTarget.style.background = "#f0f6ff";
-                          e.currentTarget.style.transform = "translateX(3px)";
+                          e.currentTarget.style.borderColor = "#0c2240";
+                          e.currentTarget.style.background = "#f8fafc";
                         }}
                         onMouseLeave={(e) => {
                           e.currentTarget.style.borderColor = "#e2e8f0";
                           e.currentTarget.style.background = "#fff";
-                          e.currentTarget.style.transform = "translateX(0)";
                         }}
                       >
                         <div
                           style={{
                             width: 28,
                             height: 28,
-                            borderRadius: 8,
-                            background: "#f0f6ff",
+                            borderRadius: 7,
+                            background: "#f0f4f9",
                             display: "flex",
                             alignItems: "center",
                             justifyContent: "center",
@@ -523,18 +481,19 @@ export default function ChatbotWidget() {
                     display: "flex",
                     justifyContent: m.role === "user" ? "flex-end" : "flex-start",
                     alignItems: "flex-end",
-                    gap: 8,
-                    animationDelay: `${Math.min(i * 0.02, 0.1)}s`,
+                    gap: 7,
+                    animationDelay: `${Math.min(i * 0.02, 0.08)}s`,
                   }}
                 >
                   {m.role === "assistant" && (
                     <div
                       style={{
-                        width: 30, height: 30, borderRadius: 10,
-                        background: navyGrad,
+                        width: 28, height: 28, borderRadius: 8,
+                        background: "#0c2240",
                         display: "flex", alignItems: "center", justifyContent: "center",
-                        fontFamily: fontSyne, fontWeight: 800, fontSize: 9,
-                        color: "#fff", flexShrink: 0, letterSpacing: "0.06em",
+                        fontFamily: "var(--font-montserrat), system-ui, sans-serif",
+                        fontWeight: 700, fontSize: 8,
+                        color: "#fff", flexShrink: 0, letterSpacing: "0.05em",
                       }}
                     >
                       NX
@@ -543,24 +502,24 @@ export default function ChatbotWidget() {
 
                   <div
                     style={{
-                      maxWidth: "75%",
-                      padding: "10px 14px",
+                      maxWidth: "76%",
+                      padding: "9px 13px",
                       fontSize: 13.5,
                       lineHeight: 1.55,
-                      fontFamily: fontDM,
+                      fontFamily: "var(--font-inter), system-ui, sans-serif",
                       fontWeight: 400,
                       ...(m.role === "assistant"
                         ? {
                             background: "#fff",
                             color: "#1e293b",
-                            borderRadius: "4px 16px 16px 16px",
+                            borderRadius: "4px 14px 14px 14px",
                             border: "1px solid #f1f5f9",
-                            boxShadow: "0 2px 8px rgba(0,0,0,0.06)",
+                            boxShadow: "0 1px 4px rgba(0,0,0,0.05)",
                           }
                         : {
-                            background: navyGradDark,
+                            background: "#0c2240",
                             color: "#fff",
-                            borderRadius: "16px 4px 16px 16px",
+                            borderRadius: "14px 4px 14px 14px",
                           }),
                     }}
                   >
@@ -570,11 +529,12 @@ export default function ChatbotWidget() {
                   {m.role === "user" && (
                     <div
                       style={{
-                        width: 30, height: 30, borderRadius: 10,
+                        width: 28, height: 28, borderRadius: 8,
                         background: "#e2e8f0",
                         display: "flex", alignItems: "center", justifyContent: "center",
-                        fontFamily: fontSyne, fontWeight: 800, fontSize: 9,
-                        color: "#475569", flexShrink: 0, letterSpacing: "0.06em",
+                        fontFamily: "var(--font-montserrat), system-ui, sans-serif",
+                        fontWeight: 700, fontSize: 8,
+                        color: "#475569", flexShrink: 0, letterSpacing: "0.05em",
                       }}
                     >
                       DU
@@ -585,36 +545,36 @@ export default function ChatbotWidget() {
 
               {/* Typing indicator */}
               {loading && (
-                <div style={{ display: "flex", alignItems: "flex-end", gap: 8 }}>
+                <div style={{ display: "flex", alignItems: "flex-end", gap: 7 }}>
                   <div
                     style={{
-                      width: 30, height: 30, borderRadius: 10,
-                      background: navyGrad,
+                      width: 28, height: 28, borderRadius: 8,
+                      background: "#0c2240",
                       display: "flex", alignItems: "center", justifyContent: "center",
-                      fontFamily: fontSyne, fontWeight: 800, fontSize: 9,
-                      color: "#fff", flexShrink: 0,
+                      fontFamily: "var(--font-montserrat), system-ui, sans-serif",
+                      fontWeight: 700, fontSize: 8, color: "#fff", flexShrink: 0,
                     }}
                   >
                     NX
                   </div>
                   <div
                     style={{
-                      padding: "12px 16px",
+                      padding: "11px 14px",
                       background: "#fff",
-                      borderRadius: "4px 16px 16px 16px",
+                      borderRadius: "4px 14px 14px 14px",
                       border: "1px solid #f1f5f9",
-                      boxShadow: "0 2px 8px rgba(0,0,0,0.06)",
+                      boxShadow: "0 1px 4px rgba(0,0,0,0.05)",
                       display: "flex",
                       gap: 5,
                       alignItems: "center",
                     }}
                   >
-                    {[0, 0.2, 0.4].map((delay, idx) => (
+                    {[0, 0.18, 0.36].map((delay, idx) => (
                       <span
                         key={idx}
                         className="nx-dot"
                         style={{
-                          width: 7, height: 7,
+                          width: 6, height: 6,
                           borderRadius: "50%",
                           background: "#94a3b8",
                           display: "block",
@@ -629,22 +589,30 @@ export default function ChatbotWidget() {
               {/* Lead capture */}
               {showLead && !leadSent && (
                 <motion.form
-                  initial={{ opacity: 0, y: 8 }}
+                  initial={{ opacity: 0, y: 6 }}
                   animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.2, ease: "easeOut" }}
                   onSubmit={submitLead}
                   style={{
                     display: "flex",
                     flexDirection: "column",
                     gap: 8,
                     padding: 14,
-                    marginTop: 4,
+                    marginTop: 2,
                     background: "#fff",
-                    border: "1.5px solid #e2e8f0",
+                    border: "1px solid #e2e8f0",
                     borderRadius: 12,
-                    boxShadow: "0 2px 8px rgba(0,0,0,0.06)",
+                    boxShadow: "0 1px 4px rgba(0,0,0,0.05)",
                   }}
                 >
-                  <p style={{ fontFamily: fontSyne, fontWeight: 700, fontSize: 13, color: "#0c2240" }}>
+                  <p
+                    style={{
+                      fontFamily: "var(--font-montserrat), system-ui, sans-serif",
+                      fontWeight: 700,
+                      fontSize: 13,
+                      color: "#0c2240",
+                    }}
+                  >
                     {lang === "da" ? "Vil du have os til at kontakte dig?" : "Want us to contact you?"}
                   </p>
                   <input
@@ -654,10 +622,16 @@ export default function ChatbotWidget() {
                     onChange={(e) => setLeadName(e.target.value)}
                     required
                     style={{
-                      fontFamily: fontDM, fontSize: 12, outline: "none",
-                      padding: "8px 12px", border: "1px solid #e2e8f0", borderRadius: 8,
+                      fontFamily: "var(--font-inter), system-ui, sans-serif",
+                      fontSize: 13,
+                      outline: "none",
+                      padding: "8px 12px",
+                      border: "1px solid #e2e8f0",
+                      borderRadius: 8,
+                      color: "#0c2240",
+                      transition: "border-color 0.15s",
                     }}
-                    onFocus={(e) => (e.currentTarget.style.borderColor = "#1a5296")}
+                    onFocus={(e) => (e.currentTarget.style.borderColor = "#0c2240")}
                     onBlur={(e) => (e.currentTarget.style.borderColor = "#e2e8f0")}
                   />
                   <input
@@ -667,20 +641,32 @@ export default function ChatbotWidget() {
                     onChange={(e) => setLeadEmail(e.target.value)}
                     required
                     style={{
-                      fontFamily: fontDM, fontSize: 12, outline: "none",
-                      padding: "8px 12px", border: "1px solid #e2e8f0", borderRadius: 8,
+                      fontFamily: "var(--font-inter), system-ui, sans-serif",
+                      fontSize: 13,
+                      outline: "none",
+                      padding: "8px 12px",
+                      border: "1px solid #e2e8f0",
+                      borderRadius: 8,
+                      color: "#0c2240",
+                      transition: "border-color 0.15s",
                     }}
-                    onFocus={(e) => (e.currentTarget.style.borderColor = "#1a5296")}
+                    onFocus={(e) => (e.currentTarget.style.borderColor = "#0c2240")}
                     onBlur={(e) => (e.currentTarget.style.borderColor = "#e2e8f0")}
                   />
                   <div style={{ display: "flex", gap: 8 }}>
                     <button
                       type="submit"
                       style={{
-                        flex: 1, color: "#fff",
-                        fontSize: 12, fontFamily: fontDM, fontWeight: 500,
-                        padding: "8px", background: navyGradDark,
-                        borderRadius: 8, border: "none", cursor: "pointer",
+                        flex: 1,
+                        color: "#fff",
+                        fontSize: 13,
+                        fontFamily: "var(--font-inter), system-ui, sans-serif",
+                        fontWeight: 500,
+                        padding: "8px",
+                        background: "#0c2240",
+                        borderRadius: 8,
+                        border: "none",
+                        cursor: "pointer",
                       }}
                     >
                       {lang === "da" ? "Send" : "Send"}
@@ -689,9 +675,13 @@ export default function ChatbotWidget() {
                       type="button"
                       onClick={() => setShowLead(false)}
                       style={{
-                        fontFamily: fontDM, fontSize: 12, color: "#94a3b8",
-                        padding: "8px 12px", background: "transparent",
-                        border: "none", cursor: "pointer",
+                        fontFamily: "var(--font-inter), system-ui, sans-serif",
+                        fontSize: 13,
+                        color: "#94a3b8",
+                        padding: "8px 12px",
+                        background: "transparent",
+                        border: "none",
+                        cursor: "pointer",
                       }}
                     >
                       {lang === "da" ? "Nej tak" : "No thanks"}
@@ -706,19 +696,19 @@ export default function ChatbotWidget() {
             {/* Input area */}
             <div
               className="shrink-0 px-4 pt-3 pb-2"
-              style={{ background: "#fff", borderTop: "1px solid #f1f5f9" }}
+              style={{ background: "#fff", borderTop: "1px solid #e2e8f0" }}
             >
               <div
                 style={{
                   display: "flex",
                   alignItems: "flex-end",
                   gap: 8,
-                  padding: "8px 8px 8px 14px",
-                  borderRadius: 16,
-                  background: inputFocused ? "#fff" : "#f8fafc",
-                  border: `1.5px solid ${inputFocused ? "#1a5296" : "#e2e8f0"}`,
-                  boxShadow: inputFocused ? "0 0 0 3px rgba(26,82,150,0.1)" : "none",
-                  transition: "border-color 0.15s, box-shadow 0.15s, background 0.15s",
+                  padding: "7px 7px 7px 13px",
+                  borderRadius: 12,
+                  background: "#fff",
+                  border: `1px solid ${inputFocused ? "#0c2240" : "#e2e8f0"}`,
+                  boxShadow: inputFocused ? "0 0 0 3px rgba(12,34,64,0.08)" : "none",
+                  transition: "border-color 0.15s, box-shadow 0.15s",
                 }}
               >
                 <textarea
@@ -741,7 +731,7 @@ export default function ChatbotWidget() {
                     outline: "none",
                     border: "none",
                     background: "transparent",
-                    fontFamily: fontDM,
+                    fontFamily: "var(--font-inter), system-ui, sans-serif",
                     fontSize: 13.5,
                     color: "#0c2240",
                     lineHeight: 1.5,
@@ -752,32 +742,22 @@ export default function ChatbotWidget() {
                   }}
                 />
 
-                {/* Send button */}
                 <button
                   onClick={() => sendMessage()}
                   disabled={!canSend}
-                  onMouseEnter={() => setSendHover(true)}
-                  onMouseLeave={() => { setSendHover(false); setSendPress(false); }}
-                  onMouseDown={() => setSendPress(true)}
-                  onMouseUp={() => setSendPress(false)}
                   style={{
-                    width: 36,
-                    height: 36,
-                    borderRadius: 11,
-                    background: navyGradDark,
+                    width: 34,
+                    height: 34,
+                    borderRadius: 9,
+                    background: "#0c2240",
                     border: "none",
                     color: "#fff",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
                     cursor: canSend ? "pointer" : "default",
-                    opacity: canSend ? 1 : 0.5,
-                    transform: sendPress
-                      ? "scale(0.94)"
-                      : sendHover && canSend
-                        ? "scale(1.08)"
-                        : "scale(1)",
-                    transition: "transform 0.2s cubic-bezier(.34,1.56,.64,1), opacity 0.15s",
+                    opacity: canSend ? 1 : 0.4,
+                    transition: "opacity 0.15s",
                     flexShrink: 0,
                   }}
                 >
@@ -785,13 +765,12 @@ export default function ChatbotWidget() {
                 </button>
               </div>
 
-              {/* Footer brand */}
               <p
                 style={{
                   textAlign: "center",
                   fontSize: 10.5,
                   color: "#cbd5e1",
-                  fontFamily: fontDM,
+                  fontFamily: "var(--font-inter), system-ui, sans-serif",
                   marginTop: 6,
                 }}
               >
