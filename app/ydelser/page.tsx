@@ -9,7 +9,7 @@ import { useLang } from "@/components/LangProvider";
 
 const services = [
   {
-    icon: <Globe size={26} />,
+    icon: <Globe size={28} />,
     da: {
       title: "Hjemmesider der sælger",
       subtitle: "Konverter besøgende til betalende kunder",
@@ -24,7 +24,7 @@ const services = [
     },
   },
   {
-    icon: <Bot size={26} />,
+    icon: <Bot size={28} />,
     da: {
       title: "AI-Chatbots der automatiserer dit salg",
       subtitle: "Automatiser kundeservice og lead-generering",
@@ -39,7 +39,7 @@ const services = [
     },
   },
   {
-    icon: <TrendingUp size={26} />,
+    icon: <TrendingUp size={28} />,
     da: {
       title: "SEO der gør dig synlig for de rigtige",
       subtitle: "Vind de søgninger, der betyder noget",
@@ -114,7 +114,7 @@ export default function YdelserPage() {
 
       {/* Services accordion */}
       <section style={{ background: "var(--bg)", paddingTop: "6.25rem", paddingBottom: "6.25rem" }}>
-        <div className="wrap">
+        <div className="wrap" style={{ borderTop: "1px solid var(--border)" }}>
           {services.map((s, i) => {
             const t = lang === "da" ? s.da : s.en;
             const isOpen = openIndex === i;
@@ -123,31 +123,31 @@ export default function YdelserPage() {
                 <div style={{ borderBottom: "1px solid var(--border)" }}>
                   <button
                     onClick={() => setOpenIndex(isOpen ? null : i)}
-                    className="w-full flex items-center gap-5 py-8 text-left"
+                    className="w-full flex items-center gap-6 py-10 text-left"
                     style={{ background: "none", border: "none", outline: "none", cursor: "pointer" }}
                   >
                     <div
-                      className="w-11 h-11 flex items-center justify-center shrink-0"
-                      style={{ background: "rgba(59,130,246,0.1)", color: "var(--blue)", borderRadius: "8px" }}
+                      className="w-12 h-12 flex items-center justify-center shrink-0"
+                      style={{ background: "rgba(59,130,246,0.1)", color: "var(--blue)", borderRadius: "10px" }}
                     >
                       {s.icon}
                     </div>
                     <div className="flex-1 min-w-0">
                       <h2
-                        className="text-xl font-bold"
-                        style={{ fontFamily: "var(--font-montserrat)", color: "var(--navy)" }}
+                        className="text-2xl"
+                        style={{ fontFamily: "var(--font-montserrat)", color: "var(--navy)", fontWeight: 700 }}
                       >
                         {t.title}
                       </h2>
-                      <p className="text-sm mt-0.5" style={{ color: "var(--text-muted)" }}>
+                      <p className="text-sm mt-1" style={{ color: "#475569", lineHeight: 1.6 }}>
                         {t.subtitle}
                       </p>
                     </div>
                     <motion.span
                       animate={{ rotate: isOpen ? 45 : 0 }}
                       transition={{ duration: 0.2, ease: "easeInOut" }}
-                      className="text-2xl font-light shrink-0"
-                      style={{ color: "var(--text-muted)", display: "inline-block" }}
+                      className="text-3xl font-light shrink-0 self-center"
+                      style={{ color: "var(--navy)", display: "inline-block", lineHeight: 1 }}
                     >
                       +
                     </motion.span>
