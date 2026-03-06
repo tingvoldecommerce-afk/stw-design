@@ -255,28 +255,48 @@ export default function ChatbotWidget() {
           >
             {/* Header */}
             <div
-              className="shrink-0 px-4 py-3 flex items-center gap-3"
-              style={{ background: "#0c2240" }}
+              className="shrink-0 flex items-center gap-3.5"
+              style={{
+                background: "#0c2240",
+                padding: "18px 20px",
+                borderBottom: "1px solid rgba(255,255,255,0.08)",
+              }}
             >
               {/* NX avatar */}
-              <div
-                style={{
-                  width: 36,
-                  height: 36,
-                  borderRadius: 10,
-                  background: "#1a5296",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  fontFamily: "var(--font-montserrat), system-ui, sans-serif",
-                  fontWeight: 700,
-                  fontSize: 12,
-                  color: "#fff",
-                  letterSpacing: "0.05em",
-                  flexShrink: 0,
-                }}
-              >
-                NX
+              <div style={{ position: "relative", flexShrink: 0 }}>
+                <div
+                  style={{
+                    width: 42,
+                    height: 42,
+                    borderRadius: 12,
+                    background: "#1a5296",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    fontFamily: "var(--font-montserrat), system-ui, sans-serif",
+                    fontWeight: 800,
+                    fontSize: 15,
+                    color: "#fff",
+                    letterSpacing: "-0.5px",
+                    boxShadow: "inset 0 1px 0 rgba(255,255,255,0.15)",
+                  }}
+                >
+                  NX
+                </div>
+                {/* Green status dot */}
+                <span
+                  style={{
+                    position: "absolute",
+                    bottom: -2,
+                    right: -2,
+                    width: 10,
+                    height: 10,
+                    borderRadius: "50%",
+                    background: "#4ade80",
+                    border: "2px solid #0c2240",
+                    display: "block",
+                  }}
+                />
               </div>
 
               {/* Title + subtitle */}
@@ -285,9 +305,10 @@ export default function ChatbotWidget() {
                   style={{
                     fontFamily: "var(--font-montserrat), system-ui, sans-serif",
                     fontWeight: 700,
-                    fontSize: 14,
+                    fontSize: 17,
                     color: "#fff",
                     lineHeight: 1.2,
+                    letterSpacing: "-0.2px",
                   }}
                 >
                   NEXUS
@@ -295,70 +316,71 @@ export default function ChatbotWidget() {
                 <p
                   style={{
                     fontFamily: "var(--font-inter), system-ui, sans-serif",
-                    fontSize: 12,
-                    color: "rgba(255,255,255,0.55)",
+                    fontSize: 11,
+                    color: "rgba(255,255,255,0.5)",
                     lineHeight: 1.3,
-                    marginTop: 1,
+                    marginTop: 2,
                   }}
                 >
                   STW Webdesign AI-assistent
                 </p>
               </div>
 
-              {/* Online badge */}
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 5,
-                  padding: "3px 9px",
-                  borderRadius: 20,
-                  background: "rgba(74,222,128,0.15)",
-                  border: "1px solid rgba(74,222,128,0.25)",
-                  flexShrink: 0,
-                }}
-              >
-                <span style={{ width: 5, height: 5, borderRadius: "50%", background: "#4ade80", display: "block" }} />
-                <span
+              {/* Online badge + close — top-aligned */}
+              <div style={{ display: "flex", alignItems: "flex-start", gap: 8, flexShrink: 0 }}>
+                {/* Online badge */}
+                <div
                   style={{
-                    fontFamily: "var(--font-inter), system-ui, sans-serif",
-                    fontSize: 11,
-                    color: "#4ade80",
-                    fontWeight: 500,
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 4,
+                    padding: "3px 8px",
+                    borderRadius: 20,
+                    background: "rgba(74,222,128,0.15)",
+                    border: "1px solid rgba(74,222,128,0.25)",
                   }}
                 >
-                  Online
-                </span>
-              </div>
+                  <span style={{ width: 5, height: 5, borderRadius: "50%", background: "#4ade80", display: "block" }} />
+                  <span
+                    style={{
+                      fontFamily: "var(--font-inter), system-ui, sans-serif",
+                      fontSize: 10,
+                      color: "#4ade80",
+                      fontWeight: 500,
+                    }}
+                  >
+                    Online
+                  </span>
+                </div>
 
-              {/* Close button */}
-              <button
-                onClick={() => setOpen(false)}
-                style={{
-                  width: 28,
-                  height: 28,
-                  borderRadius: 7,
-                  background: "transparent",
-                  border: "none",
-                  color: "rgba(255,255,255,0.45)",
-                  cursor: "pointer",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  transition: "background 0.15s, color 0.15s",
-                  flexShrink: 0,
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.background = "rgba(255,255,255,0.1)";
-                  e.currentTarget.style.color = "#fff";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.background = "transparent";
-                  e.currentTarget.style.color = "rgba(255,255,255,0.45)";
-                }}
-              >
-                <X size={14} />
-              </button>
+                {/* Close button */}
+                <button
+                  onClick={() => setOpen(false)}
+                  style={{
+                    width: 28,
+                    height: 28,
+                    borderRadius: 8,
+                    background: "rgba(255,255,255,0.08)",
+                    border: "none",
+                    color: "rgba(255,255,255,0.6)",
+                    cursor: "pointer",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    transition: "background 0.15s, color 0.15s",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = "rgba(255,255,255,0.15)";
+                    e.currentTarget.style.color = "#fff";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = "rgba(255,255,255,0.08)";
+                    e.currentTarget.style.color = "rgba(255,255,255,0.6)";
+                  }}
+                >
+                  <X size={13} />
+                </button>
+              </div>
             </div>
 
             {/* Messages / Welcome */}
