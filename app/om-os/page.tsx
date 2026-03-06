@@ -126,23 +126,28 @@ export default function OmOsPage() {
               </h2>
             </div>
           </FadeIn>
-          <div className="grid md:grid-cols-2 gap-5">
+          <div className="grid md:grid-cols-2 gap-8">
             {values.map((v, i) => {
               const t = lang === "da" ? v.da : v.en;
               return (
                 <FadeIn key={i} delay={i * 0.08}>
                   <div
-                    className="p-7"
-                    style={{ border: "1px solid var(--border)", background: "var(--bg-soft)", borderRadius: "12px" }}
+                    className="p-10"
+                    style={{
+                      border: "1px solid #E2E8F0",
+                      background: "#ffffff",
+                      borderRadius: "12px",
+                      boxShadow: "0 4px 20px rgba(0,0,0,0.05)",
+                    }}
                   >
-                    <div className="w-8 h-0.5 mb-5" style={{ background: "var(--blue)" }} />
+                    <div className="w-10 h-1 mb-6" style={{ background: "var(--blue)", borderRadius: "2px" }} />
                     <h3
-                      className="font-bold mb-2"
-                      style={{ fontFamily: "var(--font-montserrat)", color: "var(--navy)", fontSize: "1rem" }}
+                      className="font-bold mb-3"
+                      style={{ fontFamily: "var(--font-montserrat)", color: "var(--navy)", fontSize: "1.1rem", fontWeight: 700 }}
                     >
                       {t.title}
                     </h3>
-                    <p className="text-sm leading-relaxed" style={{ color: "var(--text-muted)" }}>
+                    <p className="text-sm leading-relaxed" style={{ color: "#475569", lineHeight: 1.7 }}>
                       {t.desc}
                     </p>
                   </div>
@@ -158,26 +163,44 @@ export default function OmOsPage() {
         <div className="wrap">
           <FadeIn>
             <div
-              className="p-10 md:p-16 text-center"
-              style={{ background: "var(--navy)", borderRadius: "12px", width: "100%" }}
+              className="text-center"
+              style={{
+                background: "var(--navy)",
+                borderRadius: "12px",
+                width: "100%",
+                padding: "5rem 3rem",
+              }}
             >
               <h2
-                className="mb-4"
+                className="mb-5"
                 style={{ fontFamily: "var(--font-montserrat)", fontSize: "clamp(1.6rem, 3.5vw, 2.5rem)", color: "#ffffff" }}
               >
                 {lang === "da" ? "Lad os arbejde sammen" : "Let's work together"}
               </h2>
-              <p className="mb-8 max-w-lg mx-auto" style={{ color: "rgba(255,255,255,0.6)", textAlign: "center" }}>
+              <p className="mb-10 max-w-md mx-auto" style={{ color: "rgba(255,255,255,0.6)", textAlign: "center", lineHeight: 1.7 }}>
                 {lang === "da"
                   ? "Tag kontakt og fortæl os om din virksomhed."
                   : "Get in touch and tell us about your business."}
               </p>
               <Link
                 href="/kontakt"
-                className="inline-flex items-center gap-2 text-sm font-semibold tracking-widest uppercase px-8 py-3.5 rounded-full transition-all"
-                style={{ background: "var(--blue)", color: "#fff" }}
-                onMouseEnter={(e) => (e.currentTarget.style.background = "#2563EB")}
-                onMouseLeave={(e) => (e.currentTarget.style.background = "var(--blue)")}
+                className="inline-flex items-center gap-2 text-sm uppercase transition-all"
+                style={{
+                  background: "var(--blue)",
+                  color: "#fff",
+                  fontWeight: 600,
+                  letterSpacing: "0.06em",
+                  padding: "1rem 2rem",
+                  borderRadius: "6px",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = "#2563EB";
+                  e.currentTarget.style.transform = "translateY(-2px)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = "var(--blue)";
+                  e.currentTarget.style.transform = "translateY(0)";
+                }}
               >
                 {lang === "da" ? "Kontakt os" : "Contact us"} <ArrowRight size={14} />
               </Link>
