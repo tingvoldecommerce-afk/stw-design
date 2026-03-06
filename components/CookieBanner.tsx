@@ -50,24 +50,31 @@ export default function CookieBanner({ onPrivacyOpen, onCookiesOpen }: CookieBan
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: 80, opacity: 0 }}
             transition={{ duration: 0.35 }}
-            className="fixed bottom-4 left-4 right-4 md:left-auto md:right-6 md:max-w-sm z-50 bg-black text-white p-5 shadow-2xl"
+            className="fixed bottom-4 left-4 right-4 md:left-auto md:right-6 md:max-w-xs z-50 bg-white p-5 shadow-lg"
+            style={{ border: "1px solid #e2e8f0", borderRadius: "12px" }}
           >
-            <p className="text-sm text-white/80 mb-4 leading-relaxed">
-              Vi bruger cookies til at forbedre din oplevelse og analysere trafikken.{" "}
-              <button onClick={() => setCookieModal(true)} className="underline hover:no-underline">
+            <p className="text-sm mb-4 leading-relaxed" style={{ color: "#475569" }}>
+              Vi bruger cookies til at analysere trafik og forbedre oplevelsen.{" "}
+              <button onClick={() => setCookieModal(true)} className="underline hover:no-underline" style={{ color: "var(--navy)" }}>
                 Læs mere
               </button>
             </p>
-            <div className="flex gap-3">
+            <div className="flex gap-2">
               <button
                 onClick={accept}
-                className="flex-1 bg-white text-black text-sm font-semibold py-2 hover:bg-gray-100 transition-colors"
+                className="flex-1 text-xs font-bold tracking-wide uppercase py-2.5 transition-colors"
+                style={{ background: "var(--navy)", color: "#fff", borderRadius: "4px" }}
+                onMouseEnter={(e) => (e.currentTarget.style.background = "var(--blue)")}
+                onMouseLeave={(e) => (e.currentTarget.style.background = "var(--navy)")}
               >
                 Accepter
               </button>
               <button
                 onClick={decline}
-                className="flex-1 border border-white/30 text-white/70 text-sm py-2 hover:border-white hover:text-white transition-colors"
+                className="flex-1 text-xs font-semibold py-2.5 transition-colors"
+                style={{ border: "1px solid #e2e8f0", color: "#64748b", borderRadius: "4px" }}
+                onMouseEnter={(e) => (e.currentTarget.style.borderColor = "var(--navy)")}
+                onMouseLeave={(e) => (e.currentTarget.style.borderColor = "#e2e8f0")}
               >
                 Afvis
               </button>

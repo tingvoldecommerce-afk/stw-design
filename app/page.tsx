@@ -175,20 +175,6 @@ export default function HomePage() {
               >
                 {lang === "da" ? "Vores ydelser" : "Our services"}
               </h2>
-              <p
-                className="mx-auto"
-                style={{
-                  color: "var(--text-muted)",
-                  maxWidth: "48rem",
-                  fontSize: "1rem",
-                  lineHeight: 1.75,
-                  overflowWrap: "break-word",
-                }}
-              >
-                {lang === "da"
-                  ? "Alt hvad din virksomhed behøver for at lykkes digitalt – under ét tag."
-                  : "Everything your business needs to succeed digitally – under one roof."}
-              </p>
             </div>
           </FadeIn>
 
@@ -423,18 +409,6 @@ export default function HomePage() {
                     </>
                   )}
                 </h2>
-                <p
-                  className="mb-8"
-                  style={{
-                    color: "rgba(255,255,255,0.55)",
-                    fontSize: "0.95rem",
-                    lineHeight: 1.7,
-                  }}
-                >
-                  {lang === "da"
-                    ? "Uforpligtende snak om, hvad vi kan gøre for din virksomhed."
-                    : "A no-obligation chat about what we can do for your business."}
-                </p>
                 <Link
                   href="/kontakt"
                   className="inline-flex items-center gap-2 text-sm font-semibold tracking-wider uppercase transition-all"

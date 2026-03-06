@@ -80,8 +80,8 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-4 shrink-0">
             <button
               onClick={() => setLang(lang === "da" ? "en" : "da")}
-              className="text-xs font-bold tracking-widest px-3 py-1.5 border transition-colors"
-              style={{ borderColor: "var(--navy)", color: "var(--navy)" }}
+              className="text-xs font-semibold transition-colors hover:opacity-60"
+              style={{ color: "var(--text-muted)", letterSpacing: "0.08em" }}
             >
               {lang === "da" ? "EN" : "DA"}
             </button>
@@ -89,13 +89,13 @@ export default function Navbar() {
               href="/kontakt"
               className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase transition-all"
               style={{
-                background: "var(--navy)",
+                background: "var(--blue)",
                 color: "#fff",
-                padding: "0.6rem 1.25rem",
-                border: "1px solid transparent",
+                padding: "0.65rem 1.4rem",
+                borderRadius: "4px",
               }}
-              onMouseEnter={(e) => (e.currentTarget.style.background = "var(--navy-mid)")}
-              onMouseLeave={(e) => (e.currentTarget.style.background = "var(--navy)")}
+              onMouseEnter={(e) => (e.currentTarget.style.background = "#2563EB")}
+              onMouseLeave={(e) => (e.currentTarget.style.background = "var(--blue)")}
             >
               {lang === "da" ? "Gratis analyse" : "Free analysis"} <ArrowRight size={12} />
             </Link>

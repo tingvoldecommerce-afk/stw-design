@@ -53,11 +53,6 @@ export default function OmOsPage() {
             >
               {lang === "da" ? "Om os" : "About us"}
             </h1>
-            <p className="mt-5 text-lg leading-relaxed mx-auto" style={{ color: "var(--text-muted)", maxWidth: "48rem", textAlign: "center" }}>
-              {lang === "da"
-                ? "STW-Webdesign er et dansk digitalt bureau grundlagt af Sebastian. Vi hjælper virksomheder med at skabe en stærk digital tilstedeværelse."
-                : "STW-Webdesign is a Danish digital agency founded by Sebastian. We help businesses create a strong digital presence."}
-            </p>
           </FadeIn>
         </div>
       </section>
@@ -131,18 +126,19 @@ export default function OmOsPage() {
               </h2>
             </div>
           </FadeIn>
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 gap-5">
             {values.map((v, i) => {
               const t = lang === "da" ? v.da : v.en;
               return (
-                <FadeIn key={i} delay={i * 0.08} className="h-full">
+                <FadeIn key={i} delay={i * 0.08}>
                   <div
-                    className="p-8 text-left h-full"
-                    style={{ border: "1px solid var(--border)", background: "var(--bg-soft)", borderRadius: "16px" }}
+                    className="p-7"
+                    style={{ border: "1px solid var(--border)", background: "var(--bg-soft)", borderRadius: "12px" }}
                   >
+                    <div className="w-8 h-0.5 mb-5" style={{ background: "var(--blue)" }} />
                     <h3
-                      className="text-lg font-bold mb-3"
-                      style={{ fontFamily: "var(--font-montserrat)", color: "var(--navy)" }}
+                      className="font-bold mb-2"
+                      style={{ fontFamily: "var(--font-montserrat)", color: "var(--navy)", fontSize: "1rem" }}
                     >
                       {t.title}
                     </h3>
@@ -171,7 +167,7 @@ export default function OmOsPage() {
               >
                 {lang === "da" ? "Lad os arbejde sammen" : "Let's work together"}
               </h2>
-              <p className="mb-8 max-w-lg mx-auto" style={{ color: "rgba(255,255,255,0.6)" }}>
+              <p className="mb-8 max-w-lg mx-auto" style={{ color: "rgba(255,255,255,0.6)", textAlign: "center" }}>
                 {lang === "da"
                   ? "Tag kontakt og fortæl os om din virksomhed."
                   : "Get in touch and tell us about your business."}
